@@ -1,0 +1,11 @@
+{
+	"drive": "mongo",
+	"mongo": {
+		"host": "127.0.0.1",
+		"port": 27017,
+		"authDB": "authDB",
+		"database": "database",
+		"username": "username",
+		"password": "username"
+	}
+}

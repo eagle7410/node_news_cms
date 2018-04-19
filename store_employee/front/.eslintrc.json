@@ -1,0 +1,41 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+   "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "allowImportExportEverywhere": true,
+      "sourceType": "module"
+    },
+    "rules": {
+        "no-debugger": 0,
+        "padded-blocks": 0,
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-trailing-spaces " : 0,
+        "no-undef": "warn",
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "space-before-function-paren": ["warn", "always"],
+        "comma-dangle": "warn",
+        "key-spacing": 0,
+        "spaced-comment": 0,
+        "semi": 0,
+        "indent": 0,
+        "constructor-super": "warn",
+        "valid-typeof": "warn"
+    },
+    // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
+    "extends": "standard",
+    // required to lint *.vue files
+    "plugins": [
+        "html"
+    ]
+}
+// http://eslint.org/docs/user-guide/configuring
