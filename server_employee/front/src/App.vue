@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img v-if="isLoad" src="static/img/index.ring-loading-gif.svg" class="load-anime"/>
+        <loading v-if="isLoad"></loading>
         <div v-else :class="{'nav-open': $sidebar.showSidebar}">
             <router-view></router-view>
             <!--This sidebar appears only for screens smaller than 992px-->
@@ -11,19 +11,24 @@
 
 <script>
     import {init} from './apis/app';
+    import Loading from './components/Tools/Loading';
 
     export default {
-        computed : {
-            _storeApp () {
+        components: {
+            Loading
+        },
+
+        computed: {
+            _storeApp() {
                 return this.$store.state.app;
             },
-            isLoad () {
+            isLoad() {
                 return this._storeApp.isLoad;
             }
         },
 
         methods: {
-            _error (err) {
+            _error(err) {
                 console.error('App unknow error', err);
                 alert('Server init error');
             }

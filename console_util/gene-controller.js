@@ -29,10 +29,13 @@ if (!name) {
 name = name.replace(/_/g, '-');
 
 let className = name.split('-').map(to1Up).join('');
+let extendClass = isEmployee ? 'ControllerEmployee': 'ControllerClient' ;
 
-let template = `const Controller = require('../../classes/Controller');\n
+let template = `const Controller = require('../../classes/${extendClass}');\n
 class ${className} extends Controller {
-	// static groups = {get_users : ['admin']}
+	// static groups () {
+	// 		return {get_users : ['admin']}
+	// 	};
 	// static async get_users (req, res) {}
 }
 

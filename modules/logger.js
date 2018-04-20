@@ -45,7 +45,22 @@ module.exports = (name = APP_NAME) => {
 		]
 	});
 
-	let serialization = (data) => data.map(d => typeof d === 'object' ? CircularJSON.stringify(d, null, '\t') : d);
+	let serialization = (data) => data.map(d => {
+		if (typeof d === 'object') {
+
+			if (d.stack) {
+				return d.stack;
+			}
+
+			if (d.message) {
+				return d.message;
+			}
+
+			return CircularJSON.stringify(d, null, '\t');
+		}
+
+		return d;
+	});
 	return {
 		error : (...data) => winston.error(...serialization(data)),
 		info  : (...data) => winston.info(...serialization(data)),

@@ -53,7 +53,7 @@ class Controller {
 	}
 
 	static async auth (req, res) {
-		// TODO: Back
+		throw new Error('Use abstract class Controller');
 	}
 }
 

@@ -22,7 +22,7 @@
         "no-undef": "warn",
         "no-unreachable": "warn",
         "no-unused-vars": "warn",
-        "space-before-function-paren": ["warn", "always"],
+        "space-before-function-paren": 0,
         "comma-dangle": 0,
         "key-spacing": 0,
         "spaced-comment": 0,

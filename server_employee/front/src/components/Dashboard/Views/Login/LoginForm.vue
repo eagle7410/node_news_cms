@@ -33,9 +33,9 @@
     </div>
 </template>
 <script>
-    import {auth} from '../../../../apis/auth'
+    import {auth} from '../../../../apis/app'
 
-    let that
+    let that;
 
     export default {
         computed: {
