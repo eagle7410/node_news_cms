@@ -1079,3 +1079,13 @@
 .ti-rss-alt:before {
 	content: "\e75f";
 }
+.load-anime {
+    position: fixed;
+    left: 35%;
+    top : 35%;
+    width: 15%;
+    height: 15%;
+    max-width: 160px;
+    max-height: 160px;
+    z-index: 150;
+}

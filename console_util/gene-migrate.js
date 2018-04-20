@@ -1,8 +1,8 @@
 const fs     = require('fs');
 const moment = require('moment');
-const {ConsoleColorLog} = require('./libs/console-color');
 const {promisify} = require('util');
 const {drive} = require('../configs/database');
+const {ConsoleColorLog} = require('./libs/console-color');
 const log = new ConsoleColorLog();
 const writter = promisify(fs.writeFile);
 

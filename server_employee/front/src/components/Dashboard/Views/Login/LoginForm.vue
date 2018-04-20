@@ -1,15 +1,15 @@
 <template>
     <div class="card">
         <div class="card-header" data-background-color="purple">
-            <h4 class="title">Sing in</h4>
+            <h4 class="title">{{phrases.sing_in}}</h4>
         </div>
         <div class="card-content">
             <form>
                 <div class="row">
                     <div class="col-md-12">
                         <fg-input type="email"
-                                  label="Email"
-                                  placeholder="Email"
+                                  :label="phrases.email"
+                                  :placeholder="phrases.email"
                                   v-model="email">
                         </fg-input>
                     </div>
@@ -18,15 +18,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <fg-input type="password"
-                                  label="Password"
-                                  placeholder="Password"
+                                  :label="phrases.password"
+                                  :placeholder="phrases.password"
                                   v-model="pass">
                         </fg-input>
                     </div>
                 </div>
 
 
-                <button type="submit" @click.prevent="singIn" class="btn btn-primary pull-right">TRY</button>
+                <button type="submit" @click.prevent="singIn" class="btn btn-primary pull-right">{{phrases.try}}</button>
                 <div class="clearfix"></div>
             </form>
         </div>
@@ -40,6 +40,7 @@
     export default {
         computed: {
             _storeAuth: () => that.$store.state.auth,
+            phrases   : () => that.$store.state.app.phrases,
 
             email: {
                 get: () => that._storeAuth.email,

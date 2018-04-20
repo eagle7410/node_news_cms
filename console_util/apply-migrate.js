@@ -36,7 +36,7 @@ const tasks = {
 class ApplyMigrate {
 	constructor (config = {}) {
 
-		this._config = config
+		this._config = config;
 
 		this._modules = {
 			fs     : fs,
@@ -50,8 +50,6 @@ class ApplyMigrate {
 				this._isUpTest = true;
 			}
 		});
-
-
 	}
 
 	async run () {

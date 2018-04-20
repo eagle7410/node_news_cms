@@ -11,8 +11,8 @@ const auth = async (data) => {
         //     contentType: 'application/json',
         //     type: 'POST'
         // })
-        //
-        // return res
+
+        return res
 
     } catch (e) {
         if (e.responseJSON) {

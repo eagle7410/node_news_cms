@@ -1,5 +1,6 @@
 // Server for control.
 const express    = require('express');
+const i18n = require("i18n");
 const configApp  = require('../configs/employee.json');
 const {drive}    = require('../configs/database.json');
 const port       = process.env.port || configApp.port || 3537;
@@ -11,6 +12,14 @@ const bodyParser = require('body-parser');
 
 process.env.isDev  = configApp.isDev;
 process.logger = require('../modules/logger.js')('EmployeeApp');
+
+// Include multi lang
+i18n.configure({
+	locales:['en', 'ru'],
+	directory: __dirname + '/locales',
+	defaultLocale: 'ru',
+});
+app.use(i18n.init);
 
 // Connect to database
 require(`../models/${drive}/connect`);
@@ -26,6 +35,12 @@ app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 	// parse application/json
 app.use(bodyParser.json());
+
+if (configApp.isDev) {
+	// require for dev cross domains.
+	const cors = require('cors');
+	app.use(cors());
+}
 
 // log all requests to access.log
 if (configApp.isDev) app.use(morgan('dev'));

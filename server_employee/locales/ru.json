@@ -1,0 +1,11 @@
+{
+	"app_init": {
+		"phrases": {
+			"sing_in": "Регистрация",
+			"email": "Email",
+			"password": "Пароль",
+			"try": "ВХОД"
+		}
+	},
+	"app_init.phrases": "app_init.phrases"
+}

@@ -1,15 +1,19 @@
 const ErrorHttp = require('./ErrorHttp');
 
 class Controller {
-	static groups = {};
+	static isController () {return true;}
+	static groups () {return {};};
 
 	static async run(action, req, res, next) {
+
+		action = action.toLowerCase();
+
 		try {
 			const method = `${(req.method || 'get').toLowerCase()}_${action}`;
 
-			if (this[method] instanceof Promise === false) {
+			if (typeof this[method] !== 'function') {
 
-				process.logger.warn(`${action} in controller not promise ${this.name}`);
+				process.logger.warn(`${action} in controller ${this.name} not function `);
 
 				return next();
 			}

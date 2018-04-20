@@ -23,11 +23,13 @@
   },
   "homepage": "https://github.com/eagle7410/node_news_cms#readme",
   "devDependencies": {
+    "cors": "2.8.4",
     "moment": "2.22.1"
   },
   "dependencies": {
     "circular-json": "0.5.3",
     "express": "4.16.3",
+    "i18n": "0.8.3",
     "mongoose": "5.0.15",
     "morgan": "1.9.0",
     "winston": "2.4.1"

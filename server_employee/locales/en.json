@@ -1,0 +1,10 @@
+{
+	"app_init" : {
+		"phrases" : {
+			"sing_in"  : "Sing in",
+			"email"    : "Email",
+			"password" : "Password",
+			"try"      : "TRY"
+		}
+	}
+}
