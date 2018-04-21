@@ -32,7 +32,11 @@ let className = name.split('-').map(to1Up).join('');
 let extendClass = isEmployee ? 'ControllerEmployee': 'ControllerClient' ;
 
 let template = `const Controller = require('../../classes/${extendClass}');\n
+// TODO: clear
+//const ErrorHttp  = require('../../classes/ErrorHttp');
+
 class ${className} extends Controller {
+	// TODO: clear
 	// static groups () {
 	// 		return {get_users : ['admin']}
 	// 	};

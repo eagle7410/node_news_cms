@@ -75,14 +75,15 @@
 
                 auth({email: that.email, password: that.pass})
                     .then(res => {
+                        // TODO: clear
+                        console.log('res', res);
 
-                        if (!res.success) {
-                            return false
-                        }
+                        that.$store.commit('setToken', res.token);
+                        that.$store.commit('setProfile', res.user);
+                        that.$store.commit('setAuthPhrases', res.phrases);
+                        that.$root.sidebarLinks = res.leftMenu || [];
 
-                        that.$store.commit('setToken', res.token)
-
-                        that.$router.push('/admin/dashboard');
+                        that.$router.push('/admin/user-profile');
                     })
                     .catch(that._error)
             }

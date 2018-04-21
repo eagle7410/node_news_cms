@@ -35,7 +35,7 @@ class Controller {
 
 			if (e instanceof ErrorHttp) {
 
-				res.status(e.code).json(e.message);
+				res.status(e.code).jwt(e.message);
 
 				if (e.error)
 					process.logger.error(e.error);
@@ -43,7 +43,7 @@ class Controller {
 				return false;
 			}
 
-			res.status(500).json('Internal Server Error');
+			res.status(500).jwt('Internal Server Error');
 
 			process.logger.error(e);
 

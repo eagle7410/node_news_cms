@@ -2,28 +2,7 @@ import Sidebar from './SideBar.vue'
 
 const SidebarStore = {
     showSidebar: false,
-    sidebarLinks: [
-        {
-            name: 'Dashboard',
-            icon: 'dashboard',
-            path: '/admin/dashboard'
-        },
-        {
-            name: 'User Profile',
-            icon: 'fa fa-user-circle',
-            path: '/admin/user-profile'
-        },
-        {
-            name: 'Admin users',
-            icon: 'fa fa-user-secret',
-            path: '/admin/users-admin'
-        },
-        {
-            name: 'Clients',
-            icon: 'fa fa-users',
-            path: '/admin/clients'
-        }
-    ],
+    sidebarLinks: [],
     displaySidebar (value) {
         this.showSidebar = value
     }

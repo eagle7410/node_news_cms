@@ -1,6 +1,12 @@
 import {get, save} from '../utils/req';
+import {port} from '../../../../configs/employee';
 
-const urlBase = 'http://localhost:3537/app';
+const urlBase = `http://localhost:${port}/app`;
+
+/**
+ *
+ * @param {*} e
+ */
 const handelError = (e) => {
     if (e.responseJSON) {
         throw e.responseJSON.error;
@@ -8,6 +14,11 @@ const handelError = (e) => {
 
     throw e
 };
+
+/**
+ *
+ * @returns {Promise<void>}
+ */
 const init = async () => {
     try {
         return await get(urlBase + '/init');
@@ -16,13 +27,19 @@ const init = async () => {
     }
 };
 
+/**
+ *
+ * @param {object}data
+ * @returns {Promise<void>}
+ */
 const auth = async (data) => {
     try {
         return await save(urlBase + '/auth', data);
     } catch (e) {
         handelError(e);
     }
-}
+};
+
 export {
     init,
     auth

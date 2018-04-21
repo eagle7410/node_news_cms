@@ -17,21 +17,21 @@ const routes = [
     {
         path: '/admin',
         component: DashboardLayout,
-        redirect: '/admin/dashboard',
+        redirect: 'user-profile',
         children: [
-            {
-                path: 'dashboard',
-                name: 'Dashboard',
-                component: Dashboard
-            },
             {
                 path: 'user-profile',
                 name: 'profile',
                 component: UserProfile
             },
             {
+                path: 'dashboard',
+                name: 'dashboard',
+                component: Dashboard
+            },
+            {
                 path: 'users-admin',
-                name: 'admin users',
+                name: 'employees',
                 component: Users
             },
             {

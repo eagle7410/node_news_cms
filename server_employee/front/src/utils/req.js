@@ -1,3 +1,6 @@
+import {jwtPublic} from '../../../../configs/employee';
+import {create, decode} from '../../../../utils/jwt';
+
 /**
  * Send to server.
  * @method send
@@ -14,7 +17,11 @@ const send = (url, data, method, headers) => new Promise((resolve, reject) => {
     xhr.onload = r => {
         try {
             let data = JSON.parse(r.target.responseText);
-            resolve(data);
+
+            if (data.hash) {
+                 return decode(jwtPublic, data.hash).then(resolve, reject);
+            }
+
         } catch (e) {
             console.error('Prase responce bad', e);
             reject(e);
@@ -37,13 +44,7 @@ const send = (url, data, method, headers) => new Promise((resolve, reject) => {
     let sendData = null;
 
     if (Object.prototype.toString.call(data) === '[object Object]') {
-        let urlParams = [];
-
-        for (let name in data) {
-            urlParams.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
-        }
-
-        sendData = urlParams.join('&');
+        sendData = `hash=${encodeURIComponent(create(jwtPublic, data))}`;
     }
 
     xhr.send(sendData);

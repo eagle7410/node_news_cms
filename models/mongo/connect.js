@@ -24,8 +24,7 @@ function buildConnectionUrl() {
 	// Build querystring
 	let dbName = mongo.database || 'cms_news';
 
-	if (process.env.isDev) dbName += '_dev';
-	if (process.env.isTest) dbName += '_test';
+	if (process.isTest) dbName += '_test';
 
 	const properties = `/${dbName}?authSource=${mongo.authDB || 'admin'}`;
 

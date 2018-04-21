@@ -7,5 +7,23 @@
 			"try": "ВХОД"
 		}
 	},
-	"app_init.phrases": "app_init.phrases"
+	"left_menu" : {
+		"dashboard" : "Рабочий стол",
+		"profile"   : "Профиль",
+		"employees" : "Работники",
+		"clients"   : "Клтенты"
+	},
+	"dash" : {
+		"Edit Profile": "Редактировать профиль",
+		"Complete your profile" : "Заполните свой профиль",
+		"Last Name" : "Фамилия",
+		"First Name" : "Имя",
+		"Update Profile" : "Сохрониать",
+		"Employee avatar" : "Аватар",
+		"For change avatar use service" : "Для изменения автара спользуйте сервир",
+		"dashboard" : "Рабочий стол",
+		"profile"   : "Профиль",
+		"employees" : "Работники",
+		"clients"   : "Клтенты"
+	}
 }

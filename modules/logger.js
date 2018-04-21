@@ -10,11 +10,16 @@ const
 if (!fs.existsSync(LOG_FOLDER))
 	fs.mkdirSync(LOG_FOLDER);
 
+
 module.exports = (name = APP_NAME) => {
 	const appPath = `${LOG_FOLDER}/${name}`;
 
 	if (!fs.existsSync(appPath))
 		fs.mkdirSync(appPath);
+
+	for (let type of ['info', 'error'])
+		if (!fs.existsSync(`${appPath}/${type}.log`))
+			fs.writeFileSync(`${appPath}/${type}.log`, '');
 
 	const winston = new (Winston.Logger)({
 		transports: [

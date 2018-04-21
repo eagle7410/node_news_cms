@@ -5,7 +5,7 @@
                 <div class="col-lg-6">
                     <material-table
                         title="Clients"
-                        :data="clientsLitte"
+                        :data="clients"
                         :columns="columns"
                     >
                     </material-table>
@@ -31,7 +31,7 @@
             },
 
             clients () {
-                return this._storeClients.clients
+                return this._storeClients.clients;
             },
             columns () {
                 return this._storeClients.columns

@@ -10,8 +10,8 @@ const migrate = async () => {
 			name     : 'Igor',
 			surname  : 'Stcherbina',
 			groups   : ['admin'],
-			password : 'qwertY23456',
-			email    : 'verycooleagle@gmail.com'
+			password : 'test2Testing',
+			email    : 'test@mail.com'
 		});
 
 		return true;

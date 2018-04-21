@@ -46,7 +46,7 @@ class ApplyMigrate {
 		this._isUpTest = false;
 
 		process.argv.map(arg => {
-			if (arg.includes('-t=true')) {
+			if (arg.includes('-t')) {
 				this._isUpTest = true;
 			}
 		});

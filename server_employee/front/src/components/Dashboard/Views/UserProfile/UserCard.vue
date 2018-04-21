@@ -7,9 +7,9 @@
         </div>
 
         <div class="content">
-            <h4 class="card-title">Admin</h4>
+            <h4 class="card-title">{{__t('Employee avatar')}}</h4>
             <p class="card-content">
-                For change avatar use service <a href="https://en.gravatar.com/">Gravatar</a>
+                {{__t('For change avatar use service')}} <a href="https://en.gravatar.com/">Gravatar</a>
             </p>
         </div>
     </div>

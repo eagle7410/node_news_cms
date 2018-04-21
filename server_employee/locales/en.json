@@ -6,5 +6,24 @@
 			"password" : "Password",
 			"try"      : "TRY"
 		}
+	},
+	"left_menu" : {
+		"dashboard" : "Dashboard",
+		"profile"   : "Profile",
+		"employees" : "Employees",
+		"clients"   : "Clients"
+	},
+	"dash" : {
+		"Edit Profile": "Edit Profile",
+		"Complete your profile" : "Complete your profile",
+		"Last Name" : "Last Name",
+		"First Name" : "First Name",
+		"Update Profile" : "Update Profile",
+		"Employee avatar" : "Employee avatar",
+		"For change avatar use service" : "For change avatar use service",
+		"dashboard" : "Dashboard",
+		"profile"   : "Profile",
+		"employees" : "Employees",
+		"clients"   : "Clients"
 	}
 }

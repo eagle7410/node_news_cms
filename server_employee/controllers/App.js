@@ -1,5 +1,8 @@
 const Controller = require('../../classes/ControllerEmployee');
 const ErrorHttp  = require('../../classes/ErrorHttp');
+const Employee   = require('../../models/mongo/employees');
+const {create} = require('../../utils/jwt');
+const {buildForUser} = require('../modules/left-menu');
 
 class App extends Controller {
 	// static groups () {
@@ -7,19 +10,29 @@ class App extends Controller {
 	// };
 
 	static async get_init (req, res) {
-		res.status(200)
-			.json({phrases: req.__('app_init').phrases});
+		res.jwt({phrases: req.__('app_init').phrases});
 	}
 
 	static async post_auth (req, res) {
-		let {email, password} = req.body;
+		let {email, password} = req.decode;
 
 		if (!email || !password) {
 			throw new ErrorHttp('Bad request');
 		}
 
-		// TODO: clear
-		console.log('email ', email, password);
+		let user = await Employee.getByEmailAndCheck(email, password);
+
+		if (user === false) {
+			throw ErrorHttp.unauthorized();
+		}
+
+		res.jwt({
+			token    : create(process.jwtPrivate, Employee.toJwt(user)),
+			user     : Employee.toProfile(user),
+			leftMenu : buildForUser(user, req.__('left_menu')),
+			phrases  : req.__('dash')
+		});
+
 	}
 }
 
