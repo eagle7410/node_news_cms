@@ -39,11 +39,11 @@
             cssClassForm: function () {
                 return this.isOpen ? '' : 'hide'
             },
-            _storeClients () {
+            _storeNews () {
                 return this.$store.state.clients
             },
             _filters () {
-                return this._storeClients[`filters_${this.type}`]
+                return this._storeNews[`filters_${this.type}`]
             },
             clientId: {
                 get: function () {

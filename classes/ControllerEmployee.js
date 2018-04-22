@@ -1,9 +1,5 @@
 const Controller = require('./Controller');
 
-class ControllerEmployee extends Controller {
-	static async auth (req, res) {
-		// TODO: Back
-	}
-}
+class ControllerEmployee extends Controller {}
 
 module.exports = ControllerEmployee;

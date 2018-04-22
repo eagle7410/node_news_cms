@@ -11,7 +11,8 @@
 		"dashboard" : "Dashboard",
 		"profile"   : "Profile",
 		"employees" : "Employees",
-		"clients"   : "Clients"
+		"clients"   : "Clients",
+		"news"      : "News"
 	},
 	"dash" : {
 		"Edit Profile": "Edit Profile",
@@ -24,6 +25,23 @@
 		"dashboard" : "Dashboard",
 		"profile"   : "Profile",
 		"employees" : "Employees",
-		"clients"   : "Clients"
+		"clients"   : "Clients",
+		"news"      : "News",
+		"title":"Title",
+		"author":"Author",
+		"publish_at":"Date published",
+		"created_by":"Who created",
+		"created_at":"Date created",
+		"updated_by'":"Who updated",
+		"updated_at":"Date updated",
+		"is_active":"Is active",
+		"actions" : "Actions",
+		"No data" : "No data",
+		"Add" : "Add",
+		"news-add" : "Add news",
+		"In English":"In English",
+		"In Russian":"In Russian",
+		"Preliminary text (max length 250 symbols)" : "Preliminary text (max length 250 symbols)",
+		"Text" : "Text"
 	}
 }

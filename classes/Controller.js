@@ -4,6 +4,11 @@ class Controller {
 	static isController () {return true;}
 	static groups () {return {};};
 
+
+	static async run_action(method, req, res) {
+		await this[method](req, res);
+	}
+
 	static async run(action, req, res, next) {
 
 		action = action.toLowerCase();
@@ -22,19 +27,20 @@ class Controller {
 
 			if (!groups) {
 
-				await this[method](req, res);
+				await this.run_action(method, req, res);
 
 				return true;
 			}
 
-			await this.auth(req, res);
+			await this.access(req, res, groups);
 
-			// TODO: Back check groups
+			await this.run_action(method, req, res);
+
+			return true;
 
 		} catch (e) {
 
 			if (e instanceof ErrorHttp) {
-
 				res.status(e.code).jwt(e.message);
 
 				if (e.error)
@@ -52,8 +58,20 @@ class Controller {
 
 	}
 
-	static async auth (req, res) {
-		throw new Error('Use abstract class Controller');
+	static async access (req, res, groups) {
+
+		if (!req.tokenData) {
+			throw ErrorHttp.forbidden();
+		}
+
+		for (let group of req.tokenData.groups) {
+			if (groups.includes(group)) {
+				return true;
+			}
+		}
+
+		throw ErrorHttp.forbidden();
+
 	}
 }
 

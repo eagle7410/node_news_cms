@@ -4,7 +4,7 @@ const log         = new ConsoleColorLog();
 const {promisify} = require('util');
 const writter     = promisify(fs.writeFile);
 const reader      = promisify(fs.readFile);
-
+const {drive} = require('../configs/database');
 
 // Get params
 let name;
@@ -34,12 +34,14 @@ let extendClass = isEmployee ? 'ControllerEmployee': 'ControllerClient' ;
 let template = `const Controller = require('../../classes/${extendClass}');\n
 // TODO: clear
 //const ErrorHttp  = require('../../classes/ErrorHttp');
+//const groups = require('../../constants/groups');
+//const MODEl   = require('../../models/${drive}/MODEl');
 
 class ${className} extends Controller {
 	// TODO: clear
 	// static groups () {
-	// 		return {get_users : ['admin']}
-	// 	};
+	// 	return {get_users : [groups.admin]}
+	// };
 	// static async get_users (req, res) {}
 }
 

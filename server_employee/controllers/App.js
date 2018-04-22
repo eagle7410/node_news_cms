@@ -5,16 +5,13 @@ const {create} = require('../../utils/jwt');
 const {buildForUser} = require('../modules/left-menu');
 
 class App extends Controller {
-	// static groups () {
-	// 	return {post_auth : ['admin']}
-	// };
 
 	static async get_init (req, res) {
 		res.jwt({phrases: req.__('app_init').phrases});
 	}
 
 	static async post_auth (req, res) {
-		let {email, password} = req.decode;
+		let {email, password, is_update} = req.decode;
 
 		if (!email || !password) {
 			throw new ErrorHttp('Bad request');
@@ -24,6 +21,12 @@ class App extends Controller {
 
 		if (user === false) {
 			throw ErrorHttp.unauthorized();
+		}
+
+		if (is_update) {
+			return  res.jwt({
+				token    : create(process.jwtPrivate, Employee.toJwt(user)),
+			});
 		}
 
 		res.jwt({

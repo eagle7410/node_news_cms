@@ -12,23 +12,24 @@ module.exports = async (req, res, next) => {
 
 		req.decode = await jwt.decode(keyPublic, hash);
 
-		if (!req.decode.token) {
+		if (!req.decode || !req.decode.token) {
 			return next();
 		}
 
-		// if (!req.token)
-		// 	throw 'No token';
-		//
-		// const decoded = verify(req.token);
-		// req.token_data = decoded.data || null;
-		//
-		// next();
+		req.tokenData = await jwt.decode(keyPrivate, req.decode.token);
+
+		next();
+
 	} catch (err) {
 		let message = 'Token expired';
 		const success = false;
 
 		if (err.name === 'TokenExpiredError') {
-			return res.status(401).json({ message, success});
+			return res.status(404).jwt({
+				message,
+				success,
+				name : err.name
+			});
 		}
 
 		if (err.stack) {

@@ -16,6 +16,7 @@
     "rules": {
         "no-debugger": 0,
         "padded-blocks": 0,
+        "no-multiple-empty-lines": "warn",
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
         "no-trailing-spaces " : 0,
@@ -26,6 +27,7 @@
         "comma-dangle": 0,
         "key-spacing": 0,
         "spaced-comment": 0,
+        "quotes" : "warn",
         "semi": 0,
         "indent": 0,
         "constructor-super": "warn",

@@ -9,7 +9,7 @@ const GlobalMixins = {
 
             methods : {
                 __t : function (mess) {
-                    return this.authPhrases[mess];
+                    return this.authPhrases[mess] || mess;
                 }
             },
 

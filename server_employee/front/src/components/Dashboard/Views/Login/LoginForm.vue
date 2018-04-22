@@ -26,7 +26,8 @@
                 </div>
 
 
-                <button type="submit" @click.prevent="singIn" class="btn btn-primary pull-right">{{phrases.try}}</button>
+                <button type="submit" @click.prevent="singIn" class="btn btn-primary pull-right">{{phrases.try}}
+                </button>
                 <div class="clearfix"></div>
             </form>
         </div>
@@ -35,24 +36,34 @@
 <script>
     import {auth} from '../../../../apis/app'
 
-    let that;
-
     export default {
         computed: {
-            _storeAuth: () => that.$store.state.auth,
-            phrases   : () => that.$store.state.app.phrases,
+            _storeAuth: function () {
+                return this.$store.state.auth
+            },
+            phrases: function () {
+                return this.$store.state.app.phrases
+            },
 
             email: {
-                get: () => that._storeAuth.email,
-                set: (value) => that.$store.commit('setEmail', value)
+                get: function () {
+                    return this._storeAuth.email
+                },
+                set: function (value) {
+                    return this.$store.commit('setEmail', value)
+                }
             },
             pass: {
-                get: () => that._storeAuth.password,
-                set: (value) => that.$store.commit('setPass', value)
+                get: function () {
+                    return this._storeAuth.password
+                },
+                set: function (value) {
+                    return this.$store.commit('setPass', value)
+                }
             }
         },
         methods: {
-            _error (mess) {
+            _error(mess) {
                 if (typeof mess !== 'string') {
                     return console.log('Login unknow error', mess);
                 }
@@ -64,33 +75,25 @@
                     type: 'danger'
                 })
             },
-            singIn () {
-                if (!that.email) {
-                    return that._error('Email is require')
+            singIn() {
+                if (!this.email) {
+                    return this._error('Email is require')
                 }
 
-                if (!that.pass) {
-                    return that._error('Password is require')
+                if (!this.pass) {
+                    return this._error('Password is require')
                 }
 
-                auth({email: that.email, password: that.pass})
+                auth({email: this.email, password: this.pass})
                     .then(res => {
-                        // TODO: clear
-                        console.log('res', res);
-
-                        that.$store.commit('setToken', res.token);
-                        that.$store.commit('setProfile', res.user);
-                        that.$store.commit('setAuthPhrases', res.phrases);
-                        that.$root.sidebarLinks = res.leftMenu || [];
-
-                        that.$router.push('/admin/user-profile');
+                        this.$store.commit('setToken', res.token);
+                        this.$store.commit('setProfile', res.user);
+                        this.$store.commit('setAuthPhrases', res.phrases);
+                        this.$root.sidebarLinks = res.leftMenu || [];
+                        this.$router.push('/admin/user-profile');
                     })
-                    .catch(that._error)
+                    .catch(this._error)
             }
-        },
-
-        created: function () {
-            that = this
         }
     }
 

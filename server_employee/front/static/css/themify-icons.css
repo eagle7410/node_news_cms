@@ -1089,3 +1089,11 @@
     max-height: 160px;
     z-index: 150;
 }
+.md-theme-default {
+    background: #fff;
+}
+
+.md-datepicker-header {
+    background: linear-gradient(60deg, #ab47bc, #8e24aa);
+    color: #fff;
+}

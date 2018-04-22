@@ -1,18 +1,16 @@
 <template>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <material-table
-                        title="Clients"
-                        :data="clients"
-                        :columns="columns"
-                    >
-                    </material-table>
-                </div>
+    <page>
+        <div class="row">
+            <div class="col-lg-6">
+                <material-table
+                    title="Clients"
+                    :data="clients"
+                    :columns="columns"
+                >
+                </material-table>
             </div>
         </div>
-    </div>
+    </page>
 </template>
 
 <script>
@@ -26,20 +24,16 @@
             FiltersClients
         },
         computed: {
-            _storeClients () {
+            _storeNews () {
                 return this.$store.state.clients
             },
 
             clients () {
-                return this._storeClients.clients;
+                return this._storeNews.clients;
             },
             columns () {
-                return this._storeClients.columns
+                return this._storeNews.columns
             }
-        },
-
-        data () {
-            return {}
         }
     }
 </script>

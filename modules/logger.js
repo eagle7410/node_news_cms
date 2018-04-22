@@ -17,7 +17,7 @@ module.exports = (name = APP_NAME) => {
 	if (!fs.existsSync(appPath))
 		fs.mkdirSync(appPath);
 
-	for (let type of ['info', 'error'])
+	for (let type of ['info', 'errors'])
 		if (!fs.existsSync(`${appPath}/${type}.log`))
 			fs.writeFileSync(`${appPath}/${type}.log`, '');
 

@@ -12,6 +12,15 @@ import {create, decode} from '../../../../utils/jwt';
  */
 const send = (url, data, method, headers) => new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
+    let sendData = null;
+
+    if (Object.prototype.toString.call(data) === '[object Object]') {
+        sendData = `hash=${encodeURIComponent(create(jwtPublic, data))}`;
+    }
+
+    if (method === 'GET' && sendData) {
+        url += '?' + sendData;
+    }
 
     xhr.open(method, url);
     xhr.onload = r => {
@@ -39,12 +48,6 @@ const send = (url, data, method, headers) => new Promise((resolve, reject) => {
 
     for (let key in head) {
         xhr.setRequestHeader(key, head[key]);
-    }
-
-    let sendData = null;
-
-    if (Object.prototype.toString.call(data) === '[object Object]') {
-        sendData = `hash=${encodeURIComponent(create(jwtPublic, data))}`;
     }
 
     xhr.send(sendData);

@@ -22,6 +22,9 @@
             _storeApp() {
                 return this.$store.state.app;
             },
+            _storeAuth() {
+                return this.$store.state.auth;
+            },
             isLoad() {
                 return this._storeApp.isLoad;
             }
@@ -35,8 +38,9 @@
         },
 
         created() {
-            init()
-                .then(res => {
+            this.$authApi.setStore(this._storeAuth, this.$store.commit);
+
+            init().then(res => {
                     this.$store.commit('setPhrases', res.phrases);
                     this.$store.commit('setLoad', false);
                 })

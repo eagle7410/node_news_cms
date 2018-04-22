@@ -11,19 +11,37 @@
 		"dashboard" : "Рабочий стол",
 		"profile"   : "Профиль",
 		"employees" : "Работники",
-		"clients"   : "Клтенты"
+		"clients"   : "Клтенты",
+		"news"      : "Новости"
 	},
 	"dash" : {
 		"Edit Profile": "Редактировать профиль",
 		"Complete your profile" : "Заполните свой профиль",
 		"Last Name" : "Фамилия",
 		"First Name" : "Имя",
-		"Update Profile" : "Сохрониать",
+		"Update Profile" : "Сохранить",
 		"Employee avatar" : "Аватар",
-		"For change avatar use service" : "Для изменения автара спользуйте сервир",
+		"For change avatar use service" : "Для изменения автара используйте сервир",
 		"dashboard" : "Рабочий стол",
 		"profile"   : "Профиль",
 		"employees" : "Работники",
-		"clients"   : "Клтенты"
+		"clients"   : "Клтенты",
+		"news"      : "Новости",
+		"title":"Заголовок",
+		"author":"Автор",
+		"publish_at":"Дата публикации",
+		"created_by":"Кто создал",
+		"created_at":"Дата создания",
+		"updated_by":"Кто обновил",
+		"updated_at":"Дата обновления",
+		"is_active":"Актиность",
+		"actions" : "Действия",
+		"No data" : "Нет данных",
+		"Add" : "Добавить",
+		"news-add" : "Добавить новость",
+		"In English":"На английском",
+		"In Russian":"На Русском",
+		"Preliminary text (max length 250 symbols)" : "Предварительный текст (максимальная длина 250 символов)",
+		"Text" : "Текст"
 	}
 }

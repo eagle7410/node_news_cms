@@ -23,7 +23,20 @@ const store = [
 		name: 'clients',
 		icon: 'fa fa-users',
 		path: '/admin/clients',
-		groups: [groups.admin]
+		groups: [
+			groups.admin,
+			groups.moderator
+		]
+	},
+	{
+		name: 'news',
+		icon: 'fa fa-newspaper-o',
+		path: '/admin/news',
+		groups: [
+			groups.admin,
+			groups.moderator,
+			groups.content
+		]
 	}
 ];
 

@@ -8,6 +8,8 @@ import UserProfile from 'src/components/Dashboard/Views/UserProfile/UserProfile.
 import Login from 'src/components/Dashboard/Views/Login/Login.vue'
 import Users from 'src/components/Dashboard/Views/Admins/Users.vue'
 import Clients from 'src/components/Dashboard/Views/Clients/Clients.vue'
+import News from 'src/components/Dashboard/Views/News/News.vue'
+import NewsAdd from 'src/components/Dashboard/Views/News/NewsAdd.vue'
 
 const routes = [
     {
@@ -38,6 +40,16 @@ const routes = [
                 path: 'clients',
                 name: 'clients',
                 component: Clients
+            },
+            {
+                path: 'news',
+                name: 'news',
+                component: News
+            },
+            {
+                path: 'news-add',
+                name: 'news-add',
+                component: NewsAdd
             }
         ]
     },

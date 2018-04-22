@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import 'vue-material/dist/vue-material.min.css'
+import VueMaterial from 'vue-material'
 import store from './store/store'
 // Plugins
 import GlobalComponents from './globalComponents'
@@ -8,6 +9,7 @@ import GlobalDirectives from './globalDirectives'
 import GlobalMixins from './globalMixins'
 import Notifications from './plugins/Notification'
 import SideBar from './plugins/Sidebar'
+import AuthProvider from './plugins/AuthProvider'
 import App from './App'
 
 // router setup
@@ -26,27 +28,29 @@ Vue.use(GlobalDirectives)
 Vue.use(GlobalMixins)
 Vue.use(Notifications)
 Vue.use(SideBar)
+Vue.use(AuthProvider)
+Vue.use(VueMaterial)
 
 // configure router
 const router = new VueRouter({
-  routes, // short for routes: routes
-  linkActiveClass: 'active'
+    routes, // short for routes: routes
+    linkActiveClass: 'active'
 })
 
 // global library setup
 Object.defineProperty(Vue.prototype, '$Chartist', {
-  get () {
-    return this.$root.Chartist
-  }
+    get() {
+        return this.$root.Chartist
+    }
 })
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  render: h => h(App),
-  router,
-  store,
-  data: {
-    Chartist: Chartist
-  }
+    el: '#app',
+    render: h => h(App),
+    router,
+    store,
+    data: {
+        Chartist: Chartist
+    }
 })

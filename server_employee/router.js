@@ -5,7 +5,7 @@ const controllers = require('./controllers');
 const Controller = require('../classes/Controller');
 
 router.all('/:controller/:action', (req, res, next) => {
-	let controllerName = to1Up((req.params.controller).toLowerCase());
+	let controllerName = req.params.controller.toLowerCase().split('-').map(to1Up).join('');
 	let controller = controllers[controllerName];
 
 	if (!controller)
