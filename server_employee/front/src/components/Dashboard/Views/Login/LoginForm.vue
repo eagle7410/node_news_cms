@@ -44,7 +44,6 @@
             phrases: function () {
                 return this.$store.state.app.phrases
             },
-
             email: {
                 get: function () {
                     return this._storeAuth.email

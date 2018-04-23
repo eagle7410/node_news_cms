@@ -43,6 +43,9 @@
             TextTab,
             AutoCompile
         },
+        computed: {
+
+        },
         data() {
             return {
                 selectedDate: new Date(),

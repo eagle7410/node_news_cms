@@ -5,6 +5,7 @@ import auth from './modules/auth'
 import clients from './modules/clients'
 import app from './modules/app'
 import news from './modules/news'
+import newsOne from './modules/news-one'
 
 Vue.use(Vuex);
 
@@ -13,7 +14,8 @@ const store = new Vuex.Store({
         auth,
         clients,
         app,
-        news
+        news,
+        newsOne
     }
 });
 
