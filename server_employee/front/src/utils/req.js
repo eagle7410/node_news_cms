@@ -1,5 +1,5 @@
 import {jwtPublic} from '../../../../configs/employee';
-import {create, decode} from '../../../../utils/jwt';
+import {create, decode} from './jwt';
 
 /**
  * Send to server.
