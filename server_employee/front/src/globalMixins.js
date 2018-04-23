@@ -10,6 +10,14 @@ const GlobalMixins = {
             methods : {
                 __t : function (mess) {
                     return this.authPhrases[mess] || mess;
+                },
+                notifyError(mess, positionV = 'center') {
+                    this.$notify({
+                        message: mess,
+                        horizontalAlign: positionV,
+                        icon: 'error',
+                        type: 'danger'
+                    })
                 }
             },
 

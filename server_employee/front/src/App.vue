@@ -38,12 +38,13 @@
         },
 
         created() {
+
             this.$authApi.setStore(this._storeAuth, this.$store.commit);
 
             init().then(res => {
-                    this.$store.commit('setPhrases', res.phrases);
-                    this.$store.commit('setLoad', false);
-                })
+                this.$store.commit('setPhrases', res.phrases);
+                this.$store.commit('setLoad', false);
+            })
                 .catch(this._error);
         }
     }

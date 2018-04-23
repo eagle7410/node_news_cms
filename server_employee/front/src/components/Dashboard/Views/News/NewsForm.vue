@@ -1,6 +1,6 @@
 <template>
     <div class="news-form">
-        <md-datepicker v-model="selectedDate">
+        <md-datepicker v-model="publish_at">
             <label>{{__t('publish_at')}}</label>
         </md-datepicker>
 
@@ -8,18 +8,19 @@
             :list="authors"
             :label="__t('author')"
             :placeholder="__t('author')"
+            v-model="author"
         ></auto-compile>
 
         <md-tabs>
             <text-tab
-                tabId='english'
+                tabId='en'
                 :tabLabel="__t('In English')"
                 :titleLabel='__t("title")'
                 :textLabel="__t('Text')"
                 :textPrevLabel="__t('Preliminary text (max length 250 symbols)')"
             ></text-tab>
             <text-tab
-                tabId='russian'
+                tabId='ru'
                 :tabLabel="__t('In Russian')"
                 :titleLabel='__t("title")'
                 :textLabel="__t('Text')"
@@ -27,8 +28,8 @@
             ></text-tab>
         </md-tabs>
 
-        <button type="submit" @click.prevent="updateProfile" class="btn btn-primary pull-right">
-            {{__t('Update Profile')}}
+        <button type="submit" @click.prevent="save" class="btn btn-primary pull-right">
+            {{__t('Save')}}
         </button>
     </div>
 </template>
@@ -44,30 +45,39 @@
             AutoCompile
         },
         computed: {
-
+            _storeNewsOne () {
+                return this.$store.state.newsOne;
+            },
+            authors: function () {
+                return this._storeNewsOne.authors
+            },
+            author: {
+                get: function () {
+                    return this._storeNewsOne.author
+                },
+                set: function (value) {
+                    this.$store.commit('setAuthor', value);
+                }
+            },
+            publish_at : {
+                get : function() {
+                    return this._storeNewsOne.publish_at;
+                },
+                set : function(value) {
+                    this.$store.commit('setPublish_at', value);
+                }
+            }
         },
-        data() {
-            return {
-                selectedDate: new Date(),
-                authors: [
-                    {
-                        val: 'a1@fads.com',
-                        show: '1 Igor Stcherbina (a1@fads.com)'
-                    },
-                    {
-                        val: 'a2@fads.com',
-                        show: '2 Igor Stcherbina (a12@fads.com)'
-                    },
-                    {
-                        val: 'a3@fads.com',
-                        show: '3 Igor Stcherbina (a3@fads.com)'
-                    },
-                    {
-                        val: 'a4@fads.com',
-                        show: '4 Igor Stcherbina (a4@fads.com)'
-                    }
-                ]
-            };
+        methods: {
+            _validate () {
+                this.notifyError('zzz');
+                return false;
+            },
+            save () {
+                if (!this._validate()) {
+                    return false;
+                }
+            }
         }
     }
 </script>

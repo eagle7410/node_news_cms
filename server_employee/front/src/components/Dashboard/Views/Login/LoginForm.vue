@@ -67,12 +67,7 @@
                     return console.log('Login unknow error', mess);
                 }
 
-                this.$notify({
-                    message: mess,
-                    horizontalAlign: 'center',
-                    icon: 'error',
-                    type: 'danger'
-                })
+                this.notifyError(mess);
             },
             singIn() {
                 if (!this.email) {
@@ -85,6 +80,10 @@
 
                 auth({email: this.email, password: this.pass})
                     .then(res => {
+                        if (res.code) {
+                            return this._error(res.message);
+                        }
+
                         this.$store.commit('setToken', res.token);
                         this.$store.commit('setProfile', res.user);
                         this.$store.commit('setAuthPhrases', res.phrases);

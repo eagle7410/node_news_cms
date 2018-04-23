@@ -86,6 +86,22 @@ module.exports = {
 	getAll: (query = {}) => Model.find(query),
 	getOne: (query = {}) => Model.findOne(query),
 	clear: (query = {}) => Model.remove(query),
+	getByPage : async (page = 0, pageSize = 100, query = {}) => {
+		const countTotal = await Model.count(query);
+		const countPages = Math.ceil(countTotal / pageSize);
+
+		const docs = await Model.find(query)
+			.skip(pageSize * page)
+			.limit(pageSize);
+
+		return {
+			countTotal,
+			countPages,
+			pageSize,
+			currentPage : page,
+			docs
+		};
+	},
 	getByEmailAndCheck: async (email, pass) => {
 		let user = await Model.findOne({
 			email,

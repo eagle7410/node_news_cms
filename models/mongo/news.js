@@ -65,6 +65,22 @@ module.exports = {
 			ok(instance);
 		});
 	}),
+	getByPage : async (page = 0, pageSize = 100, query = {}) => {
+		const countTotal = await Model.count(query);
+		const countPages = Math.ceil(countTotal / pageSize);
+
+		const docs = await Model.find(query)
+			.skip(pageSize * page)
+			.limit(pageSize);
+
+		return {
+			countTotal,
+			countPages,
+			pageSize,
+			currentPage : page,
+			docs
+		};
+	},
 	getAll : (query = {}) => Model.find(query),
 	clear  : (query = {}) => Model.remove(query),
 	getListForEmployee : () => Model.find({}).select({

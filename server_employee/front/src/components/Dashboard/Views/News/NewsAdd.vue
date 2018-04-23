@@ -17,6 +17,9 @@
         name: 'NewsAdd',
         components: {
             NewsForm
+        },
+        mounted () {
+            this.$store.commit('clearOneNews');
         }
     }
 </script>

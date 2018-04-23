@@ -31,7 +31,8 @@
         "semi": 0,
         "indent": 0,
         "constructor-super": "warn",
-        "valid-typeof": "warn"
+        "valid-typeof": "warn",
+        "no-constant-condition" : 0
     },
     // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
     "extends": "standard",

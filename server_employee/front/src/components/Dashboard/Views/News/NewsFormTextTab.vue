@@ -26,19 +26,53 @@
         components: {
             VueEditor
         },
+        computed: {
+            _storeNewsOne () {
+                return this.$store.state.newsOne;
+            },
+            _storeLang() {
+                return this._storeNewsOne[this.tabId];
+            },
+            title: {
+                get: function () {
+                    return this._storeLang.title
+                },
+                set: function (value) {
+                    this._setProp('title', value);
+                }
+            },
+            text: {
+                get: function () {
+                    return this._storeLang.text
+                },
+                set: function (value) {
+                    this._setProp('text', value);
+                }
+            },
+            text_prev: {
+                get: function () {
+                    return this._storeLang.text_prev
+                },
+                set: function (value) {
+                    this._setProp('text_prev', value);
+                }
+            },
+        },
+        methods : {
+            _setProp (prop, val) {
+                this.$store.commit('setTextProp', {
+                    lang : this.tabId,
+                    prop,
+                    val
+                })
+            }
+        },
         props: {
             tabId: String,
             tabLabel: String,
             titleLabel: String,
             textLabel: String,
             textPrevLabel: String,
-        },
-        data() {
-            return {
-                text: '',
-                title: '',
-                text_prev: '',
-            }
         }
     }
 </script>

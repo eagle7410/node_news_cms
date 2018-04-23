@@ -28,11 +28,16 @@ const send = (url, data, method, headers) => new Promise((resolve, reject) => {
             let data = JSON.parse(r.target.responseText);
 
             if (data.hash) {
-                 return decode(jwtPublic, data.hash).then(resolve, reject);
+                return decode(jwtPublic, data.hash).then(data => {
+                    if (process.env.NODE_ENV === 'development') {
+                        console.log(url + ' response data is ', data);
+                    }
+                    resolve(data);
+                }, reject);
             }
 
         } catch (e) {
-            console.error('Prase responce bad', e);
+            console.error('Parse responce bad', e);
             reject(e);
         }
 
@@ -48,6 +53,10 @@ const send = (url, data, method, headers) => new Promise((resolve, reject) => {
 
     for (let key in head) {
         xhr.setRequestHeader(key, head[key]);
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+        console.log(url + ' send ' + sendData);
     }
 
     xhr.send(sendData);
