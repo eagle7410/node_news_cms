@@ -23,20 +23,45 @@
                 </thead>
                 <tbody>
                 <tr v-if="data.length" v-for="item in data">
-                    <td v-for="column in columns" v-if="hasValue(item, column)">{{itemValue(item, column)}}</td>
+                    <td v-for="column in columns" v-if="hasValue(item, column)">
+                        <component v-if="hasCustom(column)"
+                                   :is="custom[column].component"
+                                   v-bind="custom[column].props || []"
+                                   :entry="item"
+                        ></component>
+                        <span v-else>{{itemValue(item, column)}}</span>
+                    </td>
                 </tr>
                 <tr v-if="!data.length">
                     <td :colspan="columns.length">{{__t('No data')}}</td>
                 </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="columns.length">
+                            <pagination></pagination>
+                        </td>
+
+                    </tr>
+                </tfoot>
             </table>
+
         </div>
     </div>
 </template>
 <script>
+    import Pagination from './MaterialTablePagination'
+
     export default {
+        components : {
+            Pagination
+        },
         props: {
             columns: Array,
+            custom: {
+                type : Object,
+                default : null
+            },
             data: Array,
             type: {
                 type: String,
@@ -69,6 +94,9 @@
             }
         },
         methods: {
+            hasCustom (column) {
+              return (this.custom && this.custom[column] && this.custom[column].component) || false;
+            },
             hasValue(item, column) {
                 return item[column.toLowerCase()] !== 'undefined'
             },

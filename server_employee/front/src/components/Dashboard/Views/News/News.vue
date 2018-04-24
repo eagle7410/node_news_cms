@@ -8,8 +8,11 @@
                         :data="news"
                         :columns="columns"
                         :tools="tools"
+                        :custom="custom"
                     >
                     </material-table>
+
+
                 </div>
             </div>
         </div>
@@ -19,18 +22,32 @@
 <script>
     import NewsTools from './NewsTools'
     import MaterialTable from '../../../UIComponents/MaterialTable'
+    import ShowStatus from '../../../UIComponents/ShowStatus'
 
     export default {
         name: 'News',
+        data() {
+            return {
+                custom: {
+                    is_active : {
+                        component: ShowStatus,
+                        props : {
+                            store : 'is_active'
+                        }
+                    }
+                }
+            }
+        },
         components: {
             MaterialTable,
-            NewsTools
+            NewsTools,
+            ShowStatus
         },
         computed: {
-            tools () {
+            tools() {
                 return {
-                    component : NewsTools,
-                    props : []
+                    component: NewsTools,
+                    props: []
                 }
             },
             _storeNews() {
