@@ -1,4 +1,13 @@
 {
 	"port"  : 0,
-	"isDev" : true
+	"isDev" : true,
+	"jwtPublic": {
+		"key"    : "KEY",
+		"expire" : "EXPIRE"
+	},
+	"jwtPrivate": {
+		"key"    : "KEY",
+		"expire" : "EXPIRE"
+	},
+	"name": "AppName"
 }
