@@ -61,11 +61,16 @@ module.exports = {
 			ok(instance);
 		});
 	}),
-	getByPage : async (page = 0, pageSize = 100, query = {}) => {
+	getByPage : async (
+		page = 0,
+		pageSize = 100,
+		select = {text : 0, comments  : 0},
+		query = {}) => {
 		const countTotal = await Model.count(query);
 		const countPages = Math.ceil(countTotal / pageSize);
 
 		const docs = await Model.find(query)
+			.select(select)
 			.skip(pageSize * page)
 			.limit(pageSize);
 

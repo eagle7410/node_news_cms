@@ -36,10 +36,16 @@
                     <td :colspan="columns.length">{{__t('No data')}}</td>
                 </tr>
                 </tbody>
-                <tfoot>
+                <tfoot v-if="isUsePagination">
                     <tr>
-                        <td colspan="columns.length">
-                            <pagination></pagination>
+                        <td :colspan="columns.length">
+                            <pagination
+                                :steep="steep"
+                                :count-pages="countPages"
+                                :current-page="currentPage"
+                                :set-current-page="setCurrentPage"
+                                :load-page="loadPage"
+                            ></pagination>
                         </td>
 
                     </tr>
@@ -83,7 +89,28 @@
             tools: {
                 type: Object,
                 default: null
-            }
+            },
+            isUsePagination : {
+                type : Boolean,
+                default : false
+            },
+            steep: {
+                type: Number,
+                default: 2
+            },
+            countPages: {
+                type: Number,
+                default: 0
+            },
+            currentPage: {
+                type: Number,
+                default: 0
+            },
+            setCurrentPage: {
+                type: String,
+                default: '',
+            },
+            loadPage : Number
         },
         computed: {
             tableClass() {

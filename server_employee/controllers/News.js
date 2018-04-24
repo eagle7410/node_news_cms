@@ -19,6 +19,12 @@ class News extends Controller {
 	};
 
 	static async get_news (req, res) {
+
+		if (req.decode.page !== undefined && req.decode.pageSize) {
+			let data = await ModelNews.getByPage(req.decode.page, req.decode.pageSize);
+			return res.jwt(data);
+		}
+
 		let list = await ModelNews.getListForEmployee();
 		res.jwt({list});
 	}

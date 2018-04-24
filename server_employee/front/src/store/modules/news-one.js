@@ -12,7 +12,7 @@ const initial = {
     author: '',
     is_active: false,
     comments: [],
-    authors: []
+    authors: [],
 };
 export default {
     state: {...initial},
@@ -28,6 +28,7 @@ export default {
         },
         clearOneNews(state) {
             state = {...initial};
-        }
+        },
+
     }
 }

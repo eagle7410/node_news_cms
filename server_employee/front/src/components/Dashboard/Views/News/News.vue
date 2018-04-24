@@ -2,13 +2,19 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 col-lg-10">
                     <material-table
                         :title="__t('news')"
                         :data="news"
                         :columns="columns"
                         :tools="tools"
                         :custom="custom"
+                        :is-use-pagination="true"
+                        :steep="steep"
+                        :count-pages="countPages"
+                        :current-page="currentPage"
+                        :set-current-page="setCurrentPage"
+                        :load-page="loadPage"
                     >
                     </material-table>
 
@@ -53,21 +59,37 @@
             _storeNews() {
                 return this.$store.state.news
             },
-
+            columns() {
+                return this._storeNews.columns
+            },
             news() {
                 return this._storeNews.news;
             },
-            columns() {
-                return this._storeNews.columns
-            }
+            steep() {
+                return this._storeNews.steep
+            },
+            pageSize() {
+                return this._storeNews.pageSize
+            },
+            countPages() {
+                return this._storeNews.countPages
+            },
+            currentPage() {
+                return this._storeNews.currentPage
+            },
+            setCurrentPage() {
+                return this._storeNews.setCurrentPage
+            },
+            loadPage() {
+                return this._storeNews.loadPage
+            },
+
         },
-        async mounted() {
-            try {
-                let news = await this.$authApi.news();
-                this.$store.commit('setNews', news)
-            } catch (err) {
-                console.error('$authApi.news err', err)
-            }
+        async created() {
+            this.$store.dispatch(this.setCurrentPage, {
+                page : 0,
+                app  : this
+            });
         }
 
     }

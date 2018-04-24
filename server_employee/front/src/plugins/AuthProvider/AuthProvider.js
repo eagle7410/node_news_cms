@@ -38,9 +38,9 @@ class AuthProvider {
         this._commit = commit;
     }
 
-    async news() {
-        const result = await this._send(get, 'news/news');
-        return result.list;
+    async news(data = {}) {
+        const result = await this._send(get, 'news/news', data);
+        return result.docs ? result : result.list;
     }
 
     async saveNews(news) {
