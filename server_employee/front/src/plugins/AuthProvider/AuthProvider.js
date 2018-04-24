@@ -1,8 +1,16 @@
-import {get} from '../../utils/req';
+import {get, save} from '../../utils/req';
 import {auth} from '../../apis/app';
 import {port} from '../../../../../configs/employee';
 
-const urlBase = `http://localhost:${port}/`;
+let urlBase;
+
+if (process.env.NODE_ENV === 'development') {
+    urlBase = `http://localhost:${port}/`;
+}
+
+if (process.env.NODE_ENV === 'production') {
+    urlBase = `/`;
+}
 
 /**
  *
@@ -31,8 +39,13 @@ class AuthProvider {
     }
 
     async news() {
-        let result = await this._send(get, 'news/news');
+        const result = await this._send(get, 'news/news');
         return result.list;
+    }
+
+    async saveNews(news) {
+        const result = await this._send(save, 'news/save', news);
+        return result;
     }
 
     async _send(method, controllerAction, data = {}) {

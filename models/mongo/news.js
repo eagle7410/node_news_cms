@@ -11,10 +11,6 @@ let ModelSchema = new Schema({
 		type : Object,
 		default: defText
 	},
-	text_prev : {
-		type : Object,
-		default : defText
-	},
 	text : {
 		type : Object,
 		default : defText
@@ -49,7 +45,7 @@ let ModelSchema = new Schema({
 	},
 	is_active : {
 		type : Boolean,
-		default : true
+		default : false
 	}
 });
 
@@ -81,11 +77,37 @@ module.exports = {
 			docs
 		};
 	},
+	updateAll: (changes, query = {}) => Model.update(query, {$set: changes}, {multi: true}),
+	updateOne: (changes, query = {}) => Model.update(query, {$set: changes}),
 	getAll : (query = {}) => Model.find(query),
 	clear  : (query = {}) => Model.remove(query),
 	getListForEmployee : () => Model.find({}).select({
 		text      : 0,
-		text_prev : 0,
 		comments  : 0
-	})
+	}),
+	save : async (data, user) => {
+		const date = new Date();
+		const id   = data._id;
+
+		data = {
+			title      : data.title,
+			text       : data.text,
+			author     : data.author,
+			publish_at : data.publish_at,
+			updated_by : user,
+			updated_at : date
+		};
+
+		if (!id) {
+			return await module.exports.create({
+				...data,
+				created_by : user,
+				created_at : date
+			});
+		}
+
+		// TODO: Back need check
+		return await module.exports.updateOne(data, {_id : id});
+
+	}
 };

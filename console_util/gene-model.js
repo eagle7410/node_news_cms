@@ -78,6 +78,8 @@ module.exports = {
 			docs
 		};
 	},
+	updateAll: (changes, query = {}) => Model.update(query, {$set: changes}, {multi: true}),
+	updateOne: (changes, query = {}) => Model.update(query, {$set: changes}),
 	getAll : (query = {}) => Model.find(query),
 	clear  : (query = {}) => Model.remove(query)
 };`;

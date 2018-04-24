@@ -28,6 +28,7 @@
 		"clients"   : "Клтенты",
 		"news"      : "Новости",
 		"title":"Заголовок",
+		"title (max length 250 symbols)": "Заголовок (максимальная длина 250 символов)",
 		"author":"Автор",
 		"publish_at":"Дата публикации",
 		"created_by":"Кто создал",
@@ -41,8 +42,13 @@
 		"news-add" : "Добавить новость",
 		"In English":"На английском",
 		"In Russian":"На Русском",
-		"Preliminary text (max length 250 symbols)" : "Предварительный текст (максимальная длина 250 символов)",
 		"Text" : "Текст",
-		"Save" : "Сохранить"
+		"Save" : "Сохранить",
+		"Field `author`. Must be email": "Поле `автор`. Должно быть электронной почтой",
+		"Field `publish_at`. Must be today or future" : "Поле `Дата публикации`. Должно быть сегодня или в будущем",
+		"Field `title`. Is required." : "Поле `заголовок`. Необходимо.",
+		"Field `title`. More 250 symbols." : "Поле `текст`. Больше 250 симвлов.",
+		"Field `text`. Is required." : "Поле `текст`. Необходимо.",
+		"Error in save news" : "Ошибка при сохранении новости"
 	}
 }

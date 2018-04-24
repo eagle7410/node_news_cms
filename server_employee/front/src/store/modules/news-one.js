@@ -4,12 +4,10 @@ const initial = {
     en: {
         title: '',
         text: '',
-        text_prev: '',
     },
     ru: {
         title: '',
         text: '',
-        text_prev: '',
     },
     author: '',
     is_active: false,

@@ -10,6 +10,10 @@ class News extends Controller {
 				groups.admin,
 				groups.moderator,
 				groups.content
+			],
+			post_news : [
+				groups.admin,
+				groups.moderator,
 			]
 		}
 	};
@@ -17,6 +21,11 @@ class News extends Controller {
 	static async get_news (req, res) {
 		let list = await ModelNews.getListForEmployee();
 		res.jwt({list});
+	}
+
+	static async post_save (req, res) {
+		await ModelNews.save(req.decode, req.tokenData.email);
+		res.jwt({success : true});
 	}
 }
 

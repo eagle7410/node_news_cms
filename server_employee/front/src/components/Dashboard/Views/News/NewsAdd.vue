@@ -18,7 +18,7 @@
         components: {
             NewsForm
         },
-        mounted () {
+        created () {
             this.$store.commit('clearOneNews');
         }
     }

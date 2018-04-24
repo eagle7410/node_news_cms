@@ -28,6 +28,7 @@
 		"clients"   : "Clients",
 		"news"      : "News",
 		"title":"Title",
+		"title (max length 250 symbols)": "title (max length 250 symbols)",
 		"author":"Author",
 		"publish_at":"Date published",
 		"created_by":"Who created",
@@ -41,8 +42,13 @@
 		"news-add" : "Add news",
 		"In English":"In English",
 		"In Russian":"In Russian",
-		"Preliminary text (max length 250 symbols)" : "Preliminary text (max length 250 symbols)",
 		"Text" : "Text",
-		"Save" : "Save"
+		"Save" : "Save",
+		"Field `author`. Must be email": "Field `author`. Must be email",
+		"Field `publish_at`. Must be today or future" : "Field `Date published`. Should be today or in the future",
+		"Field `title`. Is required." : "Field `title`. Is required.",
+		"Field `title`. More 250 symbols." : "Field `title`. More 250 symbols.",
+		"Field `text`. Is required." : "Field `text`. Is required.",
+		"Error in save news" : "Error in save news"
 	}
 }

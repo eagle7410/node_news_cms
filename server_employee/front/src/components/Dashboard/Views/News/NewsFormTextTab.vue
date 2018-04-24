@@ -2,14 +2,9 @@
     <md-tab :id="'tab-' + tabId" :md-label="tabLabel">
         <p>
             <fg-input type="text"
-                      :placeholder='titleLabel'
                       :label='titleLabel'
                       v-model="title"
             ></fg-input>
-        </p>
-        <p>
-            <label>{{textPrevLabel}}</label>
-            <vue-editor v-model="text_prev"></vue-editor>
         </p>
         <p>
             <label>{{textLabel}}</label>
@@ -48,15 +43,7 @@
                 set: function (value) {
                     this._setProp('text', value);
                 }
-            },
-            text_prev: {
-                get: function () {
-                    return this._storeLang.text_prev
-                },
-                set: function (value) {
-                    this._setProp('text_prev', value);
-                }
-            },
+            }
         },
         methods : {
             _setProp (prop, val) {
@@ -72,7 +59,6 @@
             tabLabel: String,
             titleLabel: String,
             textLabel: String,
-            textPrevLabel: String,
         }
     }
 </script>

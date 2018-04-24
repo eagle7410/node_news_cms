@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import 'vue-material/dist/vue-material.min.css'
 import VueMaterial from 'vue-material'
 import store from './store/store'
+
 // Plugins
 import GlobalComponents from './globalComponents'
 import GlobalDirectives from './globalDirectives'
@@ -20,6 +21,9 @@ import Chartist from 'chartist'
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/sass/material-dashboard.scss'
 import 'es6-promise/auto'
+
+// Extends
+require('./exends/date');
 
 // plugin setup
 Vue.use(VueRouter)

@@ -18,7 +18,7 @@ class Controller {
 
 			if (typeof this[method] !== 'function') {
 
-				process.logger.warn(`${action} in controller ${this.name} not function `);
+				process.logger.warn(`Controller|run. Action ${action} in controller ${this.name} not function `);
 
 				return next();
 			}

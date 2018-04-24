@@ -1,9 +1,5 @@
 const Controller = require('./Controller');
 
-class ControllerClient extends Controller {
-	static async auth (req, res) {
-		// TODO: Back
-	}
-}
+class ControllerClient extends Controller {}
 
 module.exports = ControllerClient;
