@@ -58,6 +58,7 @@
 		"logout" : "Выход",
 		"Error news activate" : "Ошибка активации новости",
 		"News has updated the status of activity" : "Новость обновила статус активность",
-		"You are sure?" : "Ты уверен?"
+		"You are sure?" : "Ты уверен?",
+		"news-edit" : "Редактировать новость"
 	}
 }

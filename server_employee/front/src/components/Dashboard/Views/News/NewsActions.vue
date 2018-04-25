@@ -10,6 +10,8 @@
 </template>
 
 <script>
+    import {fullPath} from '../../../../routes/paths'
+
     export default {
         name: 'NewsActions',
         props: {
@@ -42,7 +44,7 @@
                 this.changeActive(false);
             },
             edit() {
-
+                this.$router.push({path: fullPath.newsEdit, query: {id: this.entry._id}})
             },
         },
     }

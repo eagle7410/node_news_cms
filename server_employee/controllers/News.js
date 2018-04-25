@@ -19,9 +19,23 @@ class News extends Controller {
 			post_change_active : [
 				groups.admin,
 				groups.moderator
+			],
+			get_one_news : [
+				groups.admin,
+				groups.content
 			]
 		}
 	};
+
+	static async get_one_news (req, res) {
+		let news = await ModelNews.getById(req.decode.id);
+
+		if (!news) {
+			throw ErrorHttp.notFound();
+		}
+
+		res.jwt({news});
+	}
 
 	static async get_news (req, res) {
 
@@ -53,7 +67,12 @@ class News extends Controller {
 
 		await news.save();
 
-		res.jwt({news});
+		let send = news.toObject();
+
+		delete send.comments;
+		delete send.text;
+
+		res.jwt({news: send});
 	}
 }
 

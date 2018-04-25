@@ -58,6 +58,7 @@
 		"logout" : "Logout",
 		"Error news activate" : "Error news activate",
 		"News has updated the status of activity" : "News has updated the status of activity",
-		"You are sure?" : "You are sure?"
+		"You are sure?" : "You are sure?",
+		"news-edit" : "Edit news"
 	}
 }
