@@ -9,7 +9,7 @@
         name: 'NewsTools',
         methods : {
             handlerAdd () {
-                this.$router.push('news-add')
+                this.$router.push(fullPath.newsAdd)
             }
         }
     }

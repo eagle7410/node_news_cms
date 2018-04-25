@@ -35,6 +35,7 @@
 </template>
 <script>
     import {auth} from '../../../../apis/app'
+    import {fullPath} from '../../../../routes/paths'
 
     export default {
         computed: {
@@ -88,7 +89,7 @@
                         this.$store.commit('setProfile', res.user);
                         this.$store.commit('setAuthPhrases', res.phrases);
                         this.$root.sidebarLinks = res.leftMenu || [];
-                        this.$router.push('/admin/user-profile');
+                        this.$router.push(fullPath.profile);
                     })
                     .catch(this._error)
             }

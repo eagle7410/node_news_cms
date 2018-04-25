@@ -2,7 +2,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12 col-lg-10">
+                <div class="col-md-12 col-lg-11">
                     <material-table
                         :title="__t('news')"
                         :data="news"
@@ -27,6 +27,7 @@
 
 <script>
     import NewsTools from './NewsTools'
+    import NewsActions from './NewsActions'
     import MaterialTable from '../../../UIComponents/MaterialTable'
     import ShowStatus from '../../../UIComponents/ShowStatus'
 
@@ -40,12 +41,16 @@
                         props : {
                             store : 'is_active'
                         }
+                    },
+                    actions : {
+                        component: NewsActions
                     }
                 }
             }
         },
         components: {
             MaterialTable,
+            NewsActions,
             NewsTools,
             ShowStatus
         },
@@ -63,7 +68,14 @@
                 return this._storeNews.columns
             },
             news() {
-                return this._storeNews.news;
+                return this._storeNews.news.map(news => {
+                    const dateFormat = 'd-m-y h:i';
+                    news.created_at = new Date(news.created_at).toStringByFormat(dateFormat);
+                    news.updated_at = new Date(news.updated_at).toStringByFormat(dateFormat);
+                    news.publish_at = new Date(news.publish_at).toStringByFormat(dateFormat);
+
+                    return news;
+                });
             },
             steep() {
                 return this._storeNews.steep

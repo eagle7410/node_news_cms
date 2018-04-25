@@ -51,6 +51,9 @@
 		"Field `text`. Is required." : "Field `text`. Is required.",
 		"Error in save news" : "Error in save news",
 		"Current" : "Current",
-		"from" : "from"
+		"from" : "from",
+		"Activate" : "Activate",
+		"Deactivate" : "Deactivate",
+		"Edit" : "Edit"
 	}
 }

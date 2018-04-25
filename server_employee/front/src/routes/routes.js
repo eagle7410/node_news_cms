@@ -11,6 +11,8 @@ import Clients from 'src/components/Dashboard/Views/Clients/Clients.vue'
 import News from 'src/components/Dashboard/Views/News/News.vue'
 import NewsAdd from 'src/components/Dashboard/Views/News/NewsAdd.vue'
 
+import {paths} from './paths';
+
 const routes = [
     {
         path: '/',
@@ -22,32 +24,32 @@ const routes = [
         redirect: 'user-profile',
         children: [
             {
-                path: 'user-profile',
+                path: paths.profile,
                 name: 'profile',
                 component: UserProfile
             },
             {
-                path: 'dashboard',
+                path: paths.dashboard,
                 name: 'dashboard',
                 component: Dashboard
             },
             {
-                path: 'users-admin',
+                path: paths.employees,
                 name: 'employees',
                 component: Users
             },
             {
-                path: 'clients',
+                path: paths.clients,
                 name: 'clients',
                 component: Clients
             },
             {
-                path: 'news',
+                path: paths.news,
                 name: 'news',
                 component: News
             },
             {
-                path: 'news-add',
+                path: paths.newsAdd,
                 name: 'news-add',
                 component: NewsAdd
             }

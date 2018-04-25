@@ -36,6 +36,7 @@
     import TextTab from './NewsFormTextTab'
     import AutoCompile from '../../../UIComponents/AutoCompile'
     import {isEmail, isNowOrFuture, isNotMoreLen} from '../../../../utils/validators'
+    import {fullPath} from '../../../../routes/paths'
 
     export default {
         name: 'NewsForm',
@@ -152,7 +153,7 @@
                              return this._noticeAboutErrorSave(res);
                          }
 
-                         this.$router.push('/admin/news');
+                         this.$router.push(fullPath.news);
                          this.$store.commit('clearOneNews');
 
                      })

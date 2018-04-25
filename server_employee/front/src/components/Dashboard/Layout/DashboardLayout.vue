@@ -19,6 +19,7 @@
     import TopNavbar from './DashboartLayout/TopNavbar'
     import ContentFooter from './DashboartLayout/ContentFooter.vue'
     import DashboardContent from './DashboartLayout/Content.vue'
+    import {fullPath} from '../../../routes/paths'
 
     let that;
 
@@ -45,7 +46,7 @@
             that = this;
 
             if (!that.token) {
-                that.$router.push('/');
+                that.$router.push(fullPath.login);
             }
         }
     }

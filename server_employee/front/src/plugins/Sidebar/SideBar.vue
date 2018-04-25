@@ -1,10 +1,10 @@
 <template>
     <div :class="sidebarClasses"
          :data-color="backgroundColor"
-         data-image="static/img/sidebar-1.jpg"
-         style="background-image: url(static/img/sidebar-1.jpg)"
-         :data-active-color="activeColor">
-
+         :data-image="backgroundImage"
+         :style="sideStyle"
+         :data-active-color="activeColor"
+    >
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text">
                 Creative Tim
@@ -12,9 +12,8 @@
         </div>
         <div class="sidebar-wrapper">
 
-            <slot>
+            <slot></slot>
 
-            </slot>
             <ul class="nav nav-mobile-menu">
                 <li><a href="#/" class="dropdown-toggle active" data-toggle="dropdown">
                     <i class="material-icons">dashboard</i>
@@ -75,7 +74,7 @@
                 <!--</li>-->
             </ul>
         </div>
-        <div class="sidebar-background" style="background-image: url(static/img/sidebar-1.jpg)"></div>
+        <div class="sidebar-background" :style="backgroundImage"></div>
     </div>
 </template>
 <script>
@@ -133,7 +132,13 @@
             }
         },
         data() {
+            const bgImage = 'static/img/sidebar-1.jpg';
+
             return {
+                backgroundImage : bgImage,
+                sideStyle : {
+                    backgroundImage: `url(${bgImage})`,
+                },
                 linkHeight: 60,
                 activeLinkIndex: 0,
 
