@@ -4,10 +4,16 @@ const extend = {
         let year = that.getFullYear();
         let month = that.numberHas2Symbols(that.getMonth() + 1);
         let day = that.numberHas2Symbols(that.getDate());
+        let hours = that.numberHas2Symbols(that.getHours());
+        let minutes = that.numberHas2Symbols(that.getMinutes());
+        let seconds = that.numberHas2Symbols(that.getSeconds());
 
         return format.replace('d', day)
             .replace('m', month)
-            .replace('y', year);
+            .replace('y', year)
+            .replace('h', hours)
+            .replace('i', minutes)
+            .replace('s', seconds);
     },
     numberHas2Symbols: function (val) {
         return String(val.toString().length < 2 ? '0' + val : val);

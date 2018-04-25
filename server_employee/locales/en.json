@@ -49,6 +49,8 @@
 		"Field `title`. Is required." : "Field `title`. Is required.",
 		"Field `title`. More 250 symbols." : "Field `title`. More 250 symbols.",
 		"Field `text`. Is required." : "Field `text`. Is required.",
-		"Error in save news" : "Error in save news"
+		"Error in save news" : "Error in save news",
+		"Current" : "Current",
+		"from" : "from"
 	}
 }

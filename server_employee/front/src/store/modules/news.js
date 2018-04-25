@@ -13,7 +13,7 @@ export default {
         ],
         news: [],
         steep: 2,
-        pageSize: 2,
+        pageSize: 15,
         countPages: 0,
         currentPage: 0,
         countTotal : 0,
