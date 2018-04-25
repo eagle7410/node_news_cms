@@ -3,7 +3,7 @@
         <label v-if="label" class="control-label">
             {{label}}
         </label>
-        <input class="form-control border-input" v-bind="$props" :value="value"
+        <input class="form-control border-input" v-bind="$props"
                @input="$emit('input',$event.target.value)">
     </div>
 </template>

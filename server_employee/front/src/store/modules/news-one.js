@@ -29,6 +29,23 @@ export default {
         clearOneNews(state) {
             state = {...initial};
         },
+        setNewForEdit(state, news) {
+            [
+                '_id',
+                'author',
+                'is_active',
+                'comments',
+            ].map(prop => { state[prop] = news[prop] });
+
+            ['en', 'ru'].map(lang => {
+                state[lang] = {
+                    title: news.title[lang],
+                    text: news.text[lang],
+                };
+            });
+
+            state.publish_at = new Date(news.publish_at);
+        }
 
     }
 }

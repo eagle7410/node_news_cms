@@ -40,7 +40,7 @@
                 type: String,
                 default : ''
             },
-
+            value : String
         },
         data() {
             return {
@@ -75,6 +75,9 @@
             setVal (item) {
                 this.val = item.val;
             }
+        },
+        created () {
+            this.val = this.value;
         }
     }
 </script>

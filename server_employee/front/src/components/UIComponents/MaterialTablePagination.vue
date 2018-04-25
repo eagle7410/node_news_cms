@@ -38,7 +38,8 @@
         props: {
             steep: {
                 type: Number,
-                default: 2
+                default: 2,
+                validator: value => value > 0
             },
             countPages: {
                 type: Number,

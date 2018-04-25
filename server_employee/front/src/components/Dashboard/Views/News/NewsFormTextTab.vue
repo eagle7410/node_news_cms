@@ -4,11 +4,12 @@
             <fg-input type="text"
                       :label='titleLabel'
                       v-model="title"
+                      :id="`title-${tabId}`"
             ></fg-input>
         </p>
         <p>
             <label>{{textLabel}}</label>
-            <vue-editor v-model="text"></vue-editor>
+            <vue-editor v-model="text" :id="`editor-${tabId}`"></vue-editor>
         </p>
     </md-tab>
 </template>

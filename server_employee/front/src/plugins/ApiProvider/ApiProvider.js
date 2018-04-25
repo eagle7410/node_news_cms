@@ -26,7 +26,7 @@ const handelError = (e) => {
     throw e
 };
 
-class AuthProvider {
+class ApiProvider {
     constructor() {
         this._store = {};
         this._commit = () => {
@@ -38,6 +38,10 @@ class AuthProvider {
         this._commit = commit;
     }
 
+    async getNewsById(id) {
+        const result = await this._send(get, 'news/one-news', {id});
+        return result.news ? result.news : result;
+    }
     async news(data = {}) {
         const result = await this._send(get, 'news/news', data);
         return result.docs ? result : result.list;
@@ -51,6 +55,7 @@ class AuthProvider {
         const result = await this._send(save, 'news/set-active', {id, is_active});
         return result;
     }
+
     async _send(method, controllerAction, data = {}) {
         try {
 
@@ -88,4 +93,4 @@ class AuthProvider {
     }
 }
 
-export default AuthProvider;
+export default ApiProvider;

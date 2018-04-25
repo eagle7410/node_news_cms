@@ -1,11 +1,11 @@
-import AuthProvider from './AuthProvider'
+import ApiProvider from './ApiProvider'
 
 const installer = {
 
     install(Vue) {
-        let authProvider = new AuthProvider();
+        let authProvider = new ApiProvider();
 
-        Object.defineProperty(Vue.prototype, '$authApi', {
+        Object.defineProperty(Vue.prototype, '$api', {
             get() {
                 return authProvider
             }

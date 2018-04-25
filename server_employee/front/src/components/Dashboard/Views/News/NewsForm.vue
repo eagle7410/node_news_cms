@@ -1,6 +1,6 @@
 <template>
     <div class="news-form">
-        <md-datepicker v-model="publish_at">
+        <md-datepicker v-model="publish_at" id="publish_at">
             <label>{{__t('publish_at')}}</label>
         </md-datepicker>
 
@@ -8,6 +8,7 @@
             :list="authors"
             :label="__t('author')"
             :placeholder="__t('author')"
+            id="author"
             v-model="author"
         ></auto-compile>
 
@@ -147,7 +148,7 @@
 
                 this.news._id = this._id;
 
-                 this.$authApi.saveNews(this.news)
+                 this.$api.saveNews(this.news)
                      .then((res) => {
                          if (!res.success) {
                              return this._noticeAboutErrorSave(res);

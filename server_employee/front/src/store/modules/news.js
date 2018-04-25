@@ -48,7 +48,7 @@ export default {
             try {
                 commit('setLoadPageNews', page);
 
-                let data = await app.$authApi.news({
+                let data = await app.$api.news({
                     page,
                     pageSize : state.pageSize
                 });
@@ -56,7 +56,7 @@ export default {
                 commit('setNewsByPage', data)
 
             } catch (err) {
-                console.error('$authApi.news err', err);
+                console.error('$api.news err', err);
                 app.notifyError(app.__t('Error get news'));
             }
 

@@ -34,6 +34,7 @@
     </div>
 </template>
 <script>
+    import Vue from 'vue'
     import {auth} from '../../../../apis/app'
     import {fullPath} from '../../../../routes/paths'
 
@@ -89,6 +90,9 @@
                         this.$store.commit('setProfile', res.user);
                         this.$store.commit('setAuthPhrases', res.phrases);
                         this.$root.sidebarLinks = res.leftMenu || [];
+
+                        Vue.prototype.$material.locale = this._storeAuth.phrases.locale;
+
                         this.$router.push(fullPath.profile);
                     })
                     .catch(this._error)

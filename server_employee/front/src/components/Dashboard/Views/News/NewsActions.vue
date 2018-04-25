@@ -29,7 +29,7 @@
                 }
 
                 try {
-                    let response = await this.$authApi.newsSetActive(this.entry._id, isActive);
+                    let response = await this.$api.newsSetActive(this.entry._id, isActive);
                     this.$store.commit('updateNews', response.news);
                     this.notifyOk(this.__t('News has updated the status of activity'));
 

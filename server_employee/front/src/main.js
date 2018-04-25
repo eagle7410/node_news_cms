@@ -10,7 +10,7 @@ import GlobalDirectives from './globalDirectives'
 import GlobalMixins from './globalMixins'
 import Notifications from './plugins/Notification'
 import SideBar from './plugins/Sidebar'
-import AuthProvider from './plugins/AuthProvider'
+import AuthProvider from './plugins/ApiProvider'
 import App from './App'
 
 // router setup

@@ -39,7 +39,7 @@
 
         created() {
 
-            this.$authApi.setStore(this._storeAuth, this.$store.commit);
+            this.$api.setStore(this._storeAuth, this.$store.commit);
 
             init().then(res => {
                 this.$store.commit('setPhrases', res.phrases);
