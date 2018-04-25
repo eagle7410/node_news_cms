@@ -14,7 +14,7 @@ class Controller {
 		action = action.toLowerCase();
 
 		try {
-			const method = `${(req.method || 'get').toLowerCase()}_${action}`;
+			const method = `${(req.method || 'get').toLowerCase()}_${action.replace(/\-/g, '_')}`;
 
 			if (typeof this[method] !== 'function') {
 

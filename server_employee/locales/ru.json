@@ -55,6 +55,9 @@
 		"Activate" : "Активировать",
 		"Deactivate" : "Деактировать",
 		"Edit" : "Редактировать",
-		"logout" : "Выход"
+		"logout" : "Выход",
+		"Error news activate" : "Ошибка активации новости",
+		"News has updated the status of activity" : "Новость обновила статус активность",
+		"You are sure?" : "Ты уверен?"
 	}
 }

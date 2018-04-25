@@ -21,6 +21,15 @@ export default {
         loadPage: -1,
     },
     mutations: {
+        updateNews (state, news) {
+            for (let index in state.news) {
+                if (state.news[index]._id === news._id) {
+                    state.news[index] = news;
+                    state.news = [].concat(state.news);
+                    break;
+                }
+            }
+        },
         setNewsByPage(state, data) {
             state.news = data.docs;
             state.currentPage = data.currentPage;

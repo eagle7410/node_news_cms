@@ -69,6 +69,7 @@
             },
             news() {
                 return this._storeNews.news.map(news => {
+                    news = {...news};
                     const dateFormat = 'd-m-y h:i';
                     news.created_at = new Date(news.created_at).toStringByFormat(dateFormat);
                     news.updated_at = new Date(news.updated_at).toStringByFormat(dateFormat);

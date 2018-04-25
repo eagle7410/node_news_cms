@@ -47,7 +47,10 @@ class AuthProvider {
         const result = await this._send(save, 'news/save', news);
         return result;
     }
-
+    async newsSetActive(id, is_active) {
+        const result = await this._send(save, 'news/set-active', {id, is_active});
+        return result;
+    }
     async _send(method, controllerAction, data = {}) {
         try {
 

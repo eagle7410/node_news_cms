@@ -27,6 +27,12 @@ export default {
             state.email = '';
             state.password = '';
             state.user = '';
+
+            if (process.env.NODE_ENV === 'development') {
+                state.email = 'test@mail.com';
+                state.password = 'test2Testing';
+            }
+
         }
     }
 }

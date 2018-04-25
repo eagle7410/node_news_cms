@@ -65,7 +65,8 @@ module.exports = {
 		page = 0,
 		pageSize = 100,
 		select = {text : 0, comments  : 0},
-		query = {}) => {
+		query = {}
+	) => {
 		const countTotal = await Model.count(query);
 		const countPages = Math.ceil(countTotal / pageSize);
 
@@ -85,6 +86,13 @@ module.exports = {
 	updateAll: (changes, query = {}) => Model.update(query, {$set: changes}, {multi: true}),
 	updateOne: (changes, query = {}) => Model.update(query, {$set: changes}),
 	getAll : (query = {}) => Model.find(query),
+	getById : (id) => Model.findById(id),
+	exists : async (query = {}) => {
+		const count = await Model.count(query);
+		return !!count;
+	},
+	// TODO: Back need check id to ObjectId
+	existsId : (id) => module.exports.exists({_id: id}),
 	clear  : (query = {}) => Model.remove(query),
 	getListForEmployee : () => Model.find({}).select({
 		text      : 0,

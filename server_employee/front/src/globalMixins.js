@@ -18,6 +18,14 @@ const GlobalMixins = {
                         icon: 'error',
                         type: 'danger'
                     })
+                },
+                notifyOk(mess, positionV = 'center') {
+                    this.$notify({
+                        message: mess,
+                        horizontalAlign: positionV,
+                        icon: 'notifications',
+                        type: 'success'
+                    })
                 }
             },
 
