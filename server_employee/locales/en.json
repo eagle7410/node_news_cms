@@ -54,6 +54,7 @@
 		"from" : "from",
 		"Activate" : "Activate",
 		"Deactivate" : "Deactivate",
-		"Edit" : "Edit"
+		"Edit" : "Edit",
+		"logout" : "Logout"
 	}
 }

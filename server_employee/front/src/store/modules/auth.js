@@ -21,6 +21,12 @@ export default {
         },
         setAuthPhrases (state, phrases) {
             state.phrases = phrases
+        },
+        reset (state) {
+            state.token = '';
+            state.email = '';
+            state.password = '';
+            state.user = '';
         }
     }
 }

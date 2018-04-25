@@ -14,6 +14,9 @@
     export default {
         components: {
             LoginForm
+        },
+        created () {
+            this.$store.commit('reset');
         }
     }
 

@@ -15,6 +15,7 @@
     },
     "rules": {
         "no-tabs" : 0,
+        "no-mixed-spaces-and-tabs" : 0,
         "no-extend-native" : 0,
         "no-debugger": 0,
         "padded-blocks": 0,
