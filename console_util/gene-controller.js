@@ -52,12 +52,12 @@ let basePath = `${__dirname}/../${isEmployee ? 'server_employee': 'server_client
 let indexPath = `${basePath}/index.js`;
 
 const createFileAndAddToIndex = async () => {
-	await writter(`${basePath}/${to1Up(name)}.js`, template);
+	await writter(`${basePath}/${className}.js`, template);
 	let index =  await reader(indexPath);
 
 	await writter(
 		indexPath,
-		`const ${className} = require('./${to1Up(name)}');\n` +
+		`const ${className} = require('./${className}');\n` +
 		index.toString().replace('};', `\t${className},\n};`)
 	);
 };

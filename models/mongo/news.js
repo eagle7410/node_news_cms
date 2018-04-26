@@ -65,7 +65,8 @@ module.exports = {
 		page = 0,
 		pageSize = 100,
 		select = {text : 0, comments  : 0},
-		query = {}
+		query = {},
+		sort = { _id :-1}
 	) => {
 		const countTotal = await Model.count(query);
 		const countPages = Math.ceil(countTotal / pageSize);
@@ -73,7 +74,8 @@ module.exports = {
 		const docs = await Model.find(query)
 			.select(select)
 			.skip(pageSize * page)
-			.limit(pageSize);
+			.limit(pageSize)
+			.sort(sort);
 
 		return {
 			countTotal,
@@ -97,7 +99,7 @@ module.exports = {
 	getListForEmployee : () => Model.find({}).select({
 		text      : 0,
 		comments  : 0
-	}),
+	}).sort({_id : -1}),
 	save : async (data, user) => {
 		const date = new Date();
 		const id   = data._id;
@@ -119,7 +121,6 @@ module.exports = {
 			});
 		}
 
-		// TODO: Back need check
 		return await module.exports.updateOne(data, {_id : id});
 
 	}

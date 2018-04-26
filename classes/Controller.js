@@ -41,7 +41,8 @@ class Controller {
 		} catch (e) {
 
 			if (e instanceof ErrorHttp) {
-				res.status(e.code).jwt(e.message);
+
+				this.sendErrorMessage(req, res, e.code, e.message);
 
 				if (e.error)
 					process.logger.error(e.error);
@@ -49,13 +50,23 @@ class Controller {
 				return false;
 			}
 
-			res.status(500).jwt('Internal Server Error');
+			this.sendErrorMessage(req, res);
 
 			process.logger.error(e);
 
 			return false;
 		}
 
+	}
+
+	static sendErrorMessage (req, res, code = 500, message = 'Internal Server Error' ) {
+		res.status(code);
+
+		if (req.tokenData && req.tokenData.email) {
+			res.jwt('Internal Server Error');
+		} else {
+			res.json({message});
+		}
 	}
 
 	static async access (req, res, groups) {
