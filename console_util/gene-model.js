@@ -28,7 +28,7 @@ let mongoose    = require('mongoose');
 let Schema      = mongoose.Schema;
 
 let ModelSchema = new Schema({
-	// For examle
+	// For example
 	// action : {
 	// 	type : String,
 	// 	required : true,
@@ -39,15 +39,22 @@ let ModelSchema = new Schema({
 	// 		message: \`\{VALUE\} not in \$\{JSON.stringify(Object.values(historyActions))\}\`
 	// 	},
 	// },
+	// created_by : {
+	// 	type : String,
+	// 	required : true,
+	// },
 	// created_at : {
 	// 	type : Date,
 	// 	default : Date.now,
 	// },
+	// updated_by : {
+	// 	type : String,
+	// 	required : true,
+	// },
 	// updated_at : {
 	// 	type : Date,
 	// 	default : Date.now
-	// }
-	
+	// },
 });
 
 let Model = mongoose.model('${name}', ModelSchema);
@@ -89,11 +96,11 @@ module.exports = {
 
 writter(`${__dirname}/../models/${drive}/${name}.js`, template).then(
 	() => {
-		log.success('Success generate migrate.');
+		log.success('Success generate model.');
 		process.exit();
 	},
 	e => {
-		log.error('Error generate migrate', e);
+		log.error('Error generate model', e);
 		process.exit();
 	}
 );

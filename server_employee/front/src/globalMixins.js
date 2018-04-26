@@ -4,12 +4,41 @@ const GlobalMixins = {
             computed : {
                 authPhrases : function () {
                     return this.$store.state.auth.phrases;
+                },
+                columnsInStore() {
+                    return this._store.columns
+                },
+                steepInStore() {
+                    return this._store.steep
+                },
+                pageSizeInStore() {
+                    return this._store.pageSize
+                },
+                countPagesInStore() {
+                    return this._store.countPages
+                },
+                currentPageInStore() {
+                    return this._store.currentPage
+                },
+                setCurrentPageInStore() {
+                    return this._store.setCurrentPage
+                },
+                loadPageInStore() {
+                    return this._store.loadPage
                 }
             },
 
             methods : {
-                __t : function (mess) {
-                    return this.authPhrases[mess] || mess;
+                __t : function (mess, insert = null) {
+                    mess = this.authPhrases[mess] || mess;
+
+                    if (mess && insert) {
+                        for (let label in insert) {
+                            mess = mess.replace(new RegExp(`{${label}}`, 'g'), insert[label]);
+                        }
+                    }
+
+                    return mess;
                 },
                 notifyError(mess, positionV = 'center') {
                     this.$notify({

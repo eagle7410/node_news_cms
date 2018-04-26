@@ -1,0 +1,131 @@
+// Libs
+let mongoose    = require('mongoose');
+let Schema      = mongoose.Schema;
+
+let {validatePass, createPass, comparePass} = require('../../utils/password');
+let ModelSchema = new Schema({
+	email: {
+		type: String, match: /.+@.*\..*/,
+		required: true,
+		unique: true,
+		index: true
+	},
+	hash: {
+		type: String,
+		required: true,
+		strict: true
+	},
+	salt: {
+		type: String
+	},
+	name: {
+		type: String,
+		default: ''
+	},
+	surname: {
+		type: String,
+		default: ''
+	},
+	groups: {
+		type: Array,
+		required: true,
+		default: ['client'],
+	},
+	is_active: {type: Boolean, default: false},
+	is_deleted: {type: Boolean, default: false},
+	confirm_at : Date,
+	confirm_by : String,
+	created_by : {
+		type : String,
+		required : true,
+	},
+	created_at : {
+		type : Date,
+		default : Date.now,
+	},
+	updated_by : {
+		type : String,
+		required : true,
+	},
+	updated_at : {
+		type : Date,
+		default : Date.now
+	},
+});
+
+ModelSchema
+	.virtual('password')
+	.set(function (pass) {
+
+		if (!validatePass(pass)) {
+			throw `Invalid password: ${pass}`;
+		}
+
+		let {hash, salt} = createPass(pass);
+
+		this.hash = hash;
+		this.salt = salt;
+	})
+	.get(function () {
+		return this.hash;
+	});
+
+let Model = mongoose.model('clients', ModelSchema);
+
+module.exports = {
+	create : data => new Promise((ok, bad) => {
+
+		let instance = new Model(data);
+
+		instance.save(err => {
+			if (err) return bad(err);
+			ok(instance);
+		});
+	}),
+	getByPage : async (page = 0, pageSize = 100, query = {}) => {
+		const countTotal = await Model.count(query);
+		const countPages = Math.ceil(countTotal / pageSize);
+
+		const docs = await Model.find(query)
+			.select({hash : 0, salt: 0})
+			.sort({_id : -1})
+			.skip(pageSize * page)
+			.limit(pageSize);
+
+		return {
+			countTotal,
+			countPages,
+			pageSize,
+			currentPage : page,
+			docs
+		};
+	},
+	updateAll: (changes, query = {}) => Model.update(query, {$set: changes}, {multi: true}),
+	updateOne: (changes, query = {}) => Model.update(query, {$set: changes}),
+	getAll : (query = {}) => Model.find(query),
+	clear  : (query = {}) => Model.remove(query),
+	save : async (data, user) => {
+		const date = new Date();
+		const id   = data._id;
+
+		let save = {
+			email      : data.email,
+			name       : data.name,
+			surname    : data.surname,
+			updated_by : user,
+			updated_at : date
+		};
+
+		if (!id) {
+			return await module.exports.create({
+				...save,
+				password   : data.password,
+				created_by : user,
+				created_at : date
+			});
+		}
+
+		return await module.exports.updateOne(save, {_id : id});
+
+	}
+};

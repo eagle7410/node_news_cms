@@ -20,6 +20,10 @@ class ErrorHttp {
 	static unauthorized (message = 'Bad authorized', error = null, code = 401) {
 		return new ErrorHttp({code, message}, maskCodes.notFound, error);
 	}
+
+	static badRequest (message = 'Bad request', error = null, code = 400) {
+		return new ErrorHttp({code, message}, maskCodes.notFound, error);
+	}
 }
 
 module.exports = ErrorHttp;

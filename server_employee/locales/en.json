@@ -72,6 +72,19 @@
 			"months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			"shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
 			"shorterMonths": ["J", "F", "M", "A", "M", "Ju", "Ju", "A", "Se", "O", "N", "D"]
-		}
+		},
+		"name":"Name",
+		"surname":"Surname",
+		"groups":"Groups",
+		"is_deleted":"Deleted",
+		"confirm_at":"Date Confirm",
+		"confirm_by":"Who confirm",
+		"client-add":"Adding client",
+		"Error in save client" : "Error in save client",
+		"Field `{field}`. Is required." : "Field `{field}`. Is required.",
+		"Field `{field}`. Must be email": "Field `{field}`. Must be email",
+		"password" : "Password",
+		"repeat"   : "Confirm" ,
+		"Bad confirmation password" : "Bad confirmation password"
 	}
 }

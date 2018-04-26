@@ -12,9 +12,9 @@ class Controller {
 	static async run(action, req, res, next) {
 
 		action = action.toLowerCase();
+		const method = `${(req.method || 'get').toLowerCase()}_${action.replace(/\-/g, '_')}`;
 
 		try {
-			const method = `${(req.method || 'get').toLowerCase()}_${action.replace(/\-/g, '_')}`;
 
 			if (typeof this[method] !== 'function') {
 
@@ -23,7 +23,7 @@ class Controller {
 				return next();
 			}
 
-			let groups = this.groups()[method];
+			let groups = this.getMethodGroups(method);
 
 			if (!groups) {
 
@@ -39,6 +39,17 @@ class Controller {
 			return true;
 
 		} catch (e) {
+
+			if (e.name === 'ValidationError') {
+
+				if (process.isDev) {
+					console.error(`Validation error in method '${method}', controller '${this.name}'`, e);
+				}
+
+				this.sendErrorMessage(req, res, 400, 'Validation error');
+
+				return false;
+			}
 
 			if (e instanceof ErrorHttp) {
 
@@ -59,13 +70,17 @@ class Controller {
 
 	}
 
+	static getMethodGroups (method) {
+		return this.groups()[method];
+	}
+
 	static sendErrorMessage (req, res, code = 500, message = 'Internal Server Error' ) {
 		res.status(code);
 
 		if (req.tokenData && req.tokenData.email) {
-			res.jwt('Internal Server Error');
+			res.jwt({code, message});
 		} else {
-			res.json({message});
+			res.json({code, message});
 		}
 	}
 

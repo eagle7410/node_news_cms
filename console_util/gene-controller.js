@@ -35,14 +35,27 @@ let template = `const Controller = require('../../classes/${extendClass}');\n
 // TODO: clear
 //const ErrorHttp  = require('../../classes/ErrorHttp');
 //const groups = require('../../constants/groups');
-//const MODEl   = require('../../models/${drive}/MODEl');
+//const Model   = require('../../models/${drive}/$MODEl$');
 
 class ${className} extends Controller {
 	// TODO: clear
 	// static groups () {
-	// 	return {get_users : [groups.admin]}
+	// 	return {
+	//		get_users : [
+	//			groups.admin
+	//		]
+	//	}
 	// };
-	// static async get_users (req, res) {}
+	// static async get_all_by_page(req, res) {
+	// 	let {page, pageSize} = req.decode;
+	//
+	// 	if (page === undefined || pageSize) {
+	// 		throw ErrorHttp.badRequest();
+	// 	}
+	//
+	// 	let data = await Model.getByPage(req.decode.page, req.decode.pageSize);
+	// 	res.jwt(data);
+	// }
 }
 
 module.exports = ${className};

@@ -1,28 +1,23 @@
 <template>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 col-lg-11">
-                    <material-table
-                        :title="__t('news')"
-                        :data="news"
-                        :columns="columns"
-                        :tools="tools"
-                        :custom="custom"
-                        :is-use-pagination="true"
-                        :steep="steep"
-                        :count-pages="countPages"
-                        :current-page="currentPage"
-                        :set-current-page="setCurrentPage"
-                        :load-page="loadPage"
-                    >
-                    </material-table>
-
-
-                </div>
+    <page>
+        <div class="row">
+            <div class="col-md-12 col-lg-11">
+                <material-table
+                    :title="__t('news')"
+                    :data="news"
+                    :columns="columnsInStore"
+                    :tools="tools"
+                    :custom="custom"
+                    :is-use-pagination="true"
+                    :steep="steepInStore"
+                    :count-pages="countPagesInStore"
+                    :current-page="currentPageInStore"
+                    :set-current-page="setCurrentPageInStore"
+                >
+                </material-table>
             </div>
         </div>
-    </div>
+    </page>
 </template>
 
 <script>
@@ -61,14 +56,11 @@
                     props: []
                 }
             },
-            _storeNews() {
+            _store() {
                 return this.$store.state.news
             },
-            columns() {
-                return this._storeNews.columns
-            },
             news() {
-                return this._storeNews.news.map(news => {
+                return this._store.news.map(news => {
                     news = {...news};
                     const dateFormat = 'd-m-y h:i';
                     news.created_at = new Date(news.created_at).toStringByFormat(dateFormat);
@@ -77,29 +69,10 @@
 
                     return news;
                 });
-            },
-            steep() {
-                return this._storeNews.steep
-            },
-            pageSize() {
-                return this._storeNews.pageSize
-            },
-            countPages() {
-                return this._storeNews.countPages
-            },
-            currentPage() {
-                return this._storeNews.currentPage
-            },
-            setCurrentPage() {
-                return this._storeNews.setCurrentPage
-            },
-            loadPage() {
-                return this._storeNews.loadPage
-            },
-
+            }
         },
-        async created() {
-            this.$store.dispatch(this.setCurrentPage, {
+        created() {
+            this.$store.dispatch(this.setCurrentPageInStore, {
                 page : 0,
                 app  : this
             });

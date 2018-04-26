@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 //modules
 import auth from './modules/auth'
 import clients from './modules/clients'
+import clientOne from './modules/clients-one'
 import app from './modules/app'
 import news from './modules/news'
 import newsOne from './modules/news-one'
@@ -15,7 +16,8 @@ const store = new Vuex.Store({
         clients,
         app,
         news,
-        newsOne
+        newsOne,
+        clientOne
     }
 });
 
