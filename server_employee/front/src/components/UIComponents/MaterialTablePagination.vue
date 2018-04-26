@@ -74,7 +74,7 @@
             start() {
                 let diff = this.currentPage - this.steep;
 
-                if (diff < 0) {
+                if (diff <= 0) {
                     return 0;
                 }
 

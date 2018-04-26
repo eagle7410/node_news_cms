@@ -85,6 +85,10 @@
 		"password" : "Пароль",
 		"repeat"   : "Подтверждение",
 		"Bad confirmation password" : "Плохо подтвердили пароль",
-		"The password must have a number and a capital letter and at least 8 characters (A,..z0..9)" : "Пароль должен иметь цифру и заглавную  букву и не меньше 8 символов (A,..z0..9)"
+		"The password must have a number and a capital letter and at least 8 characters (A,..z0..9)" : "Пароль должен иметь цифру и заглавную  букву и не меньше 8 символов (A,..z0..9)",
+		"Delete" : "Удалить",
+		"Restore" : "Востановить",
+		"Error delete/restore client" : "Ошибка удаления или востановления клиента",
+		"Client delete or restore ok" : "Удаление или востановление клиента успешно"
 	}
 }

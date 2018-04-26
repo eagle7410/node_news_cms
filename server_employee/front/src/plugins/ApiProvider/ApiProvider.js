@@ -52,10 +52,14 @@ class ApiProvider {
                 );
             }
 
+            if (res.code) {
+                throw new Error(`[code ${res.code}] ${res.message}`);
+            }
+
             return res;
 
         } catch (e) {
-            this.handleError(e);
+            ApiProvider.handleError(e);
         }
     }
     async _not_auth_send(method, controllerAction, data = {}) {

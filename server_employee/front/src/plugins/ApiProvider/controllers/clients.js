@@ -1,20 +1,17 @@
 import {get, save} from '../../../utils/req';
+const controller = 'clients';
 
 export default {
-    // async getNewsById(id) {
-    //     const result = await this._send(get, 'clients/one', {id});
-    //     return result.news ? result.news : result;
-    // },
     async clients(data = {}) {
-        const result = await this._send(get, 'clients/all_by_page', data);
-        return result.docs ? result : result.list;
+        return await this._send(get, controller + '/all_by_page', data);
     },
     async clientSave(client) {
-        const result = await this._send(save, 'clients/save', client);
-        return result;
+        return await this._send(save, controller + '/save', client);
     },
-    // async newsSetActive(id, is_active) {
-    //     const result = await this._send(save, 'news/set-active', {id, is_active});
-    //     return result;
-    // }
+    async clientSetDelete(id, is_deleted) {
+        return await this._send(save, controller + '/set-deleted', {id, is_deleted});
+    },
+    async clientActivate(id) {
+        return await this._send(save, controller + '/activate', {id});
+    }
 };

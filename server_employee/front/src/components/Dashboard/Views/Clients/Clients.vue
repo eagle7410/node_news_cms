@@ -25,6 +25,7 @@
     import FiltersClients from './FiltersClients'
     import ShowStatus from '../../../UIComponents/ShowStatus'
     import ClientsTools from './ClientsTools'
+    import ClientsActions from './ClientsActions'
 
     export default {
         name: 'Clients',
@@ -48,9 +49,9 @@
                             store : 'is_deleted'
                         }
                     },
-                    // actions : {
-                    //     component: NewsActions
-                    // }
+                    actions : {
+                        component: ClientsActions
+                    }
                 }
             }
         },

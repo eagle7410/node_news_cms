@@ -14,7 +14,7 @@ import NewsAdd from 'src/components/Dashboard/Views/News/NewsAdd.vue'
 import NewsEdit from 'src/components/Dashboard/Views/News/NewsEdit.vue'
 
 import {paths} from './paths';
-
+// TODO: Back filter by group
 const routes = [
     {
         path: '/',

@@ -25,11 +25,11 @@ export default {
         loadPage: -1,
     },
     mutations: {
-        updateClients (state, news) {
-            for (let index in state.news) {
-                if (state.news[index]._id === news._id) {
-                    state.news[index] = news;
-                    state.news = [].concat(state.news);
+        updateClient (state, client) {
+            for (let index in state.clients) {
+                if (state.clients[index]._id === client._id) {
+                    state.clients[index] = client;
+                    state.clients = [].concat(state.clients);
                     break;
                 }
             }

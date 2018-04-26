@@ -93,7 +93,6 @@ module.exports = {
 		const count = await Model.count(query);
 		return !!count;
 	},
-	// TODO: Back need check id to ObjectId
 	existsId : (id) => module.exports.exists({_id: id}),
 	clear  : (query = {}) => Model.remove(query),
 	getListForEmployee : () => Model.find({}).select({

@@ -87,5 +87,9 @@
 		"repeat"   : "Confirm" ,
 		"Bad confirmation password" : "Bad confirmation password",
 		"The password must have a number and a capital letter and at least 8 characters (A,..z0..9)" : "The password must have a number and a capital letter and at least 8 characters (A,..z0..9)"
+		"Delete" : "Delete",
+		"Restore" : "Restore",
+		"Error delete/restore client" : "Error delete/restore client",
+		"Client delete or restore ok" : "Client delete or restore ok"
 	}
 }
