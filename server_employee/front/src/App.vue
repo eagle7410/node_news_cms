@@ -10,7 +10,6 @@
 </template>
 
 <script>
-    import {init} from './apis/app';
     import Loading from './components/Tools/Loading';
 
     export default {
@@ -37,15 +36,18 @@
             }
         },
 
-        created() {
+        async created() {
+            try {
+                this.$api.setStore(this._storeAuth, this.$store.commit);
 
-            this.$api.setStore(this._storeAuth, this.$store.commit);
+                let res = await this.$api.init();
 
-            init().then(res => {
                 this.$store.commit('setPhrases', res.phrases);
                 this.$store.commit('setLoad', false);
-            })
-                .catch(this._error);
+
+            } catch (e) {
+                this._error(e);
+            }
         }
     }
 </script>

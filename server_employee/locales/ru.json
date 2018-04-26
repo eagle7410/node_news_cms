@@ -25,7 +25,7 @@
 		"dashboard": "Рабочий стол",
 		"profile": "Профиль",
 		"employees": "Работники",
-		"clients": "Клтенты",
+		"clients": "Клиенты",
 		"news": "Новости",
 		"title": "Заголовок",
 		"title (max length 250 symbols)": "Заголовок (максимальная длина 250 символов)",
@@ -81,9 +81,10 @@
 		"confirm_by":"Кто подтвердил",
 		"client-add":"Добавить Клиента",
 		"Field `{field}`. Is required." : "Поле `{field}`. Необходимо.",
-		"Field `{field}`. Must be email": "Поле `{field}`. Должно быть электронной почтой"
+		"Field `{field}`. Must be email": "Поле `{field}`. Должно быть электронной почтой",
 		"password" : "Пароль",
 		"repeat"   : "Подтверждение",
-		"Bad confirmation password" : "Плохо подтвердили пароль"
+		"Bad confirmation password" : "Плохо подтвердили пароль",
+		"The password must have a number and a capital letter and at least 8 characters (A,..z0..9)" : "Пароль должен иметь цифру и заглавную  букву и не меньше 8 символов (A,..z0..9)"
 	}
 }

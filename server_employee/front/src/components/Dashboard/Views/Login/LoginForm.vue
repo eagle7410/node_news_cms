@@ -35,7 +35,6 @@
 </template>
 <script>
     import Vue from 'vue'
-    import {auth} from '../../../../apis/app'
     import {fullPath} from '../../../../routes/paths'
 
     export default {
@@ -66,12 +65,12 @@
         methods: {
             _error(mess) {
                 if (typeof mess !== 'string') {
-                    return console.log('Login unknow error', mess);
+                    return console.error('Login unknow error', mess);
                 }
 
                 this.notifyError(mess);
             },
-            singIn() {
+            async singIn() {
                 if (!this.email) {
                     return this._error('Email is require')
                 }
@@ -80,22 +79,25 @@
                     return this._error('Password is require')
                 }
 
-                auth({email: this.email, password: this.pass})
-                    .then(res => {
-                        if (res.code) {
-                            return this._error(res.message);
-                        }
+                try {
+                    let res = await this.$api.auth({email: this.email, password: this.pass});
 
-                        this.$store.commit('setToken', res.token);
-                        this.$store.commit('setProfile', res.user);
-                        this.$store.commit('setAuthPhrases', res.phrases);
-                        this.$root.sidebarLinks = res.leftMenu || [];
+                    if (res.code) {
+                        return this._error(res.message);
+                    }
 
-                        Vue.prototype.$material.locale = this._storeAuth.phrases.locale;
+                    this.$store.commit('setToken', res.token);
+                    this.$store.commit('setProfile', res.user);
+                    this.$store.commit('setAuthPhrases', res.phrases);
+                    this.$root.sidebarLinks = res.leftMenu || [];
 
-                        this.$router.push(fullPath.profile);
-                    })
-                    .catch(this._error)
+                    Vue.prototype.$material.locale = this._storeAuth.phrases.locale;
+
+                    this.$router.push(fullPath.profile);
+
+                } catch (e) {
+                    this._error(e);
+                }
             }
         }
     }

@@ -28,6 +28,7 @@
         "no-undef": "warn",
         "no-unreachable": "warn",
         "no-unused-vars": "warn",
+        "no-return-await" : 0,
         "space-before-function-paren": 0,
         "comma-dangle": 0,
         "key-spacing": 0,

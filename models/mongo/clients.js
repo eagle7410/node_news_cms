@@ -6,6 +6,7 @@ let {validatePass, createPass, comparePass} = require('../../utils/password');
 let ModelSchema = new Schema({
 	email: {
 		type: String, match: /.+@.*\..*/,
+		lowercase: true,
 		required: true,
 		unique: true,
 		index: true

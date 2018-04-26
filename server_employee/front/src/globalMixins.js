@@ -32,7 +32,7 @@ const GlobalMixins = {
                 __t : function (mess, insert = null) {
                     mess = this.authPhrases[mess] || mess;
 
-                    if (mess && insert) {
+                    if (insert) {
                         for (let label in insert) {
                             mess = mess.replace(new RegExp(`{${label}}`, 'g'), insert[label]);
                         }
@@ -56,15 +56,6 @@ const GlobalMixins = {
                         type: 'success'
                     })
                 }
-            },
-
-            async mounted() {
-                import('jquery').then(async ($) => {
-                        window.jQuery = window.$ = $
-                        await import('bootstrap-material-design')
-                        $.material.init()
-                    }
-                )
             }
         })
     }

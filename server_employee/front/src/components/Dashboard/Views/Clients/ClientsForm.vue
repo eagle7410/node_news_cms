@@ -21,7 +21,7 @@
 
         <fg-input type="password"
                   :label="__t('password')"
-                  :placeholder="__t('password')"
+                  :placeholder="__t('The password must have a number and a capital letter and at least 8 characters (A,..z0..9)')"
                   v-if="!_id"
                   v-model="password"
         ></fg-input>
@@ -41,6 +41,16 @@
 <script>
     import {isEmail} from '../../../../utils/validators'
     import {fullPath} from '../../../../routes/paths'
+
+    let utilPass;
+
+    if (process.env.NODE_ENV === 'development') {
+        utilPass = require('../../../../../../../utils/password')
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+        utilPass = require('../../../../utils/password')
+    }
 
     export default {
         name: 'NewsForm',
@@ -125,7 +135,10 @@
                         return false;
                     }
 
-                    // TODO: Back COOL CHECK PASS
+                    if (!utilPass.validatePass(this.password)) {
+                        this.notifyError(this.__t('The password must have a number and a capital letter and at least 8 characters (A,..z0..9)'));
+                        return false;
+                    }
 
                     if (this.repeat !== this.password) {
                         this.notifyError(this.__t('Bad confirmation password'));
@@ -137,10 +150,12 @@
 
                 return true;
             },
+
             _noticeAboutErrorSave(data) {
                 console.error('Error save client ', data);
                 this.notifyError(this.__t('Error in save client'));
             },
+
             async save() {
                 if (!this._validate()) {
                     return false;

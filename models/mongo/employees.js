@@ -8,6 +8,7 @@ let {employee} = require('../../constants/groups');
 let ModelSchema = new Schema({
 	email: {
 		type: String, match: /.+@.*\..*/,
+		lowercase: true,
 		required: true,
 		unique: true,
 		index: true

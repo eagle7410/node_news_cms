@@ -85,6 +85,7 @@
 		"Field `{field}`. Must be email": "Field `{field}`. Must be email",
 		"password" : "Password",
 		"repeat"   : "Confirm" ,
-		"Bad confirmation password" : "Bad confirmation password"
+		"Bad confirmation password" : "Bad confirmation password",
+		"The password must have a number and a capital letter and at least 8 characters (A,..z0..9)" : "The password must have a number and a capital letter and at least 8 characters (A,..z0..9)"
 	}
 }

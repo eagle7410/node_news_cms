@@ -1,29 +1,14 @@
-import {auth} from '../../apis/app';
-import {port} from '../../../../../configs/employee';
 import controllers from './controllers'
 let urlBase;
 
 if (process.env.NODE_ENV === 'development') {
+    const {port} = require('../../../../../configs/employee');
     urlBase = `http://localhost:${port}/`;
 }
 
 if (process.env.NODE_ENV === 'production') {
     urlBase = `/`;
 }
-
-/**
- *
- * @param {*} e
- */
-const handelError = (e) => {
-    console.error('AuthProvider err', e);
-
-    if (e.responseJSON) {
-        throw e.responseJSON.error;
-    }
-
-    throw e
-};
 
 class ApiProvider {
     constructor() {
@@ -50,7 +35,7 @@ class ApiProvider {
             );
 
             if (res.name === 'TokenExpiredError') {
-                let authData = await auth({
+                let authData = await this.auth({
                     email: this._store.email,
                     password: this._store.password,
                     is_update: true
@@ -70,8 +55,25 @@ class ApiProvider {
             return res;
 
         } catch (e) {
-            handelError(e);
+            this.handleError(e);
         }
+    }
+    async _not_auth_send(method, controllerAction, data = {}) {
+        try {
+            return await method(urlBase + controllerAction, data );
+        } catch (e) {
+            ApiProvider.handleError(e);
+        }
+    }
+
+    static handleError (e) {
+        console.error('AuthProvider err', e);
+
+        if (e.responseJSON) {
+            throw e.responseJSON.error;
+        }
+
+        throw e
     }
 }
 
