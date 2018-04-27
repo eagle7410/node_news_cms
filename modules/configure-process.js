@@ -6,7 +6,8 @@ module.exports = (config) => {
 		jwtPrivate,
 		isDev,
 		port,
-		name
+		name,
+		theme
 	} =  require(`../configs/${config}.json`);
 
 	Object.assign(process, {
@@ -16,6 +17,7 @@ module.exports = (config) => {
 		jwtPrivate,
 		jwtPublic,
 		isDev,
-		drive
+		drive,
+		theme
 	});
 };

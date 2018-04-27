@@ -60,9 +60,9 @@ app.use(devMiddleware)
 // compilation error display
 app.use(hotMiddleware)
 
-// serve pure static assets
+// serve pure assets assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+app.use(staticPath, express.assets('./assets'))
 
 var uri = 'http://localhost:' + port
 

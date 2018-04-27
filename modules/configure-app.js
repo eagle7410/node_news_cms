@@ -2,13 +2,26 @@ const fs         = require('fs');
 const morgan     = require('morgan');
 const bodyParser = require('body-parser');
 
-module.exports = (app, params) => {
+module.exports = (app, {express, assets, views, router}) => {
 
 	//Attach middleware mask php
 	app.use(require('../middleware/mask-php'));
 
-	// Set static folder
-	app.use(params.express.static(params.static));
+	// Set assets folder
+	app.use('/static', express.static(assets));
+
+	// Set views
+	if (views) {
+		const {dir, engine} = views;
+
+		if (!dir || !engine) {
+			throw new Error('Bad set views params');
+		}
+
+		app.set('view engine', engine);
+		app.set("views", dir);
+	}
+
 
 	//Attach middleware
 	// parse application/x-www-form-urlencoded
@@ -29,13 +42,8 @@ module.exports = (app, params) => {
 	//Attach middleware jwt-checke
 	app.use(require('../middleware/jwt-checker'));
 
-	// TODO: Back
-	app.get('/', function (req, res) {
-		res.send('hello, world!')
-	});
-
 	//Add router
-	app.use(params.router);
+	app.use(router);
 
 	app.use((req, res) => res.status(404).json({message: 'Not found'}));
 
