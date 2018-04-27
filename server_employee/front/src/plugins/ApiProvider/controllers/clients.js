@@ -13,5 +13,8 @@ export default {
     },
     async clientActivate(id) {
         return await this._send(save, controller + '/activate', {id});
+    },
+    async getClientById(id) {
+        return await this._send(get, controller + '/one', {id});
     }
 };

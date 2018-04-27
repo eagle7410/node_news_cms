@@ -52,6 +52,16 @@ let ModelSchema = new Schema({
 		type : Date,
 		default : Date.now
 	},
+}, {
+	toObject: {
+		transform : (doc, ret) => {
+			delete ret.hash;
+			delete ret.salt;
+			delete ret.__v;
+
+			return ret;
+		}
+	}
 });
 
 ModelSchema

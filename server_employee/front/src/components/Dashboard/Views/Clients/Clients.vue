@@ -7,6 +7,7 @@
                     :data="clients"
                     :columns="columnsInStore"
                     :tools="tools"
+                    :filters="filters"
                     :custom="custom"
                     :is-use-pagination="true"
                     :steep="steepInStore"
@@ -22,20 +23,22 @@
 
 <script>
     import MaterialTable from '../../../UIComponents/MaterialTable'
-    import FiltersClients from './FiltersClients'
     import ShowStatus from '../../../UIComponents/ShowStatus'
     import ClientsTools from './ClientsTools'
     import ClientsActions from './ClientsActions'
+    import ClientsFilters from './ClientsFilters'
 
     export default {
         name: 'Clients',
         components: {
             MaterialTable,
-            FiltersClients,
             ClientsTools,
         },
         data() {
             return {
+                filters : {
+                    component : ClientsFilters
+                },
                 custom: {
                     is_active : {
                         component: ShowStatus,

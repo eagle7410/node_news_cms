@@ -1,36 +1,49 @@
 <template>
     <div class="client-form">
+        <div class="row" v-if="!_id">
+            <div class="col-lg-6">
+                <fg-input type="text"
+                          :label="__t('email')"
+                          :placeholder="__t('email')"
+                          v-model="email"
+                ></fg-input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <fg-input type="text"
+                          :label="__t('name')"
+                          :placeholder="__t('name')"
+                          v-model="name"
+                ></fg-input>
+            </div>
+            <div class="col-lg-6">
+                <fg-input type="text"
+                          :label="__t('surname')"
+                          :placeholder="__t('surname')"
+                          v-model="surname"
+                ></fg-input>
+            </div>
+        </div>
 
-        <fg-input type="text"
-                  :label="__t('email')"
-                  :placeholder="__t('email')"
-                  v-model="email"
-        ></fg-input>
-
-        <fg-input type="text"
-                  :label="__t('name')"
-                  :placeholder="__t('name')"
-                  v-model="name"
-        ></fg-input>
-
-        <fg-input type="text"
-                  :label="__t('surname')"
-                  :placeholder="__t('surname')"
-                  v-model="surname"
-        ></fg-input>
-
-        <fg-input type="password"
-                  :label="__t('password')"
-                  :placeholder="__t('The password must have a number and a capital letter and at least 8 characters (A,..z0..9)')"
-                  v-if="!_id"
-                  v-model="password"
-        ></fg-input>
-        <fg-input type="password"
-                  :label="__t('repeat')"
-                  :placeholder="__t('repeat')"
-                  v-if="!_id"
-                  v-model="repeat"
-        ></fg-input>
+        <div class="row">
+            <div class="col-lg-6">
+                <fg-input type="password"
+                          :label="__t('password')"
+                          :placeholder="__t('The password must have a number and a capital letter and at least 8 characters (A,..z0..9)')"
+                          v-if="!_id"
+                          v-model="password"
+                ></fg-input>
+            </div>
+            <div class="col-lg-6">
+                <fg-input type="password"
+                          :label="__t('repeat')"
+                          :placeholder="__t('repeat')"
+                          v-if="!_id"
+                          v-model="repeat"
+                ></fg-input>
+            </div>
+        </div>
 
         <button type="submit" @click.prevent="save" class="btn btn-primary pull-right">
             {{__t('Save')}}
@@ -58,13 +71,8 @@
             _store() {
                 return this.$store.state.clientOne;
             },
-            email: {
-                get: function () {
-                    return this._store.email
-                },
-                set: function (value) {
-                    this.$store.commit('setEmail', value);
-                }
+            email: function () {
+                return this._store.email
             },
             name: {
                 get: function () {
@@ -182,7 +190,8 @@
         },
         data() {
             return {
-                formData: {}
+                formData: {},
+                movies: []
             }
         },
     }

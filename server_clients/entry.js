@@ -18,8 +18,6 @@ require('../modules/configure-app')(app, {
 	express,
 });
 
-
-
 http.run();
 
 module.exports = http;

@@ -86,10 +86,23 @@
 		"password" : "Password",
 		"repeat"   : "Confirm" ,
 		"Bad confirmation password" : "Bad confirmation password",
-		"The password must have a number and a capital letter and at least 8 characters (A,..z0..9)" : "The password must have a number and a capital letter and at least 8 characters (A,..z0..9)"
+		"The password must have a number and a capital letter and at least 8 characters (A,..z0..9)" : "The password must have a number and a capital letter and at least 8 characters (A,..z0..9)",
 		"Delete" : "Delete",
 		"Restore" : "Restore",
 		"Error delete/restore client" : "Error delete/restore client",
-		"Client delete or restore ok" : "Client delete or restore ok"
+		"Client delete or restore ok" : "Client delete or restore ok",
+		"Client is active" : "Client is active",
+		"Error activate client" : "Error activate client",
+		"clients-edit" : "Edit client",
+		"Error load client" : "Error load client",
+		"Show filters" : "Show filters",
+		"Hide filters" : "Hide filters",
+		"By activation" : "By activation",
+		"By remove" : "By remove",
+		"isActivate" : "Active",
+		"isNoActivate" : "Неактивные",
+		"isDeleted" : "Deleted",
+		"isNoDeleted" : "Not deleted",
+		"all" : "All"
 	}
 }

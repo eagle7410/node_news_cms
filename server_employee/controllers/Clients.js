@@ -2,7 +2,7 @@ const Controller = require('../../classes/ControllerEmployee');
 const ErrorHttp = require('../../classes/ErrorHttp');
 const groups = require('../../constants/groups');
 const Model = require('../../models/mongo/clients');
-// TODO: Back more DRY
+
 class Clients extends Controller {
 	static getMethodGroups () {
 		return [
@@ -41,12 +41,7 @@ class Clients extends Controller {
 
 		await client.save();
 
-		let send = client.toObject();
-
-		delete send.hash;
-		delete send.salt;
-
-		res.jwt({client: send});
+		res.jwt({client: client.toObject()});
 	}
 
 	static async post_activate(req, res) {
@@ -58,12 +53,7 @@ class Clients extends Controller {
 		}
 
 		if (client.is_active) {
-			let send = client.toObject();
-
-			delete send.hash;
-			delete send.salt;
-
-			return res.jwt({client: send});
+			return res.jwt({client: client.toObject()});
 		}
 
 		let date = new Date();
@@ -76,12 +66,17 @@ class Clients extends Controller {
 
 		await client.save();
 
-		let send = client.toObject();
+		res.jwt({client: client.toObject()});
+	}
 
-		delete send.hash;
-		delete send.salt;
+	static async get_one(req, res) {
+		let client = await Model.getById(req.decode.id);
 
-		res.jwt({client: send});
+		if (!client) {
+			throw ErrorHttp.notFound();
+		}
+
+		res.jwt({client: client.toObject()});
 	}
 }
 

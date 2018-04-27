@@ -60,15 +60,14 @@
                 try {
                     let response = await this.$api.clientActivate(this.entry._id);
                     this.$store.commit('updateClient', response.client);
-                    // TODO: Back translate
-                    this.notifyOk(this.__t('Client is activate'));
+                    this.notifyOk(this.__t('Client is active'));
 
                 } catch (e) {
                     this.handlerError(e, this.__t('Error activate client'))
                 }
             },
             edit() {
-                this.$router.push({path: fullPath.newsEdit, query: {id: this.entry._id}})
+                this.$router.push({path: fullPath.clientEdit, query: {id: this.entry._id}})
             },
         },
     }

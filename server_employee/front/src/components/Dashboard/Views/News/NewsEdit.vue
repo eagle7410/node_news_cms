@@ -44,6 +44,7 @@
             } catch (e) {
                 console.error(`Error get news by id -> ${id}`, e);
                 this.notifyError(this.__t('Error load news'));
+                this.$router.push(fullPath.news);
             }
 
         }

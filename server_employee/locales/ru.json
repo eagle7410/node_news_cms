@@ -11,7 +11,7 @@
 		"dashboard": "Рабочий стол",
 		"profile": "Профиль",
 		"employees": "Работники",
-		"clients": "Клтенты",
+		"clients": "Клиенты",
 		"news": "Новости"
 	},
 	"dash": {
@@ -80,6 +80,7 @@
 		"confirm_at":"Дата подтверждения",
 		"confirm_by":"Кто подтвердил",
 		"client-add":"Добавить Клиента",
+		"Error in save client" : "Ошибка при сохранении клиента",
 		"Field `{field}`. Is required." : "Поле `{field}`. Необходимо.",
 		"Field `{field}`. Must be email": "Поле `{field}`. Должно быть электронной почтой",
 		"password" : "Пароль",
@@ -89,6 +90,19 @@
 		"Delete" : "Удалить",
 		"Restore" : "Востановить",
 		"Error delete/restore client" : "Ошибка удаления или востановления клиента",
-		"Client delete or restore ok" : "Удаление или востановление клиента успешно"
+		"Client delete or restore ok" : "Удаление или востановление клиента успешно",
+		"Client is active" : "Клиент активен",
+		"Error activate client" : "Ошибка активации клиента",
+ 		"clients-edit" : "Редактировать клиента",
+		"Error load client" : "Ошибка загрузки клиента",
+		"Show filters" : "Показать фильтры",
+		"Hide filters" : "Скрыть фильтры",
+		"By activation" : "По активации",
+		"By remove" : "По удалению",
+		"isActivate" : "Активные",
+		"isNoActivate" : "Неактивные",
+		"isDeleted" : "Удаленные",
+		"isNoDeleted" : "Не удаленные",
+		"all" : "Все"
 	}
 }

@@ -1089,11 +1089,34 @@
     max-height: 160px;
     z-index: 150;
 }
-.md-theme-default {
-    background: #fff;
+
+.filters_block {
+    padding-top: 15px;
+}
+
+.filters_block {
+    color: #FFF !important;
+}
+
+.md-datepicker-dialog,
+.md-list-item{
+    background: #fff !important;
 }
 
 .md-datepicker-header {
     background: linear-gradient(60deg, #ab47bc, #8e24aa);
     color: #fff;
 }
+
+.md-checkbox .md-checkbox-container  {
+    border-color: #ccc !important;
+}
+.md-checkbox-container::after,.md-checkbox-container::before {
+    border-color: #8e24aa !important;
+}
+.filters_label {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+

@@ -29,7 +29,6 @@ class News extends Controller {
 
 	static async get_one_news (req, res) {
 		let news = await ModelNews.getById(req.decode.id);
-
 		if (!news) {
 			throw ErrorHttp.notFound();
 		}

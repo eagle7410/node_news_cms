@@ -11,7 +11,7 @@ require('../modules/configure-transler')(app, __dirname + '/locales');
 require(`../models/${process.drive}/connect`);
 
 require('../modules/configure-app')(app, {
-	assets : __dirname + '/assets',
+	assets : __dirname + '/static',
 	router : require('./router')(),
 	express,
 });

@@ -12,7 +12,7 @@
                 <p class="category">{{subTitle}}</p>
                 <component v-if="filters"
                            :is="filters.component"
-                           v-bind="filters.props"
+                           v-bind="filters.props || {}"
                 ></component>
             </slot>
         </div>
