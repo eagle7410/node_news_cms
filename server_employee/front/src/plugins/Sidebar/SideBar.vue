@@ -132,7 +132,7 @@
             }
         },
         data() {
-            const bgImage = 'static/img/sidebar-1.jpg';
+            const bgImage = 'assets/img/sidebar-1.jpg';
 
             return {
                 backgroundImage : bgImage,

@@ -43,7 +43,7 @@
     font-weight: 400;
   }
 
-  // smaller focused or static size
+  // smaller focused or assets size
   label.control-label {
     font-size: $static-font-size;
     line-height: $static-line-height;
@@ -112,7 +112,7 @@
         }
       }
 
-      // static, focused, or autofill floating labels
+      // assets, focused, or autofill floating labels
       &.label-static,
       &.label-floating.is-focused,
       &.label-floating:not(.is-empty) {

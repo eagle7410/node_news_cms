@@ -9,6 +9,7 @@ const {drive} = require('../configs/database');
 // Get params
 let name;
 let isEmployee = false;
+let isWithoutView = false;
 let to1Up = ((val) => val.charAt(0).toUpperCase() + val.slice(1).toLowerCase());
 process.argv.map(arg => {
 
@@ -18,6 +19,10 @@ process.argv.map(arg => {
 
 	if (arg.includes('-a')) {
 		isEmployee = true;
+	}
+
+	if (arg.includes('-nv')) {
+		isWithoutView = true;
 	}
 });
 
@@ -73,6 +78,10 @@ const createFileAndAddToIndex = async () => {
 		`const ${className} = require('./${className}');\n` +
 		index.toString().replace('};', `\t${className},\n};`)
 	);
+
+	if (!isEmployee && !isWithoutView) {
+		fs.mkdirSync(`${basePath}/../views/${className}`);
+	}
 };
 
 createFileAndAddToIndex().then(

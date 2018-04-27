@@ -1,0 +1,14 @@
+{
+	"port"  : 3539,
+	"isDev" : true,
+	"jwtPublic": {
+		"key"    : "PUBLIC KEY VALUE",
+		"expire" : 300
+	},
+	"jwtPrivate": {
+		"key"    : "PRIVATE KEY VALUE",
+		"expire" : "3h"
+	},
+	"name": "Clients",
+	"theme" : "source_x"
+}
