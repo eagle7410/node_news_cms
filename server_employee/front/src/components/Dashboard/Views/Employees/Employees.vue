@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-12 col-lg-11">
                 <material-table
-                    :title="__t('clients')"
-                    :data="clients"
+                    :title="__t('employees')"
+                    :data="list"
                     :columns="columnsInStore"
                     :tools="tools"
                     :filters="filters"
@@ -24,20 +24,21 @@
 <script>
     import MaterialTable from '../../../UIComponents/MaterialTable'
     import ShowStatus from '../../../UIComponents/ShowStatus'
-    import ClientsTools from './ClientsTools'
-    import ClientsActions from './ClientsActions'
-    import ClientsFilters from './ClientsFilters'
+    import EmployeesTools from './EmployeesTools'
+    import EmployeesActions from './EmployeesActions'
+    import EmployeesFilters from './EmployeesFilters'
+    import EmployeesShowGroup from './EmployeesShowGroup'
 
     export default {
         name: 'Clients',
         components: {
             MaterialTable,
-            ClientsTools,
+            EmployeesTools,
         },
         data() {
             return {
                 filters : {
-                    component : ClientsFilters
+                    component : EmployeesFilters
                 },
                 custom: {
                     is_active : {
@@ -46,14 +47,11 @@
                             store : 'is_active'
                         }
                     },
-                    is_deleted : {
-                        component: ShowStatus,
-                        props : {
-                            store : 'is_deleted'
-                        }
+                    groups : {
+                        component : EmployeesShowGroup
                     },
                     actions : {
-                        component: ClientsActions
+                        component: EmployeesActions
                     }
                 }
             }
@@ -61,26 +59,22 @@
         computed: {
             tools() {
                 return {
-                    component: ClientsTools,
+                    component: EmployeesTools,
                     props: []
                 }
             },
             _store() {
-                return this.$store.state.clients;
+                return this.$store.state.Employees;
             },
 
-            clients() {
-                return this._store.clients.map(client => {
-                    client = {...client};
+            list() {
+                return this._store.list.map(row => {
+                    row = {...row};
                     const dateFormat = 'd-m-y h:i';
-                    client.created_at = new Date(client.created_at).toStringByFormat(dateFormat);
-                    client.updated_at = new Date(client.updated_at).toStringByFormat(dateFormat);
+                    row.created_at = new Date(row.created_at).toStringByFormat(dateFormat);
+                    row.updated_at = new Date(row.updated_at).toStringByFormat(dateFormat);
 
-                    if (client.confirm_at) {
-                        client.confirm_at = new Date(client.confirm_at).toStringByFormat(dateFormat);
-                    }
-
-                    return client;
+                    return row;
                 });
             }
         },

@@ -43,6 +43,24 @@ let ModelSchema = new Schema({
 	updated_at: {
 		type: Date,
 		default: Date.now
+	},
+	created_by: {
+		type: String,
+		default: 'Default',
+	},
+	updated_by: {
+		type: String,
+		default: 'Default'
+	}
+}, {
+	toObject: {
+		transform : (doc, ret) => {
+			delete ret.hash;
+			delete ret.salt;
+			delete ret.__v;
+
+			return ret;
+		}
 	}
 });
 
@@ -86,13 +104,15 @@ module.exports = {
 	}),
 	getAll: (query = {}) => Model.find(query),
 	getOne: (query = {}) => Model.findOne(query),
+	updateAll: (changes, query = {}) => Model.update(query, {$set: changes}, {multi: true}),
+	updateOne: (changes, query = {}) => Model.update(query, {$set: changes}),
 	clear: (query = {}) => Model.remove(query),
 	getByPage : async (page = 0, pageSize = 100, query = {}) => {
 		const countTotal = await Model.count(query);
 		const countPages = Math.ceil(countTotal / pageSize);
-
 		const docs = await Model.find(query)
 			.skip(pageSize * page)
+			.select({hash : 0, salt: 0, __v: 0})
 			.limit(pageSize);
 
 		return {
@@ -103,6 +123,7 @@ module.exports = {
 			docs
 		};
 	},
+	getById : (id) => Model.findById(id),
 	getByEmailAndCheck: async (email, pass) => {
 		let user = await Model.findOne({
 			email,
@@ -127,5 +148,42 @@ module.exports = {
 		surname,
 		created_at,
 		updated_at
-	})
+	}),
+	save : async (data, user) => {
+
+		if (data instanceof Model) {
+			data = data.toObject()
+		}
+
+		const date = new Date();
+		const id   = data._id;
+
+		let save = {
+			email      : data.email,
+			name       : data.name,
+			surname    : data.surname,
+			groups     : data.groups,
+			updated_by : user,
+			updated_at : date
+		};
+
+		if (data.is_active !== undefined) {
+			save.is_active = data.is_active;
+		}
+		if (data.is_deleted !== undefined) {
+			save.is_deleted = data.is_deleted;
+		}
+
+		if (!id) {
+			return await module.exports.create({
+				...save,
+				password   : data.password,
+				created_by : user,
+				created_at : date
+			});
+		}
+
+		return await module.exports.updateOne(save, {_id : id});
+
+	}
 };

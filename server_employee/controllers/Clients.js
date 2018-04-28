@@ -17,6 +17,7 @@ class Clients extends Controller {
 		if (page === undefined || !pageSize) {
 			throw ErrorHttp.badRequest();
 		}
+
 		let filters = {};
 
 		if (~is_active) {

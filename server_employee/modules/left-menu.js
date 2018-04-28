@@ -16,7 +16,7 @@ const store = [
 	{
 		name: 'employees',
 		icon: 'fa fa-user-secret',
-		path: '/admin/users-admin',
+		path: '/admin/employees',
 		groups: [groups.admin]
 	},
 	{

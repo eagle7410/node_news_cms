@@ -3,7 +3,7 @@ const baseLogin = '/';
 
 /**
  *
- * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string}}
+ * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string, Employees: string, EmployeesEdit: string, EmployeesAdd: string}}
  */
 const paths = {
     login: '',
@@ -16,12 +16,15 @@ const paths = {
     clientEdit: 'client-edit',
     newsEdit: 'news-edit',
     newsAdd: 'news-add',
-    news: 'news'
+    news: 'news',
+    Employees : 'employees',
+    EmployeesEdit : 'Employee-edit',
+    EmployeesAdd : 'Employee-add'
 };
 
 /**
  *
- * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string}}
+ * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string, Employees: string, EmployeesEdit: string, EmployeesAdd: string}}
  */
 let fullPath = {};
 

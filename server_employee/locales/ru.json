@@ -104,6 +104,20 @@
 		"isDeleted" : "Удаленные",
 		"isNoDeleted" : "Не удаленные",
 		"all" : "Все",
-		"Apply" : "Применить"
+		"Apply" : "Применить",
+		"employees-add" : "Добавить работника",
+		"employees-edit" : "Редактировать работника",
+		"Error activate Employees" : "Ошибка активации работника",
+		"admin" :"Админ",
+		"moderator" :"Модератор",
+		"content_manager" :"Контент менеджер",
+		"content" :"Контент менеджер",
+		"employee" :"Наемный рабочий",
+		"root" :"Супер администратор",
+		"No set groups." : "Не установлены группы.",
+		"Error in save employees" : "Ошибка сохранения работника",
+		"Employees is active/inactive" : "Работник активен/неактивен",
+		"Employee delete or restore ok" : "Удаление или востановление работника успешно",
+		"Error delete/restore" : "Ошибка удаления или востановления"
 	}
 }

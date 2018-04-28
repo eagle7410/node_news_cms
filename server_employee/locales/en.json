@@ -104,6 +104,20 @@
 		"isDeleted" : "Deleted",
 		"isNoDeleted" : "Not deleted",
 		"all" : "All",
-		"Apply" : "Apply"
+		"Apply" : "Apply",
+		"employees-add" : "Add employee",
+		"employees-edit" : "Add employee",
+		"Error activate Employees" : "Error activate employee",
+		"admin" :"Admin",
+		"moderator" :"Moderator",
+		"content_manager" :"Content manager",
+		"content" :"Content manager",
+		"employee" :"Employee",
+		"root" :"Super administrator",
+		"No set groups." : "No set groups.",
+		"Error in save employees" : "Error in save employee",
+		"Employees is active/inactive" : "Employees is active/inactive",
+		"Employee delete or restore ok" : "Employee delete or restore ok",
+		"Error delete/restore" : "Error delete/restore"
 	}
 }

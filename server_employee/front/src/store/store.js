@@ -7,11 +7,16 @@ import clientOne from './modules/clients-one'
 import app from './modules/app'
 import news from './modules/news'
 import newsOne from './modules/news-one'
+import Employees from './modules/employees'
+import EmployeesOne from './modules/employees-one'
+// End modules
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     modules: {
+        EmployeesOne,
+        Employees,
         auth,
         clients,
         app,

@@ -6,13 +6,15 @@ import NotFound from '../components/GeneralViews/NotFoundPage.vue'
 import Dashboard from 'src/components/Dashboard/Views/Dashboard.vue'
 import UserProfile from 'src/components/Dashboard/Views/UserProfile/UserProfile.vue'
 import Login from 'src/components/Dashboard/Views/Login/Login.vue'
-import Users from 'src/components/Dashboard/Views/Admins/Users.vue'
 import Clients from 'src/components/Dashboard/Views/Clients/Clients.vue'
 import ClientsAdd from 'src/components/Dashboard/Views/Clients/ClientsAdd.vue'
 import ClientsEdit from 'src/components/Dashboard/Views/Clients/ClientsEdit.vue'
 import News from 'src/components/Dashboard/Views/News/News.vue'
 import NewsAdd from 'src/components/Dashboard/Views/News/NewsAdd.vue'
 import NewsEdit from 'src/components/Dashboard/Views/News/NewsEdit.vue'
+import Employees from 'src/components/Dashboard/Views/Employees/Employees.vue'
+import EmployeesAdd from 'src/components/Dashboard/Views/Employees/EmployeesAdd.vue'
+import EmployeesEdit from 'src/components/Dashboard/Views/Employees/EmployeesEdit.vue'
 
 import {paths} from './paths';
 // TODO: Back filter by group
@@ -27,6 +29,21 @@ const routes = [
         redirect: 'user-profile',
         children: [
             {
+                path: paths.Employees,
+                name: 'employees',
+                component: Employees
+            },
+            {
+                path: paths.EmployeesAdd,
+                name: 'employees-add',
+                component: EmployeesAdd
+            },
+            {
+                path: paths.EmployeesEdit,
+                name: 'employees-edit',
+                component: EmployeesEdit
+            },
+            {
                 path: paths.profile,
                 name: 'profile',
                 component: UserProfile
@@ -35,11 +52,6 @@ const routes = [
                 path: paths.dashboard,
                 name: 'dashboard',
                 component: Dashboard
-            },
-            {
-                path: paths.employees,
-                name: 'employees',
-                component: Users
             },
             {
                 path: paths.clients,

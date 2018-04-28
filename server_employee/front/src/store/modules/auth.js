@@ -4,7 +4,8 @@ export default {
         password: 'test2Testing',
         phrases : {},
         user : {},
-        token: ''
+        token: '',
+        groupList : []
     },
     mutations: {
         setEmail (state, email) {
@@ -21,6 +22,9 @@ export default {
         },
         setAuthPhrases (state, phrases) {
             state.phrases = phrases
+        },
+        setGroupList (state, groups) {
+            state.groupList = groups
         },
         reset (state) {
             state.token = '';

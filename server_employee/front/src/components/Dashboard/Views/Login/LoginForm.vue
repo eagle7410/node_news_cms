@@ -89,6 +89,7 @@
                     this.$store.commit('setToken', res.token);
                     this.$store.commit('setProfile', res.user);
                     this.$store.commit('setAuthPhrases', res.phrases);
+                    this.$store.commit('setGroupList', res.groupList);
                     this.$root.sidebarLinks = res.leftMenu || [];
 
                     Vue.prototype.$material.locale = this._storeAuth.phrases.locale;
