@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <button type="submit" @click.prevent="save" class="btn btn-primary pull-right">
+        <button type="submit" @click.prevent="save" class="btn btn-primary">
             {{__t('Save')}}
         </button>
     </div>

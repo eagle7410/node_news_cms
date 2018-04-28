@@ -43,25 +43,25 @@
             cssClassForm: function () {
                 return 'filters ' + (this.isOpen ? '' : 'hide');
             },
-            _store () {
+            _store() {
                 return this.$store.state.clients
             },
-            loadPage () {
+            loadPage() {
                 return this._store.loadPage
             },
-            is_deleted : {
-            	get : function() {
-            		return this._store.filters.is_deleted;
-            	},
-            	set : function(value) {
-            		this.$store.commit('setFilterIsDeleted', value);
-            	}
+            is_deleted: {
+                get: function () {
+                    return this._store.filters.is_deleted;
+                },
+                set: function (value) {
+                    this.$store.commit('setFilterIsDeleted', value);
+                }
             },
-            is_active : {
-                get : function() {
+            is_active: {
+                get: function () {
                     return this._store.filters.is_active;
                 },
-                set : function(value) {
+                set: function (value) {
                     this.$store.commit('setFilterIsActive', value);
                 }
             }
@@ -70,8 +70,8 @@
         methods: {
             handelApply() {
                 this.$store.dispatch(this.setCurrentPageInStore, {
-                    page : 0,
-                    app  : this
+                    page: 0,
+                    app: this
                 });
             },
             toggleShowForm: function () {
@@ -79,12 +79,11 @@
             }
         },
 
-        data () {
+        data() {
             return {
                 isOpen: false,
                 labelOpen: 'Show filters',
-                labelClose: 'Hide filters',
-
+                labelClose: 'Hide filters'
             }
         }
     }
@@ -94,11 +93,13 @@
     .filter-switcher {
         cursor: pointer;
     }
+
     .md-field .md-theme-default {
         background-color: none !important;
     }
+
     .load {
-        color : yellow;
+        color: yellow;
         font-size: 32px;
     }
 

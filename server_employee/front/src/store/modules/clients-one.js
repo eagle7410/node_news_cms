@@ -25,7 +25,7 @@ export default {
             state.surname = val;
         },
         clearOneClient(state) {
-            state = {...initial};
+            Object.assign(state, initial);
         },
         setClientForEdit(state, client) {
             Object.keys(initial).map(prop => { state[prop] = client[prop] });
