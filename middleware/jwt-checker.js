@@ -12,6 +12,10 @@ module.exports = async (req, res, next) => {
 
 		req.decode = await jwt.decode(keyPublic, hash);
 
+		if (process.isDev) {
+			console.log('~~ data decode \n', req.decode);
+		}
+
 		if (!req.decode || !req.decode.token) {
 			return next();
 		}

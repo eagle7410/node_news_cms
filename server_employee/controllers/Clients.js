@@ -12,13 +12,23 @@ class Clients extends Controller {
 	}
 
 	static async get_all_by_page(req, res) {
-		let {page, pageSize} = req.decode;
+		let {page, pageSize, is_active, is_deleted} = req.decode;
 
 		if (page === undefined || !pageSize) {
 			throw ErrorHttp.badRequest();
 		}
+		let filters = {};
 
-		let data = await Model.getByPage(page, pageSize);
+		if (~is_active) {
+			filters.is_active = is_active;
+		}
+
+		if (~is_deleted) {
+			filters.is_deleted = is_deleted;
+		}
+
+		let data = await Model.getByPage(page, pageSize, filters);
+
 		res.jwt(data);
 	}
 

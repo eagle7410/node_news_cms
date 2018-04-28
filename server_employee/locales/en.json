@@ -103,6 +103,7 @@
 		"isNoActivate" : "Неактивные",
 		"isDeleted" : "Deleted",
 		"isNoDeleted" : "Not deleted",
-		"all" : "All"
+		"all" : "All",
+		"Apply" : "Apply"
 	}
 }
