@@ -5,7 +5,7 @@ const app     = express();
 const http    = require('../modules/http-server')(app);
 
 // Include multi lang
-require('../modules/configure-transler')(app, __dirname + '/locales');
+require('../modules/configure-translate')(app, __dirname + '/locales');
 
 // Connect to database
 require(`../models/${process.drive}/connect`);

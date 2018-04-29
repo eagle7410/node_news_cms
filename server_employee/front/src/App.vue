@@ -43,6 +43,8 @@
                 let res = await this.$api.init();
 
                 this.$store.commit('setPhrases', res.phrases);
+                this.$store.commit('setLangs', res.langs);
+                this.$store.commit('setLang', res.lang);
                 this.$store.commit('setLoad', false);
 
             } catch (e) {
