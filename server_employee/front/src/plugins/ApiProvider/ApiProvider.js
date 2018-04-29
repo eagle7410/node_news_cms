@@ -1,4 +1,5 @@
 import controllers from './controllers'
+import {getQuery} from '../../utils/req';
 let urlBase;
 
 if (process.env.NODE_ENV === 'development') {
@@ -21,6 +22,15 @@ class ApiProvider {
     setStore(store, commit) {
         this._store = store;
         this._commit = commit;
+    }
+
+    srcLink(controllerAction, data = {}) {
+        return `${urlBase + controllerAction}?${
+                getQuery({
+                    ...data,
+                    token: this._store.token
+                })
+            }`;
     }
 
     async _send(method, controllerAction, data = {}) {

@@ -24,6 +24,7 @@
   "homepage": "https://github.com/eagle7410/node_news_cms#readme",
   "devDependencies": {
     "cors": "2.8.4",
+    "mocha": "5.1.1",
     "moment": "2.22.1"
   },
   "dependencies": {
@@ -31,9 +32,11 @@
     "ejs-locals": "1.0.2",
     "express": "4.16.3",
     "i18n": "0.8.3",
+    "json2xls": "0.1.2",
     "jsonwebtoken": "8.2.1",
     "mongoose": "5.0.15",
     "morgan": "1.9.0",
-    "winston": "2.4.1"
+    "winston": "2.4.1",
+    "wkhtmltopdf": "0.3.4"
   }
 }

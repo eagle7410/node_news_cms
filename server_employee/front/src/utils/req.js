@@ -2,6 +2,19 @@ import {jwtPublic} from '../../../../configs/employee';
 import {create, decode} from './jwt';
 
 /**
+ * Get query with encode.
+ * @param {object} data
+ * @returns {*}
+ */
+const getQuery = data => {
+    if (Object.prototype.toString.call(data) === '[object Object]') {
+        return `hash=${encodeURIComponent(create(jwtPublic, data))}`
+    }
+
+    return null;
+};
+
+/**
  * Send to server.
  * @method send
  * @param  {string} url
@@ -12,11 +25,7 @@ import {create, decode} from './jwt';
  */
 const send = (url, data, method, headers) => new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
-    let sendData = null;
-
-    if (Object.prototype.toString.call(data) === '[object Object]') {
-        sendData = `hash=${encodeURIComponent(create(jwtPublic, data))}`;
-    }
+    let sendData = getQuery(data);
 
     if (method === 'GET' && sendData) {
         url += '?' + sendData;
@@ -99,4 +108,4 @@ const move = (url, data, headers) => send(url, data, 'DELETE', headers);
  */
 const update = (url, data, headers) => send(url, data, 'PUT', headers);
 
-export {save, get, move, update};
+export {save, get, move, update, getQuery};

@@ -3,6 +3,7 @@ const ErrorHttp  = require('../../classes/ErrorHttp');
 
 const groups = require('../../constants/groups');
 const ModelNews   = require('../../models/mongo/news');
+const DataConverter   = require('../../modules/data-converter');
 
 class News extends Controller {
 	static groups () {
@@ -23,9 +24,29 @@ class News extends Controller {
 			get_one_news : [
 				groups.admin,
 				groups.content
+			],
+			get_news_to_pdf : [
+				groups.admin
+			],
+			get_news_to_excel : [
+				groups.admin
 			]
 		}
 	};
+
+	static async get_news_to_pdf (req, res) {
+		let news = await ModelNews.getListForEmployee();
+		let converter = new DataConverter({news});
+
+		converter.toResponse(res, DataConverter.typePdf(), 'news');
+	}
+
+	static async get_news_to_excel (req, res) {
+		let news = await ModelNews.getListForEmployee();
+		let converter = new DataConverter(news);
+
+		converter.toResponse(res, DataConverter.typeExcel(), 'news');
+	}
 
 	static async get_one_news (req, res) {
 		let news = await ModelNews.getById(req.decode.id);

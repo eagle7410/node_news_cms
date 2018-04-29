@@ -77,7 +77,11 @@ class Controller {
 	static sendErrorMessage (req, res, code = 500, message = 'Internal Server Error' ) {
 		res.status(code);
 
-		if (req.tokenData && req.tokenData.email) {
+		if (message.code) {
+			return res.jwt({code, message});
+		}
+
+		if (req.tokenData) {
 			res.jwt({code, message});
 		} else {
 			res.json({code, message});

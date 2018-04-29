@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>News</title>
+	<link href="http://localhost:3539/static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+	th, td {
+		border: 1px solid #000;
+		color: #000;
+		text-shadow: none;
+		padding: 5px;
+	}
+	th {
+		border: none;
+	}
+	th {
+		font-weight: bold;
+	}
+	table {
+		background: #fff;
+		width: 100%;
+	}
+</style>
+<body>
+	<%= include ./parts/logo.ejs %>
+	<div class="news">
+		<h1>All news</h1>
+		<table>
+			<thead>
+				<th>Title english</th>
+				<th>Title russian</th>
+				<th>Author</th>
+				<th>Publish</th>
+				<th>Who updated</th>
+				<th>Date updated</th>
+				<th>Who create</th>
+				<th>Date created</th>
+			</thead>
+			<tbody>
+				<% news.forEach((n) => { %>
+					<tr>
+						<td><%= n.title.en %></td>
+						<td><%= n.title.ru %></td>
+						<td><%= n.author %></td>
+						<td><%= n.publish_at %></td>
+						<td><%= n.updated_by %></td>
+						<td><%= n.updated_at %></td>
+						<td><%= n.created_by %></td>
+						<td><%= n.created_at %></td>
+					</tr>
+				<% }) %>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
