@@ -22,7 +22,7 @@
             <text-tab
                 tabId='ru'
                 :tabLabel="__t('In Russian')"
-                :titleLabel='__t("title")'
+                :titleLabel='__t("title (max length 250 symbols)")'
                 :textLabel="__t('Text')"
             ></text-tab>
         </md-tabs>

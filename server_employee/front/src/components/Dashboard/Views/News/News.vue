@@ -23,6 +23,7 @@
 <script>
     import NewsTools from './NewsTools'
     import NewsActions from './NewsActions'
+    import NewsColumTitle from './NewsColumTitle'
     import MaterialTable from '../../../UIComponents/MaterialTable'
     import ShowStatus from '../../../UIComponents/ShowStatus'
 
@@ -36,6 +37,9 @@
                         props : {
                             store : 'is_active'
                         }
+                    },
+                    title : {
+                        component : NewsColumTitle
                     },
                     actions : {
                         component: NewsActions
