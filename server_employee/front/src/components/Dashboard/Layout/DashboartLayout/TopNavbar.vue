@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">{{__t($route.name)}}</a>
+                <breadcrumbs></breadcrumbs>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -34,11 +34,13 @@
 </template>
 <script>
     import NavButton from './NavButton'
+    import Breadcrumbs from '../../../UIComponents/Breadcrumbs'
     import {fullPath} from '../../../../routes/paths';
 
     export default {
         components: {
-            NavButton
+            NavButton,
+            Breadcrumbs
         },
         computed: {
             routeName() {

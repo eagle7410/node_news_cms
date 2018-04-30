@@ -32,31 +32,58 @@ const routes = [
             {
                 path: paths.profile,
                 name: 'profile',
-                component: UserProfile
+                component: UserProfile,
+                meta: {
+                    breadcrumbs : [
+                        {path : paths.profile, name: 'profile'}
+                    ]
+                }
             },
             {
                 path: paths.dashboard,
                 name: 'dashboard',
                 component: Dashboard,
-                meta: {groups: [groups.admin]}
+                meta: {
+                    groups: [groups.admin],
+                    breadcrumbs : [
+                        {path : paths.dashboard, name: 'dashboard'}
+                    ]
+                }
             },
             {
                 path: paths.Employees,
                 name: 'employees',
                 component: Employees,
-                meta: {groups: [groups.admin]}
+                meta: {
+                    groups: [groups.admin],
+                    breadcrumbs : [
+                        {path : paths.Employees, name: 'employees'}
+                    ]
+                }
             },
             {
                 path: paths.EmployeesAdd,
                 name: 'employees-add',
                 component: EmployeesAdd,
-                meta: {groups: [groups.admin]}
+                meta: {
+                    groups: [groups.admin],
+                    breadcrumbs : [
+                        {path : paths.Employees, name: 'employees'},
+                        {path : paths.EmployeesAdd, name: 'employees-add'}
+                    ]
+                }
             },
             {
                 path: paths.EmployeesEdit,
                 name: 'employees-edit',
                 component: EmployeesEdit,
-                meta: {groups: [groups.admin]}
+                meta: {
+                    groups: [groups.admin],
+                    breadcrumbs : [
+                        {path : paths.Employees, name: 'employees'},
+                        {path : paths.EmployeesEdit, name: 'employees-edit'}
+                    ]
+                }
             },
             {
                 path: paths.clients,
@@ -67,6 +94,9 @@ const routes = [
                         groups.admin,
                         groups.moderator,
                         groups.content,
+                    ],
+                    breadcrumbs : [
+                        {path : paths.clients, name: 'clients'},
                     ]
                 }
             },
@@ -78,6 +108,10 @@ const routes = [
                     groups: [
                         groups.admin,
                         groups.moderator,
+                    ],
+                    breadcrumbs : [
+                        {path : paths.clients, name: 'clients'},
+                        {path : paths.clientAdd, name: 'client-add'}
                     ]
                 }
             },
@@ -89,6 +123,10 @@ const routes = [
                     groups: [
                         groups.admin,
                         groups.moderator,
+                    ],
+                    breadcrumbs : [
+                        {path : paths.clients, name: 'clients'},
+                        {path : paths.clientEdit, name: 'clients-edit'}
                     ]
                 }
             },
@@ -101,6 +139,9 @@ const routes = [
                         groups.admin,
                         groups.moderator,
                         groups.content,
+                    ],
+                    breadcrumbs : [
+                        {path : paths.news, name: 'news'}
                     ]
                 }
             },
@@ -112,6 +153,10 @@ const routes = [
                     groups: [
                         groups.admin,
                         groups.content,
+                    ],
+                    breadcrumbs : [
+                        {path : paths.news, name: 'news'},
+                        {path : paths.newsAdd, name: 'news-add'},
                     ]
                 }
             },
@@ -123,6 +168,10 @@ const routes = [
                     groups: [
                         groups.admin,
                         groups.content,
+                    ],
+                    breadcrumbs : [
+                        {path : paths.news, name: 'news'},
+                        {path : paths.newsEdit, name: 'news-edit'},
                     ]
                 }
             }
