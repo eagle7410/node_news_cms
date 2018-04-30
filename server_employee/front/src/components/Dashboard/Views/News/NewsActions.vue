@@ -1,10 +1,18 @@
 <template>
     <div class="actions">
-        <button @click="activate" v-if="!entry.is_active" :title="__t('Activate')" class="action btn btn-success"><i
+        <button @click="activate"
+                v-if="(isAdmin || isModerator) && !entry.is_active"
+                :title="__t('Activate')"
+                class="action btn btn-success"><i
             class="icon fa fa-check-circle"></i></button>
-        <button @click="deactivate" v-if="entry.is_active" :title="__t('Deactivate')" class="action btn btn-danger"><i
-            class="icon fa fa-ban"></i></button>
-        <button @click="edit" :title="__t('Edit')" class="action btn btn-info"><i class="icon fa fa-pencil"></i>
+        <button @click="deactivate"
+                v-if="(isAdmin || isModerator) && entry.is_active"
+                :title="__t('Deactivate')" class="action btn btn-danger"><i
+            class="icon fa fa-ban" v-if=""></i></button>
+        <button @click="edit"
+                v-if="isAdmin || isContent"
+                :title="__t('Edit')"
+                class="action btn btn-info"><i class="icon fa fa-pencil"></i>
         </button>
     </div>
 </template>

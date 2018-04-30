@@ -7,7 +7,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <nav-button :handlerClick="handlerDash" :title="__t('dashboard')" material-icon="dashboard"></nav-button>
+                    <nav-button v-if="isAdmin" :handlerClick="handlerDash" :title="__t('dashboard')" material-icon="dashboard"></nav-button>
                     <drop-down>
                         <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="material-icons">notifications</i>

@@ -1,5 +1,5 @@
 <template>
-    <span>
+    <span v-if="isAdmin">
         <a class="btn btn-success" @click.prev="handlerAdd">{{__t('Add')}}</a>
     </span>
 </template>

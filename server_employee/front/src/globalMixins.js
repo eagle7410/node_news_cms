@@ -1,3 +1,4 @@
+import groups from '../../../constants/groups';
 const GlobalMixins = {
     install(Vue) {
         Vue.mixin({
@@ -26,7 +27,48 @@ const GlobalMixins = {
                 },
                 loadPageInStore() {
                     return this._store.loadPage
+                },
+                isAdmin () {
+                    const userGroups = this.$store.state.auth.user.groups;
+
+                    if (!userGroups) {
+                        return false;
+                    }
+                    return userGroups.includes(groups.admin);
+                },
+                isModerator () {
+                    const userGroups = this.$store.state.auth.user.groups;
+
+                    if (!userGroups) {
+                        return false;
+                    }
+                    return userGroups.includes(groups.moderator);
+                },
+                isContent () {
+                    const userGroups = this.$store.state.auth.user.groups;
+
+                    if (!userGroups) {
+                        return false;
+                    }
+                    return userGroups.includes(groups.content);
+                },
+                isRoot () {
+                    const userGroups = this.$store.state.auth.user.groups;
+
+                    if (!userGroups) {
+                        return false;
+                    }
+                    return userGroups.includes(groups.root);
+                },
+                isEmployee () {
+                    const userGroups = this.$store.state.auth.user.groups;
+
+                    if (!userGroups) {
+                        return false;
+                    }
+                    return userGroups.includes(groups.employee);
                 }
+
             },
 
             methods : {

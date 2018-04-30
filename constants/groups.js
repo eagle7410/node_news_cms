@@ -1,7 +1,7 @@
 module.exports = {
 	admin     : 'admin',
 	moderator : 'moderator',
-	content   : 'content_manager',
+	content   : 'content',
 	employee  : 'employee',
 	root      : 'root'
 };

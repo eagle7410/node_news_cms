@@ -4,11 +4,11 @@
             <i class="icon fa fa-pencil"></i>
         </button>
 
-        <button @click="remove" v-if="!entry.is_deleted" :title="__t('Delete')" class="action btn btn-danger">
+        <button @click="remove" v-if="isAdmin && !entry.is_deleted" :title="__t('Delete')" class="action btn btn-danger">
             <i class="icon fa fa fa-user-times"></i>
         </button>
 
-        <button @click="restore" v-if="entry.is_deleted" :title="__t('Restore')" class="action btn btn-success">
+        <button @click="restore" v-if="isAdmin && entry.is_deleted" :title="__t('Restore')" class="action btn btn-success">
             <i class="icon fa fa fa-user-plus"></i>
         </button>
 
