@@ -1,7 +1,7 @@
 export default {
     state: {
-        email: 'test@mail.com',
-        password: 'test2Testing',
+        email: '',
+        password: '',
         phrases : {},
         user : {},
         token: '',
@@ -33,8 +33,10 @@ export default {
             state.user = '';
 
             if (process.env.NODE_ENV === 'development') {
-                state.email = 'test@mail.com';
-                state.password = 'test2Testing';
+                // state.email = 'test@mail.com';
+                // state.password = 'test2Testing';
+                state.email = 'test2@mail.com';
+                state.password = 'Test2123';
             }
 
         }

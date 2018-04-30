@@ -1,6 +1,7 @@
 const GlobalMixins = {
     install(Vue) {
         Vue.mixin({
+
             computed : {
                 authPhrases : function () {
                     return this.$store.state.auth.phrases;

@@ -183,6 +183,10 @@
 		"Error in save employees": "Ошибка сохранения работника",
 		"Employees is active/inactive": "Работник активен/неактивен",
 		"Employee delete or restore ok": "Удаление или востановление работника успешно",
-		"Error delete/restore": "Ошибка удаления или востановления"
+		"Error delete/restore": "Ошибка удаления или востановления",
+		"Error get Employees" : "Ошибка загрузки рботников",
+		"Toggle navigation" : "Переключить навигацию",
+		"404 Not Found" : "404 Не Найдено",
+		"Oops! It seems that this page does not exist." : "К сожалению! Кажется, что этой страницы не существует."
 	}
 }

@@ -48,6 +48,32 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
     }
 })
 
+/**
+ * Check rights for next page.
+ */
+router.beforeEach((to, from, next) => {
+    const {groups} = to.meta;
+
+    if (!groups || !groups.length) {
+        return next();
+    }
+
+    const userGroups = store.state.auth.user.groups;
+
+    if (!Array.isArray(userGroups) || !groups.length) {
+        return next('not-found');
+    }
+
+    for (let group of userGroups) {
+        if (groups.includes(group)) {
+            return next();
+        }
+    }
+
+    next('not-found');
+
+})
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',

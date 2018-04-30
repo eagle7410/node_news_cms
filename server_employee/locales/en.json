@@ -183,6 +183,10 @@
 		"Error in save employees": "Error in save employee",
 		"Employees is active/inactive": "Employees is active/inactive",
 		"Employee delete or restore ok": "Employee delete or restore ok",
-		"Error delete/restore": "Error delete/restore"
+		"Error delete/restore": "Error delete/restore",
+		"Error get Employees" : "Error get employees",
+		"Toggle navigation" : "Toggle navigation",
+		"404 Not Found" : "404 Not Found",
+		"Oops! It seems that this page does not exist." : "Oops! It seems that this page does not exist."
 	}
 }

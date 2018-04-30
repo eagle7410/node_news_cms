@@ -141,13 +141,15 @@ module.exports = {
 		            name,
 		            surname,
 		            created_at,
-		            updated_at
+		            updated_at,
+		            groups
 	            }) => ({
 		email,
 		name,
 		surname,
 		created_at,
-		updated_at
+		updated_at,
+		groups
 	}),
 	save : async (data, user) => {
 

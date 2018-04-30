@@ -17,7 +17,8 @@ import EmployeesAdd from 'src/components/Dashboard/Views/Employees/EmployeesAdd.
 import EmployeesEdit from 'src/components/Dashboard/Views/Employees/EmployeesEdit.vue'
 
 import {paths} from './paths';
-// TODO: Back filter by group
+import groups from '../../../../constants/groups';
+
 const routes = [
     {
         path: '/',
@@ -29,21 +30,6 @@ const routes = [
         redirect: 'user-profile',
         children: [
             {
-                path: paths.Employees,
-                name: 'employees',
-                component: Employees
-            },
-            {
-                path: paths.EmployeesAdd,
-                name: 'employees-add',
-                component: EmployeesAdd
-            },
-            {
-                path: paths.EmployeesEdit,
-                name: 'employees-edit',
-                component: EmployeesEdit
-            },
-            {
                 path: paths.profile,
                 name: 'profile',
                 component: UserProfile
@@ -51,37 +37,94 @@ const routes = [
             {
                 path: paths.dashboard,
                 name: 'dashboard',
-                component: Dashboard
+                component: Dashboard,
+                meta: {groups: [groups.admin]}
+            },
+            {
+                path: paths.Employees,
+                name: 'employees',
+                component: Employees,
+                meta: {groups: [groups.admin]}
+            },
+            {
+                path: paths.EmployeesAdd,
+                name: 'employees-add',
+                component: EmployeesAdd,
+                meta: {groups: [groups.admin]}
+            },
+            {
+                path: paths.EmployeesEdit,
+                name: 'employees-edit',
+                component: EmployeesEdit,
+                meta: {groups: [groups.admin]}
             },
             {
                 path: paths.clients,
                 name: 'clients',
-                component: Clients
+                component: Clients,
+                meta: {
+                    groups: [
+                        groups.admin,
+                        groups.moderator,
+                        groups.content,
+                    ]
+                }
             },
             {
                 path: paths.clientAdd,
                 name: 'client-add',
-                component: ClientsAdd
+                component: ClientsAdd,
+                meta: {
+                    groups: [
+                        groups.admin,
+                        groups.moderator,
+                    ]
+                }
             },
             {
                 path: paths.clientEdit,
                 name: 'clients-edit',
-                component: ClientsEdit
+                component: ClientsEdit,
+                meta: {
+                    groups: [
+                        groups.admin,
+                        groups.moderator,
+                    ]
+                }
             },
             {
                 path: paths.news,
                 name: 'news',
-                component: News
+                component: News,
+                meta: {
+                    groups: [
+                        groups.admin,
+                        groups.moderator,
+                        groups.content,
+                    ]
+                }
             },
             {
                 path: paths.newsAdd,
                 name: 'news-add',
-                component: NewsAdd
+                component: NewsAdd,
+                meta: {
+                    groups: [
+                        groups.admin,
+                        groups.content,
+                    ]
+                }
             },
             {
                 path: paths.newsEdit,
                 name: 'news-edit',
-                component: NewsEdit
+                component: NewsEdit,
+                meta: {
+                    groups: [
+                        groups.admin,
+                        groups.content,
+                    ]
+                }
             }
         ]
     },
