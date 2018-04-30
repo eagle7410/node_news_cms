@@ -27,7 +27,7 @@ const routes = [
     {
         path: '/admin',
         component: DashboardLayout,
-        redirect: 'user-profile',
+        redirect: paths.profile,
         children: [
             {
                 path: paths.profile,

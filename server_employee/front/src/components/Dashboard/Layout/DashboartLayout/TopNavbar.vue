@@ -2,12 +2,7 @@
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" @click="toggleSidebar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <toggle-navigation></toggle-navigation>
                 <breadcrumbs></breadcrumbs>
             </div>
             <div class="collapse navbar-collapse">
@@ -34,13 +29,15 @@
 </template>
 <script>
     import NavButton from './NavButton'
-    import Breadcrumbs from '../../../UIComponents/Breadcrumbs'
+    import Breadcrumbs from '../../../Tools/Breadcrumbs'
+    import ToggleNavigation from '../../../Tools/ToggleNavigation'
     import {fullPath} from '../../../../routes/paths';
 
     export default {
         components: {
             NavButton,
-            Breadcrumbs
+            Breadcrumbs,
+            ToggleNavigation
         },
         computed: {
             routeName() {
@@ -71,9 +68,6 @@
             },
             closeDropDown() {
                 this.activeNotifications = false
-            },
-            toggleSidebar() {
-                this.$sidebar.displaySidebar(!this.$sidebar.showSidebar)
             },
             hideSidebar() {
                 this.$sidebar.displaySidebar(false)

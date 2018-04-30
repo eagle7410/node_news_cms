@@ -4,20 +4,16 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target="#navigation-example-2">
-                        <span class="sr-only">{{__t('Toggle navigation')}}</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <router-link :to="homePath" class="navbar-brand">{{__t('profile')}}</router-link>
+                    <toggle-navigation></toggle-navigation>
+                    <router-link v-if="isAuth" :to="homePath" class="navbar-brand">{{__t('profile')}}</router-link>
+                    <router-link v-else  to="/" class="navbar-brand">{{__t($store.state.app.phrases.sing_in)}}</router-link>
                 </div>
 
             </div>
             <!-- /.container-->
         </nav>
         <div class="wrapper wrapper-full-page section content">
+            <side-bar v-if="isAuth" type="sidebar" :sidebar-links="$sidebar.sidebarLinks"></side-bar>
             <div class="">
                 <div class="container">
                     <div class="row">
@@ -34,13 +30,25 @@
 
 <script>
     import {fullPath} from '../../routes/paths'
+    import ToggleNavigation from '../Tools/ToggleNavigation'
 
     export default {
+        components :{
+            ToggleNavigation
+        },
         computed: {
             homePath() {
                 return {path : fullPath.profile};
+            },
+            isAuth () {
+                return this.$store.state.auth.token;
             }
         },
     }
 
 </script>
+<style scoped>
+    .navbar-ct-default {
+        margin-bottom: -2px;
+    }
+</style>
