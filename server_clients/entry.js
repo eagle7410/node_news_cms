@@ -13,7 +13,7 @@ require(`../models/${process.drive}/connect`);
 
 require('../modules/configure-app')(app, {
 	assets : __dirname + '/static',
-	router : require('./router')('home', 'show'),
+	router : require('./router')('news', 'show'),
 	views  : { engine : 'ejs', dir: `${__dirname}/views`},
 	express,
 });

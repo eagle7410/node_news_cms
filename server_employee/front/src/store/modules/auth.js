@@ -33,10 +33,10 @@ export default {
             state.user = '';
 
             if (process.env.NODE_ENV === 'development') {
-                state.email = 'verycooleagle@gmail.com';
-                state.password = 'Verycooleagle1';
-                // state.email = 'test2@mail.com';
-                // state.password = 'Test2123';
+                // state.email = 'verycooleagle@gmail.com';
+                // state.password = 'Verycooleagle1';
+                state.email = 'test@mail.com';
+                state.password = 'test2Testing';
             }
 
         }

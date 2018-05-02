@@ -11,5 +11,10 @@
 	"news": "Новости",
 	"company": "Компания",
 	"about": "О нас",
-	"contacts": "Контакты"
+	"contacts": "Контакты",
+	"registration" : "Регистрация",
+	"login" : "Вход",
+	"Read More" : "Читать дальше",
+	"Author" : "Автор",
+	"Date published" : "Дата публикации"
 }

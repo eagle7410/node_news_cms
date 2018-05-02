@@ -1,6 +1,6 @@
 const Company = require('./Company');
-const Home = require('./Home');
+const News = require('./News');
 module.exports = {
-	Home,
+	News,
 	Company,
 };

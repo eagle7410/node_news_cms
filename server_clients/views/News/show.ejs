@@ -1,0 +1,24 @@
+<% layout(`../../layouts/${theme}/home`) %>
+<div class="row">
+	<h1><%= __('Latest news') %></h1>
+	<div class="dline"></div>
+</div>
+
+<div class="row ourserv">
+	<% let counter = 0; %>
+	<% news.forEach(n => { %>
+		<% if (counter === 3) { counter = 0;%>
+			</div>
+			<div class="row ourserv">
+		<% } %>
+		<article class="col-lg-4">
+			<h1><%= n.title %></h1>
+			<div class="small"><%= __('Author') %>: <%= n.author %></div>
+			<div class="small"><%= __('Date published') %>: <%= n.publish_at %></div>
+			<p class="prev-news"><%- n.text %></p>
+			<a href="/news/detail?id=<%= n._id %>" class="btn btn-info"><%= __('Read More') %></a>
+		</article>
+	<% counter++; }) %>
+</div>
+
+<%- partial(`../../layouts/${theme}/parts/pagination.ejs`) %>

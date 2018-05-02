@@ -17,7 +17,15 @@ const store = [
 				name : 'contacts'
 			}
 		]
-	}
+	},
+	{
+		name : 'login',
+		url  : '/company/login'
+	},
+	{
+		name : 'registration',
+		url  : '/company/registration'
+	},
 ];
 
 const buildForUser = (req) => store.map(item => {

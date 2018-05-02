@@ -362,3 +362,8 @@ input[type="submit"]:active{
 header {
 	margin: 15px 0;
 }
+
+.small {
+	font-size: 65% !important;
+	min-height: 12px;
+}
