@@ -4,7 +4,7 @@ const truncate = require('truncate-html');
 const DateCustom = require('../../classes/DateCustom');
 const ErrorHttp  = require('../../classes/ErrorHttp');
 const Model   = require('../../models/mongo/news');
-const PAGE_SIZE = 18;
+const PAGE_SIZE = 12;
 const COUNT_WORDS_IN_HTML = 30;
 
 class News extends Controller {
@@ -65,7 +65,7 @@ class News extends Controller {
 	}
 
 	static async get_show(req, res) {
-		let page = 0;
+		let page = req.query.page || 0;
 		const lang = res.locals.getLocale();
 
 		let data = await Model.getByPage(page, PAGE_SIZE, this.selectFormNews(lang), {
