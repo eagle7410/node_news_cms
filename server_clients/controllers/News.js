@@ -21,6 +21,7 @@ class News extends Controller {
 		const id = req.query.id;
 		const lang = res.locals.getLocale();
 
+
 		if (!id) {
 			throw ErrorHttp.badRequest();
 		}
@@ -78,7 +79,7 @@ class News extends Controller {
 				author : news.author,
 				publish_at : new DateCustom(news.publish_at).toStringByFormat(),
 				title : news.title[lang],
-				text  : truncate(news.text[lang], COUNT_WORDS_IN_HTML, {byWords: true}),
+				text  : truncate(news.text[lang], COUNT_WORDS_IN_HTML, {byWords: true,  stripTags: true}),
 			};
 		});
 

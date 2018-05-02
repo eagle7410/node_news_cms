@@ -6,7 +6,7 @@
 			</a>
 			<div class="dropdown-menu" aria-labelledby="lang">
 				<% langs.forEach(l => { %>
-				<a class="dropdown-item <%= l === lang ? 'active' : '' %>" href="/?lang=<%= l %>"><%= __(l) %></a>
+				<a class="dropdown-item lang <%= l === lang ? 'active' : '' %>" onclick="changeLang" href="/" data-val="<%= l %>"><%= __(l) %></a>
 				<% }) %>
 			</div>
 		</li>

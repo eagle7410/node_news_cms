@@ -96,7 +96,7 @@
 
                 this.news.author = this.author;
 
-                if (!isNowOrFuture(this.publish_at)) {
+                if (!this._id && !isNowOrFuture(this.publish_at)) {
                     this.notifyError(this.__t('Field `publish_at`. Must be today or future'));
 
                     return false;

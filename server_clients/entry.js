@@ -3,7 +3,10 @@ require('../modules/configure-process')('clients');
 const express = require('express');
 const app     = express();
 const http    = require('../modules/http-server')(app);
+const  cookieParser = require('cookie-parser');
 
+// Set cookie parser
+app.use(cookieParser());
 // Include multi lang
 require('../modules/configure-translate')(app, __dirname + '/locales');
 // INclude  ejs-locals

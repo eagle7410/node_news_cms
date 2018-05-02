@@ -6,6 +6,7 @@ module.exports = (app, directory) => {
 		defaultLocale: 'ru',
 		directory,
 		queryParameter: 'lang',
+		cookie: 'lang',
 	});
 	app.use(i18n.init);
 };
