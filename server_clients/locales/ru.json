@@ -12,9 +12,13 @@
 	"company": "Компания",
 	"about": "О нас",
 	"contacts": "Контакты",
-	"registration" : "Регистрация",
-	"login" : "Вход",
-	"Read More" : "Читать дальше",
-	"Author" : "Автор",
-	"Date published" : "Дата публикации"
+	"registration": "Регистрация",
+	"login": "Вход",
+	"Read More": "Читать дальше",
+	"Author": "Автор",
+	"Date published": "Дата публикации",
+	"This campaign is really very cool.": "Это кампания реально очень крутая.",
+	"It was founded in 20019 BC. The best dinosaurs and aliens.": "Основана в 20019 году до н.э. Лучшими динозавры и пришельцами.",
+	"Phones of the company" : "Телефоны компании",
+	"Addresses of the company" : "Адреса компании"
 }

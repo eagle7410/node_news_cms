@@ -1,0 +1,15 @@
+<% layout(`../../layouts/${theme}/home`) %>
+<div class="row">
+	<h1><%= title %></h1>
+</div>
+
+<div class="row">
+	<div class="col-sm-3"><%= __('Author') %>: <%= author %></div>
+	<div class="col-sm-3"><%= __('Date published') %>: <%= publish_at %></div>
+</div>
+
+<div class="dline"></div>
+
+<div class="row">
+	<div><%- text %></div>
+</div>

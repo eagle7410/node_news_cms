@@ -6,7 +6,7 @@ const Controller = require('../../classes/ControllerClient');
 //const Model   = require('../../models/mongo/$MODEl$');
 
 class Company extends Controller {
-	static async get_contact(req, res) {
+	static async get_contacts(req, res) {
 		this.render(req,res, 'contact')
 	}
 

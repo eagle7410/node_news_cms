@@ -88,6 +88,7 @@ module.exports = {
 	updateAll: (changes, query = {}) => Model.update(query, {$set: changes}, {multi: true}),
 	updateOne: (changes, query = {}) => Model.update(query, {$set: changes}),
 	getAll : (query = {}) => Model.find(query),
+	getOne : (query = {}, select = {}) => Model.findOne(query).select(select),
 	getById : (id) => Model.findById(id),
 	exists : async (query = {}) => {
 		const count = await Model.count(query);

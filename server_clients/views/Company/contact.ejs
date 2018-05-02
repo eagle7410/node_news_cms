@@ -1,19 +1,74 @@
-<% layout(`../../layouts/${theme}/base`) -%>
-<div id="contactpost">
-	<h1>Contact Us</h1>
-	<p>Below is an example of how a contact form might look with this template:</p>
-	<form method="post" action="#">
-		<div id="contactform">
-			<p><label for="name">Name</label><input type="user" name="name" id="name" placeholder="your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'your name'" /></p>
-			<p><label for="email">Email</label><input type="email" name="email" id="email" placeholder="your@email.com" onfocus="this.placeholder = ''" onblur="this.placeholder = 'your@email.com'" /></p>
-			<p><label for="message">Message</label><textarea name="message" id="message"></textarea></p>
-			<p style="padding-top: 105px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="submit" /></p>
-		</div>
-	</form>
-	&nbsp;
-	<p>NOTE: A contact form such as this would require some way of emailing the input<br />
-		to an email address.</p>
+<% layout(`../../layouts/${theme}/home`) %>
+<h1><%= __('contacts') %></h1>
+<div class="row">
+	<div class="col-lg-6">
+		<section id="contact">
+			<div class="row">
+				<h4><%= __('Phones of the company') %> :</h4>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>+380501234567</p>
+					<p>+380511234567</p>
+					<p>+380521234567</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<h4><%= __('Addresses of the company') %> :</h4>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Ukraine, Kiev, st. Mihaila Grushevskogo, 5</p>
+					<p>USA, Washington DC, 1600 Pennsylvania Avenue</p>
+					<p>United Kingdom, Westminster, London SW1A 1AA</p>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class="col-lg-6">
+		<section id="contact">
+			<div class="section-content">
+				<h4>Contact form</h4>
+				<p>Below is an example of how a contact form might look with this template:</p>
+			</div>
+			<form>
+				<div class="row">
+
+					<div class="col-md-6 form-line">
+						<div class="form-group">
+							<input required type="email" class="form-control" id="exampleInputEmail"
+							       placeholder="Enter Email adress">
+						</div>
+						<div class="form-group">
+							<input required type="tel" class="form-control" id="telephone" placeholder="Pnone: +x(xxx)xxxxxxxx">
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+					<textarea required class="form-control" id="description"
+					          placeholder="Enter Your Message"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<dic class="col-md-4">
+						<button type="submit" class="btn btn-info submit">
+							Send Message
+						</button>
+					</dic>
+				</div>
+			</form>
+		</section>
+	</div>
 </div>
+
+
+
 
 
 
