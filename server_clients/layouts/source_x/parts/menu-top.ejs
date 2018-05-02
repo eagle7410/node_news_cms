@@ -1,9 +1,32 @@
 <nav>
-	<ul>
-		<li><a href="index.html" id="homenav">Home</a></li>
-		<li><a href="blog.html" id="blognav">Blog</a></li>
-		<li><a href="fullwidth.html" id="fullwidthnav">Full width</a></li>
-		<li><a href="contact.html">Contact</a></li>
-		<li><a href="#">About</a></li>
+	<ul class="nav">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="lang">
+				<%= __(lang) %>
+			</a>
+			<div class="dropdown-menu" aria-labelledby="lang">
+				<% langs.forEach(l => { %>
+				<a class="dropdown-item <%= l === lang ? 'active' : '' %>" href="/?lang=<%= l %>"><%= __(l) %></a>
+				<% }) %>
+			</div>
+		</li>
+		<% topMenu.forEach(item => { %>
+			<% if (item.subs)  { %>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle <%= item.isActive ? 'active' : '' %>" href="#" id="<%= item.name %>">
+						<%= __(item.name) %>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="<%= item.name %>">
+						<% item.subs.forEach(sub => { %>
+							<a class="dropdown-item <%= sub.isActive ? 'active' : '' %>" href="<%= sub.url%>"><%= __(sub.name) %></a>
+						<% }) %>
+					</div>
+				</li>
+			<% } else {%>
+				<li class="nav-item">
+					<a class="nav-link <%= item.isActive ? 'active' : '' %>" href="<%= item.url%>"><%= __(item.name) %></a>
+				</li>
+			<% } %>
+		<% }) %>
 	</ul>
 </nav>

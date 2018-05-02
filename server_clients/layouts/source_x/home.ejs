@@ -1,8 +1,9 @@
 <%= include parts/head.ejs %>
 <body id="home">
-<div id="wrapper">
+<div id="wrapper " class="container">
 	<%= include parts/header.ejs %>
-	<section><%-body -%></section>
+	<%= include parts/include-js.ejs %>
+	<section><%-body %></section>
 	<%= include parts/footer.ejs%>
 </div>
 </body>

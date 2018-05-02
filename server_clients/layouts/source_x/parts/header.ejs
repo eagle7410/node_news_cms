@@ -1,8 +1,16 @@
-<header>
-	<div id="logo">
-		<h1>News<span id="iisrt"><span id="ii">II</span>  <span id="srt"><%= appName %></span></span></h1>
-		<div id="tagline">
-			<h2>Best news for you!</h2>
-		</div>
-	</div>
+<header class="row">
+  <div id="logo" class="col-md-3">
+	<h1>
+        <span id="iisrt">
+	        <span id="ii">II</span>
+	        <span id="srt"><%= appName %></span>
+        </span>
+	</h1>
+  </div>
+  <div class="col-md-2">
+    <h2><%= __('Best news for you!') %></h2>
+  </div>
+  <div class="col-md-7">
+	<%= include ./menu-top.ejs %>
+  </div>
 </header>

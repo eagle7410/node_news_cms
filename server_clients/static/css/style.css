@@ -35,20 +35,9 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-}
-img{
-	border: none;
-	border-radius: 3px;
+	color : #fff;
 }
 
-a{
-	color: #fff;
-	text-decoration: none;
-	text-shadow: none;
-}
-a:hover{
-	color: #B82924;
-}
 p{
 	margin-bottom: 8px;
 }
@@ -85,7 +74,7 @@ body{
 	float: right;
 	position: absolute;
 	top: 14px;
-	left: 90px;
+	/*left: 90px;*/
 	text-shadow: 1px 1px 0px #000;
 	font-size: 36px;
 	font-style: italic;
@@ -97,7 +86,7 @@ body{
 	font-family: LeagueGothic, sans-serif;
 	font-weight: bold;
 	position: absolute;
-	left: 100px;
+	left: 20px;
 	top: -3px;
 	color: #b82924;
 	display: block;
@@ -115,29 +104,17 @@ header h1{
 	font-size: 2.5em;
 	text-shadow: 1px 1px 0 #000;
 	position: relative;
-	width: 500px;
 	margin-bottom: 2px;
 }
 header h2{
+	margin-top: 10px;
 	font-size: 16px;
 	font-weight: normal;
 	font-family: LeagueGothic, sans-serif;
-	width: 170px;
 	text-shadow: 1px 1px 0 #000;
 	text-transform: uppercase;
 }
-#tagline{
-		margin-top: -8px;
-}
-#logo, nav, nav li{
-	display: inline-block;
-	vertical-align: top;
-	*display: inline;
-	zoom:1;
-}
-#logo{
-	width: 270px;
-}
+
 nav a {
 	color: #fff;
 	font-family: LeagueGothic, sans-serif;
@@ -149,46 +126,12 @@ nav a {
 }
 
 nav{
-	margin: 20px 4px 0 0;
 	float: right;
 }
-header{
-	margin-bottom: 25px;
-}
-#home a#homenav, #blog a#blognav, #fullwidth a#fullwidthnav, #contact a#contactnav{
+a.nav-link.active {
 	color: #b82924;
 }
-/*************** B A N N E R    S T Y L E ******************/
-#banner{
-	position: relative;
-	margin-bottom: 30px;
-}
-#banneri{
-	position: absolute;
-	bottom: 15%;
-	left: 0;
-	width: 500px;
-	background-color: rgba(0,0,0,.8);
-	padding: 5px 10px;
-}
-#banner img{
-	box-shadow: 0 4px 6px #000;
-}
-#banner h1{
-	font-family: LeagueGothic, Impact, sans-serif;
-	font-weight: normal;
-	text-transform: uppercase;
-	text-shadow: 1px 1px 0px #000;
-	display: inline;
-}
-#banner .rm{
-	position: absolute;
-	color: #000;
-	background-color: #fff;
-	padding: 4px 8px;
-	right: 3%;
-	bottom: -10%;
-}
+
 
 /************* H O M E    C O N T E N T *******************/
 #line h1{
@@ -210,53 +153,31 @@ header{
 		margin: 0 0 0 80px;
 }
 .dline{
-	width: 312px;
+	width: 100%;
 	height: 3px;
 	background: url('../images/bgdline.png') repeat-x ;
 	margin-bottom: 10px;
 }
-#ourserv article{
-	width: 275px;
-	display: inline-block;
-	*display: inline;
-	zoom:1;
+.ourserv article{
 	vertical-align: top;
-	margin: 0 38px 0 0;
 }
-#ourserv article h1, #latestp article h1{
+.ourserv article h1, #latestp article h1{
 	font-family: LeagueGothic, sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
 	font-size: 22px;
-	margin-bottom: 5px;
 }
+
 .lastarticle{
 	margin:0;
 }
-#ourserv{
+.ourserv{
 	margin: 8px 0 15px 20px;
 	width: 100%;
 }
-#ourserv img, #latestp img{
+.ourserv img, #latestp img{
 	margin-bottom: 5px;
     box-shadow: 0 4px 6px #000;
-}
-.rm{
-	color: #121212;
-	background-color: #F2F2F2;
-	padding: 1px 4px;
-	display:block;
-	width: 58px;
-	margin-top: 5px;
-	box-shadow: 0px 0px 3px #000;
-	font-family: LeagueGothic, sans-serif;
-	text-transform: uppercase;
-	font-size: 18px;
-	border-radius: 2px;
-}
-.rm:hover{
-	background-color: #B82924;
-	color: #121212;
 }
 
 #sline h1{
@@ -301,9 +222,7 @@ header{
 	*display: inline;
 	zoom:1;
 }
-#blog section, #contact section{
-	margin: 30px 0 0 10px;
-}
+
 #sidebar, #contat #sidebar{
 	width: 280px;
 	margin:0 0 0 55px;
@@ -312,42 +231,7 @@ header{
 	width: 600px;
 	margin:0 0 40px 0;
 }
-#blog li, #contact li{
-	list-style-type: square;
-}
-#blog article{
-	width: 580px;
-	margin-bottom: 40px;
-}
-#blog footer, #contact footer{
-	margin-top: 0px;
-}
-#blog article h1 a{
-	font-family: LeagueGothic, sans-serif;
-	font-weight: normal;
-	text-transform: uppercase;
-	font-size: 22px;
-	text-shadow: 1px 1px 0 #000;
-	word-spacing: 2px;
-	margin-bottom: 5px;
-}
-#blog article h2{
-	font-size: 12px;
-	font-weight: normal;
-	letter-spacing: 0.2px;
-	margin-bottom: 12px;
-	background-color: #0a0a0a;
-	padding: 4px 8px 4px 8px;
-	font-family: source, sans-serif;
-	text-transform: none;
-}
-#blog article h2 a:hover{
-	text-decoration: underline;
-}
-#blog article img{
-	box-shadow: 0 4px 6px #000;
-	margin-bottom: 10px;
-}
+
 #sidebar h1, #contact #sidebar h1{
 	font-family: LeagueGothic, sans-serif;
 	font-weight: normal;
@@ -461,23 +345,20 @@ input[type="submit"]:active{
 	list-style-type: decimal;
 	margin-left: 20px;
 }
-.right{
-	float: right;
-	margin-left: 10px;
+
+.page-link {
+	background: #6c757d4f !important;
 }
-.left{
-	float: left;
-	margin-right: 10px;
-}
-.center{
-	display: block;
-	text-align: center;
-	margin: 20px auto;
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:hover
+{
+	width: 84%;
 }
 
-/************* F O O T E R     S T Y L E *************************/
-
-footer{
-	margin-top: 30px;
-	text-align: right;
+.dropdown-item:hover {
+	background: #ccc !important;
+}
+header {
+	margin: 15px 0;
 }

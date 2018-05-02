@@ -5,6 +5,7 @@ module.exports = (app, directory) => {
 		locales:['en', 'ru'],
 		defaultLocale: 'ru',
 		directory,
+		queryParameter: 'lang',
 	});
 	app.use(i18n.init);
 };
