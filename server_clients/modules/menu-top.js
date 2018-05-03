@@ -19,12 +19,13 @@ const store = [
 		]
 	},
 	{
-		name : 'login',
-		url  : '/company/login'
-	},
-	{
 		name : 'registration',
 		url  : '/company/registration'
+	},
+	{
+		name  : 'login',
+		url   : '#',
+		class : 'linkLogin'
 	},
 ];
 

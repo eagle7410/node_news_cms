@@ -18,13 +18,13 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="<%= item.name %>">
 						<% item.subs.forEach(sub => { %>
-							<a class="dropdown-item <%= sub.isActive ? 'active' : '' %>" href="<%= sub.url%>"><%= __(sub.name) %></a>
+							<a class="dropdown-item <%= sub.isActive ? 'active' : '' %> <%= sub.class || '' %>" href="<%= sub.url%>"><%= __(sub.name) %></a>
 						<% }) %>
 					</div>
 				</li>
 			<% } else {%>
 				<li class="nav-item">
-					<a class="nav-link <%= item.isActive ? 'active' : '' %>" href="<%= item.url%>"><%= __(item.name) %></a>
+					<a class="nav-link <%= item.isActive ? 'active' : '' %> <%= item.class || '' %>" href="<%= item.url%>"><%= __(item.name) %></a>
 				</li>
 			<% } %>
 		<% }) %>
