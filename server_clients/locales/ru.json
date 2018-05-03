@@ -29,5 +29,7 @@
 	"Errors": "Ошибки",
 	"Error": "Ошибкa",
 	"Invalid password or email": "Неверный пароль или адрес электронной почты",
-	"logout": "Выход"
+	"logout": "Выход",
+	"back login": "back login",
+	"Recovery": "Recovery"
 }

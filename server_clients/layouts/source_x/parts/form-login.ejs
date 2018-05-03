@@ -22,7 +22,6 @@
 							       placeholder="<%= __('You@email.com') %>"
 							       required
 							       autofocus
-							       value="client1232@gmail.com"
 							/>
 						</div>
 					</div>
@@ -34,7 +33,6 @@
 							       id="password"
 							       placeholder="<%= __('Password') %>"
 							       required
-							       value="Client1232"
 							/>
 						</div>
 					</div>
@@ -44,7 +42,7 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success" id="loginTry"><%= __('login') %></button>
 				<button type="button" class="btn btn-secondary loginClose" ><%= __('Close') %></button>
-				<button class="btn btn-warning"><%= __('Forgot Your Password?') %></button>
+				<a class="btn btn-warning" href="/company/recovery"><%= __('Forgot Your Password?') %></a>
 			</div>
 		</div>
 	</div>

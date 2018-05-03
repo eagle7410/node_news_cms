@@ -29,6 +29,7 @@ let documentReady = () => {
 		Cookies.set('lang', event.target.dataset.val);
 		location.reload();
 	});
+
 }
 
 document.addEventListener('DOMContentLoaded', documentReady);
