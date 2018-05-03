@@ -1,10 +1,8 @@
-class FormModal {
+import Util from './Util'
+
+class FormModal extends Util {
 	static params () {
 		throw new Error(`No implement params ${this.name}`);
-	}
-
-	static getById (id) {
-		return document.getElementById(id);
 	}
 
 	static getForm () {
@@ -40,11 +38,6 @@ class FormModal {
 		return this.getById(this.params().idModal);
 	}
 
-	static attachEventByClass (cssClass, handler) {
-		for (let $btn of document.getElementsByClassName(cssClass)) {
-			$btn.onclick = handler;
-		}
-	}
 	static attachEventShow () {
 		this.attachEventByClass(this.params().classShowButton, (ev) => {
 			ev.preventDefault();
@@ -60,10 +53,14 @@ class FormModal {
 	}
 
 	static init () {
+		if (this.getForm() === null) {
+			return false;
+		}
+
 		this.errorHide();
 		this.attachEventClose();
 		this.attachEventShow();
-		this.afterInitOpenClose()
+		this.afterInitOpenClose();
 	}
 
 	static afterInitOpenClose () {}

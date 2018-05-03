@@ -8,6 +8,10 @@ module.exports = async (req, res, next) => {
 		const hash = req.query.hash || req.body.hash;
 		const base = req.query.base || req.body.base;
 
+		if (req.cookies.token) {
+			req.tokenData = await jwt.decode(keyPrivate, req.cookies.token);
+		}
+
 		if (!hash && !base) {
 			return next();
 		}
@@ -17,7 +21,6 @@ module.exports = async (req, res, next) => {
 		} else {
 			req.decode = JSON.parse(myCrypt(base, keyPublic.key, false));
 		}
-
 
 		if (process.isDev) {
 			console.log('~~ data decode \n', req.decode);

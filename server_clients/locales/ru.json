@@ -23,10 +23,11 @@
 	"Phones of the company": "Телефоны компании",
 	"Addresses of the company": "Адреса компании",
 	"Close": "Закрыть",
-	"Forgot Your Password?" : "Забыли пароль?",
-	"Password" : "Пароль",
-	"You@email.com" : "ВАШ@email.com",
-	"Errors" : "Ошибки",
-	"Error" : "Ошибкa",
-	"Invalid password or email" : "Неверный пароль или адрес электронной почты"
+	"Forgot Your Password?": "Забыли пароль?",
+	"Password": "Пароль",
+	"You@email.com": "ВАШ@email.com",
+	"Errors": "Ошибки",
+	"Error": "Ошибкa",
+	"Invalid password or email": "Неверный пароль или адрес электронной почты",
+	"logout": "Выход"
 }

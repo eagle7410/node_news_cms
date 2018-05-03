@@ -28,5 +28,6 @@
 	"You@email.com" : "You@email.com",
 	"Errors" : "Errors",
 	"Error" : "Error",
-	"Invalid password or email" : "Invalid password or email"
+	"Invalid password or email" : "Invalid password or email",
+	"logout" : "Logout"
 }

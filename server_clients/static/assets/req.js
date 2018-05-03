@@ -44,8 +44,10 @@ const send = (url, data, method, headers) => new Promise((resolve, reject) => {
 				}
 
 				let resData = JSON.parse(decode);
-				resolve(resData);
+				return resolve(resData);
 			}
+
+			resolve(data);
 
 		} catch (e) {
 			console.error('Parse responce bad', e);

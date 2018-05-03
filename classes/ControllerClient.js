@@ -10,7 +10,8 @@ class ControllerClient extends Controller {
 			lang  : res.locals.getLocale(),
 			appName : process.appName,
 			topMenu : buildForUser(req),
-			path : req.path
+			path : req.path,
+			user : req.tokenData
 		})
 	}
 }

@@ -20,16 +20,35 @@ const store = [
 	},
 	{
 		name : 'registration',
-		url  : '/company/registration'
+		url  : '/company/registration',
+		auth  : false
 	},
 	{
 		name  : 'login',
 		url   : '#',
-		class : 'linkLogin'
+		class : 'linkLogin',
+		auth  : false
+	},
+	{
+		name : 'logout',
+		url   : '#',
+		class : 'linkLogout',
+		auth  : true
 	},
 ];
 
-const buildForUser = (req) => store.map(item => {
+const buildForUser = (req) => store.filter(item => {
+	if (item.auth === undefined) {
+		return true;
+	}
+
+	if (item.auth) {
+		return !!req.tokenData;
+	}
+
+	return !req.tokenData;
+
+}).map(item => {
 	if (item.subs) {
 
 		item.isActive = req.path.includes(`/${item.name}/`);

@@ -1,3 +1,7 @@
+/**
+ * global document
+ */
+
 class Cookies {
 	static get(name) {
 		let matches = document.cookie.match(new RegExp(
@@ -35,6 +39,10 @@ class Cookies {
 		}
 
 		document.cookie = updatedCookie;
+	}
+
+	static clear(name) {
+		this.set(name, '', {expires: -1});
 	}
 }
 export default Cookies;

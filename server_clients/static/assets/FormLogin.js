@@ -23,8 +23,6 @@ class FormLogin extends FormModal {
 
 			Api.instance().login(this.getFormData())
 				.then(success => {
-					// TODO: clear
-					console.log('success', success);
 					if (success) return location.reload();
 					this.errorShow();
 				})
