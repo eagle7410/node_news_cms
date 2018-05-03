@@ -14,12 +14,19 @@
 	"contacts": "Контакты",
 	"registration": "Регистрация",
 	"login": "Вход",
-	"Login/Registration" : "Вход/Регистрация",
+	"Login/Registration": "Вход/Регистрация",
 	"Read More": "Читать дальше",
 	"Author": "Автор",
 	"Date published": "Дата публикации",
 	"This campaign is really very cool.": "Это кампания реально очень крутая.",
 	"It was founded in 20019 BC. The best dinosaurs and aliens.": "Основана в 20019 году до н.э. Лучшими динозавры и пришельцами.",
-	"Phones of the company" : "Телефоны компании",
-	"Addresses of the company" : "Адреса компании"
+	"Phones of the company": "Телефоны компании",
+	"Addresses of the company": "Адреса компании",
+	"Close": "Закрыть",
+	"Forgot Your Password?" : "Забыли пароль?",
+	"Password" : "Пароль",
+	"You@email.com" : "ВАШ@email.com",
+	"Errors" : "Ошибки",
+	"Error" : "Ошибкa",
+	"Invalid password or email" : "Неверный пароль или адрес электронной почты"
 }

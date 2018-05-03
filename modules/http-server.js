@@ -1,10 +1,18 @@
 const http = require('http');
 const jwt = require('../utils/jwt');
+const myCrypt = require('../utils/myCrypt');
 const keyPublic  = process.jwtPublic;
 
 http.ServerResponse.prototype.jwt = function (json = {}, code) {
 	if (code) this.status(code);
 	this.json({hash : jwt.create(keyPublic, json)});
+};
+
+http.ServerResponse.prototype.base = function (json = {}, code) {
+	if (code) this.status(code);
+	// TODO: clear
+	console.log('base', {base : myCrypt(JSON.stringify(json), keyPublic.key) });
+	this.json({base : myCrypt(JSON.stringify(json), keyPublic.key) });
 };
 
 const run = function() {

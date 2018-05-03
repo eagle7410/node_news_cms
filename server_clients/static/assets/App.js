@@ -1,6 +1,13 @@
 import Cookies from './Cookies';
+import LoginForm from './FormLogin';
+import Api from './Api';
+
+Api.instance();
 
 let documentReady = () => {
+	/* ---- Login form --- */
+	LoginForm.init();
+
 	/* ---- Drop down menu ---- */
 	let $toggles = document.getElementsByClassName('dropdown-toggle');
 

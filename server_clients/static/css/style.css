@@ -195,6 +195,15 @@ a.nav-link.active {
 .dropdown-item:hover {
 	background: #ccc !important;
 }
+
 header {
 	margin: 15px 0;
+}
+
+.modal-content {
+	background: #332b2b !important;
+}
+.alert-danger {
+	color: #fbfcff !important;
+	background-color: #e42032 !important;
 }

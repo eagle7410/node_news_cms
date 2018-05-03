@@ -81,6 +81,13 @@ ModelSchema
 		return this.hash;
 	});
 
+ModelSchema.methods = {
+	...ModelSchema.methods,
+	isPassword : function(password) {
+		return comparePass(password, this.hash, this.salt);
+	}
+};
+
 let Model = mongoose.model('clients', ModelSchema);
 
 module.exports = {
@@ -139,5 +146,17 @@ module.exports = {
 
 		return await module.exports.updateOne(save, {_id : id});
 
-	}
+	},
+	getByEmailAndCheck: async (email, pass) => {
+		let user = await Model.findOne({
+			email,
+			is_active: true,
+			is_deleted: false
+		});
+
+		if (!user) return false;
+
+		return user.isPassword(pass) ? user : false;
+	},
+	toJwt: ({email, name, surname, groups}) => ({email, name, surname, groups}),
 };

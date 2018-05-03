@@ -1,16 +1,23 @@
 const jwt = require('../utils/jwt');
+const myCrypt = require('../utils/myCrypt');
 const keyPublic  = process.jwtPublic;
 const keyPrivate = process.jwtPrivate;
 
 module.exports = async (req, res, next) => {
 	try {
 		const hash = req.query.hash || req.body.hash;
+		const base = req.query.base || req.body.base;
 
-		if (!hash) {
+		if (!hash && !base) {
 			return next();
 		}
 
-		req.decode = await jwt.decode(keyPublic, hash);
+		if (hash) {
+			req.decode = await jwt.decode(keyPublic, hash);
+		} else {
+			req.decode = JSON.parse(myCrypt(base, keyPublic.key, false));
+		}
+
 
 		if (process.isDev) {
 			console.log('~~ data decode \n', req.decode);
@@ -44,7 +51,7 @@ module.exports = async (req, res, next) => {
 			message = err;
 		}
 
-		proces.logger.warn(`${req.ip} ${req.path}: ${message}`);
+		process.logger.warn(`${req.ip} ${req.path}: ${message}`);
 
 		res.status(401).json({ message, success});
 	};

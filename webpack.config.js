@@ -1,11 +1,12 @@
 require('babel-register');
+require("babel-polyfill");
 const webpack = require('webpack');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const path = require("path");
 
 module.exports = {
 	mode: 'production',
-	entry: __dirname +"/server_clients/static/assets/App.js",
+	entry: ['babel-polyfill', __dirname +"/server_clients/static/assets/App.js"],
 	output: {
 		path:  path.join(__dirname, "server_clients/static/js"),
 		filename: "app.min.js"
@@ -15,7 +16,8 @@ module.exports = {
 			{
 				test: /\.js$/,
 				include: [
-					path.join(__dirname, "server_clients/static/assets")
+					path.join(__dirname, "server_clients/static/assets"),
+					path.join(__dirname, "configs"),
 				],
 				use: [
 					'babel-loader',
@@ -30,7 +32,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new MinifyPlugin()
+		new MinifyPlugin(),
 	],
 	devServer: {
 		port : 5001,
