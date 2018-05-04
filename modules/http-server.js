@@ -10,6 +10,7 @@ http.ServerResponse.prototype.jwt = function (json = {}, code) {
 
 http.ServerResponse.prototype.base = function (json = {}, code) {
 	if (code) this.status(code);
+
 	// TODO: clear expire
 	console.log('base', {base : myCrypt(JSON.stringify(json), keyPublic.key) });
 	this.json({base : myCrypt(JSON.stringify(json), keyPublic.key) });

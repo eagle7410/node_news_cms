@@ -17,6 +17,7 @@ module.exports = {
 			"window": "window",
 			"document" : "document",
 			"location" : "location",
+			"XMLHttpRequest" : "XMLHttpRequest",
 		}
 	],
 	module: {

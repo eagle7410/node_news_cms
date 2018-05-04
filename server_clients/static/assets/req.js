@@ -7,7 +7,11 @@ import myCrypt from '../../../utils/myCrypt';
  * @returns {*}
  */
 const getQuery = data => {
+
 	if (Object.prototype.toString.call(data) === '[object Object]') {
+		let date  = new Date();
+		data.expire = (date.getTime() + date.getTimezoneOffset()*6e4) + Number(jwtPublic.expire);
+
 		return `base=${encodeURIComponent(myCrypt(JSON.stringify(data), jwtPublic.key))}`
 	}
 
@@ -24,8 +28,8 @@ const getQuery = data => {
  * @return {Promise}
  */
 const send = (url, data, method, headers) => new Promise((resolve, reject) => {
-	let xhr = new XMLHttpRequest();
 	let sendData = getQuery(data);
+	let xhr = new XMLHttpRequest();
 
 	if (method === 'GET' && sendData) {
 		url += '?' + sendData;

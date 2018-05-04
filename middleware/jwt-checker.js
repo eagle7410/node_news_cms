@@ -16,10 +16,18 @@ module.exports = async (req, res, next) => {
 			return next();
 		}
 
+
 		if (hash) {
 			req.decode = await jwt.decode(keyPublic, hash);
 		} else {
 			req.decode = JSON.parse(myCrypt(base, keyPublic.key, false));
+
+			const date = new Date();
+
+			if (Number(req.decode.expire) > (date.getTime() + date.getTimezoneOffset()*6e4)) {
+				return next();
+			}
+
 		}
 
 		if (process.isDev) {
