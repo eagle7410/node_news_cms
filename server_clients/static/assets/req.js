@@ -97,23 +97,5 @@ const save = (url, data, headers) => send(url, data, 'POST', headers);
  * @return {Promise}
  */
 const get = (url, data, headers) => send(url, data, 'GET', headers);
-/**
- * Send for delete.
- * @method save
- * @param  {string} url
- * @param  {*} data
- * @param  {*} headers
- * @return {Promise}
- */
-const move = (url, data, headers) => send(url, data, 'DELETE', headers);
-/**
- * Send for update.
- * @method save
- * @param  {string} url
- * @param  {*} data
- * @param  {*} headers
- * @return {Promise}
- */
-const update = (url, data, headers) => send(url, data, 'PUT', headers);
 
-export {save, get, move, update, getQuery};
+export {save, get, getQuery};
