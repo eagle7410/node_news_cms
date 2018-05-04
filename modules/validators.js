@@ -28,7 +28,7 @@ const isNameSurname = (str) => /[A-Яa-я\-\s]{2,}/.test(str);
  * @param {string} str
  * @returns {boolean}
  */
-const isSimplePassword = str => /[A-z0-9]{8,}/.test(str);
+const isValidPassword = str => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$/.test(str);
 
 /**
  * Check confirm repeat password.
@@ -42,6 +42,6 @@ module.exports = {
 	isEmail,
 	isNotMoreLen,
 	isNameSurname,
-	isSimplePassword,
+	isValidPassword,
 	isValidConfirm
 }

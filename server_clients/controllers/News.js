@@ -8,15 +8,6 @@ const PAGE_SIZE = 12;
 const COUNT_WORDS_IN_HTML = 30;
 
 class News extends Controller {
-	// TODO: clear
-	// static groups () {
-	// 	return {
-	//		get_users : [
-	//			groups.admin
-	//		]
-	//	}
-	// };
-
 	static async get_detail(req, res) {
 		const id = req.query.id;
 		const lang = res.locals.getLocale();

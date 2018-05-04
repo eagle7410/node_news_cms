@@ -1,30 +1,16 @@
 const Controller = require('../../classes/ControllerClient');
-const {create} = require('../../utils/jwt');
+const {create, decode} = require('../../utils/jwt');
 
-// TODO: clear
 const ErrorHttp  = require('../../classes/ErrorHttp');
-//const groups = require('../../constants/groups');
 const Model   = require('../../models/mongo/clients');
+const mail = require('../../modules/mail');
 
 class Auth extends Controller {
-	// TODO: clear
-	// static groups () {
-	// 	return {
-	//		get_users : [
-	//			groups.admin
-	//		]
-	//	}
-	// };
-	// static getMethodGroups () {
-	// 	return [
-	// 		groups.admin,
-	// 	];
-	// }
 	static async post_login(req, res) {
 		let {email, password, is_update} = req.decode;
 
 		if (!email || !password) {
-			throw new ErrorHttp('Bad request');
+			throw ErrorHttp.badRequest();
 		}
 
 		let user = await Model.getByEmailAndCheck(email, password);
@@ -34,6 +20,45 @@ class Auth extends Controller {
 		}
 
 		return  res.base({token: create(process.jwtPrivate, Model.toJwt(user)) });
+	}
+
+	static async get_confirm_registration(req, res) {
+		let data = req.query.data;
+
+		if (!data) {
+			throw ErrorHttp.notFound()
+		}
+
+		const {email, password, surname, name } = await decode(process.jwtPrivate, data);
+
+		const count = await Model.countByEmail(email);
+
+		if (count > 0) {
+			return res.redirect('/company/confirm-registration?type=warn');
+		}
+
+		await Model.create({
+			email,
+			password,
+			surname,
+			name,
+			created_by : email,
+			updated_by : email,
+			is_active  : true
+		});
+
+		await mail.sendByView(
+			email,
+			'confirmRegistration', {
+				email,
+				name,
+				surname,
+				password
+			},
+			req
+		);
+
+		res.redirect('/company/confirm-registration?type=ok');
 	}
 }
 

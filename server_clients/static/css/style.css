@@ -207,7 +207,17 @@ header {
 	color: #fbfcff !important;
 	background-color: #e42032 !important;
 }
+.alert-warning {
+	color: #000 !important;
+	background-color: #ffc107 !important;
+}
+
+.alert-success {
+	background-color: #28a745 !important;
+	color : #fff !important;
+}
 
 section {
 	margin: 10px 0;
 }
+

@@ -42,7 +42,7 @@
 					       class="form-control"
 					       name="password"
 					       id="pass"
-					       pattern="[A-z0-9]{8,}"
+					       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$"
 					       placeholder="<%= __('Password') %>"
 					       required
 					/>

@@ -67,7 +67,6 @@ let ModelSchema = new Schema({
 ModelSchema
 	.virtual('password')
 	.set(function (pass) {
-
 		if (!validatePass(pass)) {
 			throw `Invalid password: ${pass}`;
 		}
@@ -159,4 +158,5 @@ module.exports = {
 		return user.isPassword(pass) ? user : false;
 	},
 	toJwt: ({email, name, surname, groups}) => ({email, name, surname, groups}),
+	countByEmail : (email) => Model.count({email})
 };

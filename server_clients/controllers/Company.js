@@ -1,11 +1,11 @@
 const Controller = require('../../classes/ControllerClient');
 
-// TODO: clear
 const ErrorHttp  = require('../../classes/ErrorHttp');
-const {isEmail, isNameSurname, isSimplePassword, isValidConfirm} = require('../../modules/validators');
+const {isEmail, isNameSurname, isValidPassword, isValidConfirm} = require('../../modules/validators');
 const {create} = require('../../utils/jwt');
 const mail = require('../../modules/mail');
 const keyPrivate  = process.jwtPrivate;
+// TODO: clear
 //const groups = require('../../constants/groups');
 //const Model   = require('../../models/mongo/$MODEl$');
 
@@ -16,6 +16,16 @@ class Company extends Controller {
 
 	static async get_about(req, res) {
 		this.render(req,res, 'about')
+	}
+
+	static async get_confirm_registration(req, res) {
+		let type = req.query.type;
+
+		if (!type) {
+			throw ErrorHttp.badRequest();
+		}
+
+		this.render(req,res, 'registration-confirm', {type});
 	}
 
 	static async get_registration (req, res) {
@@ -49,7 +59,7 @@ class Company extends Controller {
 			!isEmail(email) ||
 			!isNameSurname(name) ||
 			!isNameSurname(surname) ||
-			!isSimplePassword(password) ||
+			!isValidPassword(password) ||
 			!isValidConfirm(password, confirm)
 		) {
 			throw ErrorHttp.badRequest();

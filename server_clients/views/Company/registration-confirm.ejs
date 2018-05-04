@@ -1,0 +1,16 @@
+<% layout(`../../layouts/${theme}/home`) %>
+<h1><%= __('registration') %></h1>
+<div class="row">
+	<div class="col-md-6">
+		<% if (type === 'ok') { %>
+		<div class="alert alert-success">
+			<%= __('Your registration has been confirmed.') %><br/>
+			<%= __('You have sent your password to the mail') %>
+		</div>
+		<% } else { %>
+		<div class="alert alert-warning">
+			<%= __('You have already been verified') %>
+		</div>
+		<% } %>
+	</div>
+</div>
