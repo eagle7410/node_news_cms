@@ -42,10 +42,13 @@
 	"The link will be valid for 4 hours": "Ссылка будет действительной в течение 4 часов",
 	"Yo have already been verified": "Вы уже были подтверждены",
 	"Your registration has been confirmed.": "Ваша регистрация подтверждена.",
-	"You have sent your password to the mail" : "Вам на почту выслали ваш пароль",
+	"You have sent your password to the mail": "Вам на почту выслали ваш пароль",
 	"Congratulations!": "Поздравляем!",
 	"You are registered with us": "Вы зарегистрированы у нас",
 	"Your login": "Ваш логин",
 	"Confirmation of registration ok": "Подтверждение регистрации в порядке",
-	"You have already been verified": "Вы уже были проверены"
+	"You have already been verified": "Вы уже были проверены",
+	"Add comment": "Добавить комментарий",
+	"Enter Your Comment": "Введите свой комментарий",
+	"Comments": "Комментарии"
 }

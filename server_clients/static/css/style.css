@@ -207,7 +207,7 @@ header {
 	color: #fbfcff !important;
 	background-color: #e42032 !important;
 }
-.alert-warning {
+.alert-warning, .alert-warning > * {
 	color: #000 !important;
 	background-color: #ffc107 !important;
 }

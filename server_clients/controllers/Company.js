@@ -5,8 +5,6 @@ const {isEmail, isNameSurname, isValidPassword, isValidConfirm} = require('../..
 const {create} = require('../../utils/jwt');
 const mail = require('../../modules/mail');
 const keyPrivate  = process.jwtPrivate;
-// TODO: clear
-//const groups = require('../../constants/groups');
 //const Model   = require('../../models/mongo/$MODEl$');
 
 class Company extends Controller {
@@ -37,10 +35,8 @@ class Company extends Controller {
 
 		await mail.sendByView(
 			data.email,
-			'confirmEmail', {
-				lang : res.locals.getLocale(),
-				linkQuery : `?data=${encodeURIComponent(create(keyPrivate, data))}`
-			},
+			'confirmEmail',
+			{ linkQuery : `?data=${encodeURIComponent(create(keyPrivate, data))}` },
 			req
 		);
 
@@ -61,16 +57,10 @@ class Company extends Controller {
 			!isNameSurname(surname) ||
 			!isValidPassword(password) ||
 			!isValidConfirm(password, confirm)
-		) {
+		)
 			throw ErrorHttp.badRequest();
-		}
 
-		return {
-			email,
-			name,
-			surname,
-			password
-		};
+		return {email, name, surname, password};
 	}
 
 }

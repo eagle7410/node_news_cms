@@ -23,10 +23,6 @@ let ModelSchema = new Schema({
 		type : Date,
 		default : Date.now,
 	},
-	comments : {
-		type : Array,
-		default : []
-	},
 	created_by : {
 		type : String,
 		required : true,

@@ -1,0 +1,6 @@
+<div class="small">
+	<%= __('Author') %> : <%= comment.created_by %> <%= __('Date published') %>: <%=  new DateCustom(comment.created_at).toStringByFormat() %>
+</div>
+<div>
+	<%= comment.text %>
+</div>

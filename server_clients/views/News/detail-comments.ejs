@@ -1,0 +1,35 @@
+<h4><%= __('Comments') %></h4>
+<form class="comment-form" action="/news/add-comment" method="post">
+	<input name="news_id" type="hidden" value="<%= _id %>"/>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<textarea name="text" required class="form-control" id="description"
+				          placeholder="<%= __('Enter Your Comment') %>"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<dic class="col-md-4">
+			<button type="submit" class="btn btn-info submit">
+				<%= __('Add comment') %>
+			</button>
+		</dic>
+	</div>
+</form>
+<% comments.forEach(comment => { %>
+	<div class="row" class="comments">
+		<% if( comment.created_by === author ) { %>
+			<div class="col-md-4 alert alert-success offset-md-4">
+				<%= include detail-comment.ejs %>
+			</div>
+
+		<% } else { %>
+			<div class="col-md-4 alert alert-warning">
+				<%= include detail-comment.ejs %>
+			</div>
+		<% } %>
+	</div>
+<% })%>
+
+
