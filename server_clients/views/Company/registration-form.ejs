@@ -1,0 +1,87 @@
+<form method="POST" id="registrationForm" action="/company/registration">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group ">
+				<div class="input-group">
+					<input type="email"
+					       class="form-control"
+					       name="email"
+					       placeholder="<%= __('You@email.com') %>"
+					       required
+					       autofocus
+					/>
+				</div>
+			</div>
+			<div class="form-group ">
+				<div class="input-group">
+					<input type="text"
+					       class="form-control"
+					       name="name"
+					       id="name"
+					       pattern="[A-Яa-я\-\s]{2,}"
+					       placeholder="<%= __('You name') %>"
+					/>
+				</div>
+			</div>
+			<div class="form-group ">
+				<div class="input-group">
+					<input type="text"
+					       class="form-control"
+					       name="surname"
+					       id="surname"
+					       pattern="[A-Яa-я\-\s]{2,}"
+					       placeholder="<%= __('You surname') %>"
+					/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<div class="input-group">
+					<input type="password"
+					       class="form-control"
+					       name="password"
+					       id="pass"
+					       pattern="[A-z0-9]{8,}"
+					       placeholder="<%= __('Password') %>"
+					       required
+					/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<input type="password"
+					       class="form-control"
+					       name="confirm"
+					       id="confirm"
+					       placeholder="<%= __('Confirm password') %>"
+					       required
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<button type="submit" class="btn btn-success" id="tryRegistration">
+				<%= __('registration') %>
+			</button>
+		</div>
+	</div>
+</form>
+
+<script>
+	var password = document.getElementById("pass")
+	, confirm_password = document.getElementById("confirm");
+
+	function validatePassword(){
+	if(password.value != confirm_password.value) {
+	confirm_password.setCustomValidity('<%= __('Passwords Don\'t Match') %>');
+	} else {
+	confirm_password.setCustomValidity('');
+	}
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+</script>

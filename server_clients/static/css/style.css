@@ -207,3 +207,7 @@ header {
 	color: #fbfcff !important;
 	background-color: #e42032 !important;
 }
+
+section {
+	margin: 10px 0;
+}

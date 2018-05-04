@@ -30,6 +30,14 @@
 	"Error": "Ошибкa",
 	"Invalid password or email": "Неверный пароль или адрес электронной почты",
 	"logout": "Выход",
-	"back login": "back login",
-	"Recovery": "Recovery"
+	"You surname": "Ваша фамилия",
+	"You name": "Ваша имя",
+	"Confirm password": "Подтвердите пароль",
+	"Passwords Don't Match": "Пароли не совпадают",
+	"Link for registration confirmation": "Ссылка для подтверждения регистрации",
+	"Click me": "Нажми меня",
+	"Confirm registration": "Подтверждение регистрации",
+	"Sincerely Cool service": "С уважением Крутой сервис",
+	"A letter has been sent to you by email. In which the link to confirm the registration.": "Вам на email выслали письмо. В котором ссылка для подтверждения регистрации.",
+	"The link will be valid for 4 hours": "Ссылка будет действительной в течение 4 часов"
 }
