@@ -51,7 +51,7 @@ class News extends Controller {
 		let comments = [];
 
 		if (req.tokenData) {
-			comments = await ModelComments.getAll({news_id : news._id});
+			comments = await ModelComments.getAll({news_id : news._id, lang});
 		}
 
 		this.render(req, res, 'detail',{
