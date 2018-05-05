@@ -40,6 +40,10 @@ class Controller {
 
 		} catch (e) {
 
+			if (process.isDev) {
+				console.error('Err -> ', e);
+			}
+
 			if (e.name === 'ValidationError') {
 
 				if (process.isDev) {

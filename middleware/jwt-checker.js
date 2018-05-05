@@ -47,6 +47,12 @@ module.exports = async (req, res, next) => {
 		const success = false;
 
 		if (err.name === 'TokenExpiredError') {
+
+			if ((req.method || 'get').toLowerCase() === 'get') {
+				res.clearCookie('token');
+				return next();
+			}
+
 			return res.status(404).jwt({
 				message,
 				success,
