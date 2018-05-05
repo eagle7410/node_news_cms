@@ -1,3 +1,4 @@
+const Profile = require('./Profile');
 const Employees = require('./Employees');
 const Clients = require('./Clients');
 const News = require('./News');
@@ -7,4 +8,5 @@ module.exports = {
 	News,
 	Employees,
 	Clients,
+	Profile,
 };

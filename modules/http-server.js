@@ -5,16 +5,11 @@ const keyPublic  = process.jwtPublic;
 
 http.ServerResponse.prototype.jwt = function (json = {}, code) {
 	if (code) this.status(code);
-	// TODO: clear expire
-	console.log('json', json);
 	this.json({hash : jwt.create(keyPublic, json)});
 };
 
 http.ServerResponse.prototype.base = function (json = {}, code) {
 	if (code) this.status(code);
-
-	// TODO: clear expire
-	console.log('base', {base : myCrypt(JSON.stringify(json), keyPublic.key) });
 	this.json({base : myCrypt(JSON.stringify(json), keyPublic.key) });
 };
 

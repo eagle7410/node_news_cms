@@ -10,12 +10,12 @@
     </div>
 </template>
 <script>
-    import FormLogin from './FormLogin'
+    import LoginForm from './LoginForm'
     import ChooseLang from './ChooseLang'
 
     export default {
         components: {
-            FormLogin,
+            LoginForm,
             ChooseLang
         },
         created () {

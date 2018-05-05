@@ -6,6 +6,7 @@
                     <fg-input type="email"
                               label="Email"
                               placeholder="Email"
+                              :disabled="true"
                               :value="email">
                     </fg-input>
                 </div>
@@ -46,8 +47,23 @@
         },
 
         methods: {
-            updateProfile() {
-                alert('Your data: ' + JSON.stringify(this.user))
+            async updateProfile() {
+                try {
+                    const result = await this.$api.profileUpdate({
+                        name : this.user.name,
+                        surname : this.user.surname
+                    });
+
+                    if (!result) {
+                        return this.notifyError(this.__t('Error updated'));
+                    }
+
+                    this.notifyOk(this.__t('Success updated'));
+
+                } catch (e) {
+                    console.error('Error update profile', e);
+                    this.notifyError(this.__t('Error updated'));
+                }
             }
         },
 
@@ -57,6 +73,3 @@
     }
 
 </script>
-<style>
-
-</style>

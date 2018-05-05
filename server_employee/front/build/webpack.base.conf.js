@@ -19,6 +19,14 @@ var webpackConfig = {
             ? config.build.assetsPublicPath
             : config.dev.assetsPublicPath
     },
+    externals: [
+        {
+            "window": "window",
+            "document": "document",
+            "location": "location",
+            "XMLHttpRequest": "XMLHttpRequest",
+        }
+    ],
     /* plugins: [
 	   new webpack.ProvidePlugin({
 		 $: "jquery",

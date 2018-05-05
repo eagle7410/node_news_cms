@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
 		const hash = req.query.hash || req.body.hash;
 		const base = req.query.base || req.body.base;
 
-		if (req.cookies.token) {
+		if (req.cookies && req.cookies.token) {
 			req.tokenData = await jwt.decode(keyPrivate, req.cookies.token);
 		}
 

@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>News</title>
-	<link href="http://localhost:3539/static/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <style>
 	th, td {
@@ -14,13 +13,17 @@
 	}
 	th {
 		border: none;
-	}
-	th {
 		font-weight: bold;
+		margin-top: 5px;
 	}
 	table {
 		background: #fff;
 		width: 100%;
+	}
+</style>
+<style type="text/css" media="screen,print">
+	tr{
+		page-break-inside:avoid !important;
 	}
 </style>
 <body>
@@ -29,14 +32,16 @@
 		<h1>All news</h1>
 		<table>
 			<thead>
-				<th>Title english</th>
-				<th>Title russian</th>
-				<th>Author</th>
-				<th>Publish</th>
-				<th>Who updated</th>
-				<th>Date updated</th>
-				<th>Who create</th>
-				<th>Date created</th>
+				<tr>
+					<th>Title english</th>
+					<th>Title russian</th>
+					<th>Author</th>
+					<th>Publish</th>
+					<th>Who updated</th>
+					<th>Date updated</th>
+					<th>Who create</th>
+					<th>Date created</th>
+				</tr>
 			</thead>
 			<tbody>
 				<% news.forEach((n) => { %>

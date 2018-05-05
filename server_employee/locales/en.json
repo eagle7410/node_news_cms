@@ -187,6 +187,8 @@
 		"Error get Employees" : "Error get employees",
 		"Toggle navigation" : "Toggle navigation",
 		"404 Not Found" : "404 Not Found",
-		"Oops! It seems that this page does not exist." : "Oops! It seems that this page does not exist."
+		"Oops! It seems that this page does not exist." : "Oops! It seems that this page does not exist.",
+		"Error updated" : "Error updated",
+		"Success updated" : "Success updated"
 	}
 }
