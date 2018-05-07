@@ -70,7 +70,7 @@
                     row.created_at = new Date(row.created_at).toStringByFormat(dateFormat);
 
                     if (row.read_at) {
-                        row.read_at = new Date(row.updated_at).toStringByFormat(dateFormat);
+                        row.read_at = new Date(row.read_at).toStringByFormat(dateFormat);
                     }
 
                     return row;

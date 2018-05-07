@@ -1,10 +1,6 @@
 <template>
     <div class="actions">
-        <button @click="edit" :title="__t('Edit')" class="action btn btn-info">
-            <i class="icon fa fa-pencil"></i>
-        </button>
-
-        <button @click="activate" :title="__t('Activate')" class="action btn btn-success">
+        <button v-if="!entry.read_at" @click="read" :title="__t('Read')" class="action btn btn-success">
             <i class="icon fa fa-check-circle"></i>
         </button>
 
@@ -24,23 +20,15 @@
                 console.error(mess, err);
                 this.notifyError(mess);
             },
-            async activate () {
-                if (!confirm(this.__t('You are sure?'))) {
-                    return false;
-                }
-
+            async read () {
                 try {
-                    let response = await this.$api.NotificationsActivate(this.entry._id);
+                    let response = await this.$api.NotificationsRead(this.entry._id);
                     this.$store.commit('updateNotifications', response.row);
-                    this.notifyOk(this.__t('Notifications is active'));
 
                 } catch (e) {
-                    this.handlerError(e, this.__t('Error activate Notifications'))
+                    this.handlerError(e, this.__t('Error set date read Notifications'))
                 }
-            },
-            edit() {
-                this.$router.push({path: fullPath.NotificationsEdit, query: {id: this.entry._id}})
-            },
+            }
         },
     }
 </script>

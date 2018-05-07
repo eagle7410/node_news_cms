@@ -7,7 +7,7 @@ const mail = require('../../modules/mail');
 
 class Auth extends Controller {
 	static async post_login(req, res) {
-		let {email, password, is_update} = req.decode;
+		let {email, password} = req.decode;
 
 		if (!email || !password) {
 			throw ErrorHttp.badRequest();

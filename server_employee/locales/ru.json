@@ -202,6 +202,8 @@
 		"type" : "Тип",
 		"subscribe" : "Еmail получателя",
 		"Error in save notifications" : "Ошибка при сохранении уведомлений",
-		"Notification created" : "Создано уведомление"
+		"Notification created" : "Создано уведомление",
+		"Read" : "Прочитано",
+		"Error set date read Notifications" : "Ошибка установки даты чтения"
 	}
 }

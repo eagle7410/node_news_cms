@@ -8,7 +8,7 @@ export default {
     async NotificationsSave(row) {
         return await this._send(save, controller + '/save', row);
     },
-    async NotificationsActivate(id) {
-        return await this._send(save, controller + '/activate', {id});
+    async NotificationsRead(id) {
+        return await this._send(save, controller + '/read', {id});
     }
 };

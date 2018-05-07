@@ -180,8 +180,7 @@ module.exports = {
 		for (let stat of data) {
 			stats[stat._id] = Number(stat.number);
 		}
-	// TODO: clear
-	console.log('oneWeekAgo.toStringByFormat(\'y/m/d\')', oneWeekAgo.toStringByFormat('y/m/d'));
+
 		return {
 			dateRun :  oneWeekAgo.toStringByFormat('y/m/d'),
 			stats
