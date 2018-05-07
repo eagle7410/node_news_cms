@@ -4,7 +4,13 @@ const store = [
 	{
 		name: 'profile',
 		icon: 'fa fa-user-circle',
-		path: '/admin/user-profile',
+		path: '/admin/profile',
+		isAllGroups : true,
+	},
+	{
+		name: 'notifications',
+		icon: 'fa fa-bell',
+		path: '/admin/notifications',
 		isAllGroups : true,
 	},
 	{

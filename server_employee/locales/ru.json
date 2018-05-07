@@ -14,7 +14,8 @@
 		"profile": "Профиль",
 		"employees": "Работники",
 		"clients": "Клиенты",
-		"news": "Новости"
+		"news": "Новости",
+		"notifications": "Уведомления"
 	},
 	"dash": {
 		"Edit Profile": "Редактировать профиль",
@@ -193,6 +194,14 @@
 		"Count clients" : "Количество клиетнов",
 		"Count news"    : "Количество новостей",
 		"yesterday" : "вчера",
-		"today" : "сегодня"
+		"today" : "сегодня",
+		"notifications" : "Уведомления",
+		"notifications-add" : "Добавить уведомоление",
+		"data" : "Данные",
+		"read_at" : "Дата прочтения",
+		"type" : "Тип",
+		"subscribe" : "Еmail получателя",
+		"Error in save notifications" : "Ошибка при сохранении уведомлений",
+		"Notification created" : "Создано уведомление"
 	}
 }

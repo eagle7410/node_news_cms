@@ -1,3 +1,4 @@
+const Notifications = require('./Notifications');
 const Dashboard = require('./Dashboard');
 const Profile = require('./Profile');
 const Employees = require('./Employees');
@@ -12,4 +13,5 @@ module.exports = {
 	Clients,
 	Profile,
 	Dashboard,
+	Notifications,
 };

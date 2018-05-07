@@ -10,12 +10,16 @@ import news from './modules/news'
 import newsOne from './modules/news-one'
 import Employees from './modules/employees'
 import EmployeesOne from './modules/employees-one'
+import Notifications from './modules/notifications'
+import NotificationsOne from './modules/notifications-one'
 // End modules
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     modules: {
+        NotificationsOne,
+        Notifications,
         EmployeesOne,
         Employees,
         auth,

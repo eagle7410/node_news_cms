@@ -15,6 +15,8 @@ import NewsEdit from 'src/components/Dashboard/Views/News/NewsEdit.vue'
 import Employees from 'src/components/Dashboard/Views/Employees/Employees.vue'
 import EmployeesAdd from 'src/components/Dashboard/Views/Employees/EmployeesAdd.vue'
 import EmployeesEdit from 'src/components/Dashboard/Views/Employees/EmployeesEdit.vue'
+import Notifications from 'src/components/Dashboard/Views/Notifications/Notifications.vue'
+import NotificationsAdd from 'src/components/Dashboard/Views/Notifications/NotificationsAdd.vue'
 
 import {paths} from './paths';
 import groups from '../../../../constants/groups';
@@ -36,6 +38,27 @@ const routes = [
                 meta: {
                     breadcrumbs : [
                         {path : paths.profile, name: 'profile'}
+                    ]
+                }
+            },
+            {
+                path: paths.Notifications,
+                name: 'notifications',
+                component: Notifications,
+                meta: {
+                    breadcrumbs : [
+                        {path : paths.Notifications, name: 'notifications'}
+                    ]
+                }
+            },
+            {
+                path: paths.NotificationsAdd,
+                name: 'notifications-add',
+                component: NotificationsAdd,
+                meta: {
+                    breadcrumbs : [
+                        {path : paths.Notifications, name: 'notifications'},
+                        {path : paths.NotificationsAdd, name: 'notifications-add'}
                     ]
                 }
             },
