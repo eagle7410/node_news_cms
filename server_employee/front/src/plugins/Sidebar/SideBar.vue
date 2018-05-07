@@ -45,33 +45,6 @@
                         <p>{{link.name}}</p>
                     </a>
                 </router-link>
-                <!--TODO -->
-                <!--<li class="nav-item active ">-->
-                    <!--<a class="nav-link collapsed" data-toggle="collapse" href="#componentsExamples" aria-expanded="false">-->
-                        <!--<i class="material-icons">apps</i>-->
-                        <!--<p> Components-->
-                            <!--<b class="caret"></b>-->
-                        <!--</p>-->
-                    <!--</a>-->
-
-                    <!--<div class="collapse" id="componentsExamples" :style="{display: 'block'}">-->
-                        <!--<ul class="nav">-->
-                            <!--<li class="nav-item ">-->
-                                <!--<a class="nav-link" href="../components/buttons.html">-->
-                                    <!--<span class="sidebar-mini"> B </span>-->
-                                    <!--<span class="sidebar-normal"> Buttons </span>-->
-                                <!--</a>-->
-                            <!--</li>-->
-                            <!--<li class="nav-item active ">-->
-                                <!--<a class="nav-link" href="../components/grid.html">-->
-                                    <!--<span class="sidebar-mini"> GS </span>-->
-                                    <!--<span class="sidebar-normal"> Grid System </span>-->
-                                <!--</a>-->
-                            <!--</li>-->
-                            <!---->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</li>-->
             </ul>
         </div>
         <div class="sidebar-background" :style="backgroundImage"></div>
