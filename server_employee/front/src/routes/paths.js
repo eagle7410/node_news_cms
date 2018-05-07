@@ -3,12 +3,12 @@ const baseLogin = '/';
 
 /**
  *
- * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string, Employees: string, EmployeesEdit: string, EmployeesAdd: string}}
+ * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string, Employees: string, EmployeesEdit: string, EmployeesAdd: string, Notifications: string, NotificationsAdd: string}}
  */
 const paths = {
     login: '',
     logout : '',
-    profile: 'user-profile',
+    profile: 'profile',
     dashboard: 'dashboard',
     employees: 'users-admin',
     clients: 'clients',
@@ -19,12 +19,14 @@ const paths = {
     news: 'news',
     Employees : 'employees',
     EmployeesEdit : 'Employee-edit',
-    EmployeesAdd : 'Employee-add'
+    EmployeesAdd : 'Employee-add',
+    Notifications : 'Notifications',
+    NotificationsAdd : 'NotificationsAdd',
 };
 
 /**
  *
- * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string, Employees: string, EmployeesEdit: string, EmployeesAdd: string}}
+ * @type {{login: string, logout: string, profile: string, dashboard: string, employees: string, clients: string, clientAdd: string, clientEdit: string, newsEdit: string, newsAdd: string, news: string, Employees: string, EmployeesEdit: string, EmployeesAdd: string, Notifications: string, NotificationsAdd: string}}
  */
 let fullPath = {};
 

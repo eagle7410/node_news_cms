@@ -1,16 +1,13 @@
 <template>
     <div class="news-form">
-        <md-datepicker v-model="publish_at" id="publish_at">
+        <md-datepicker v-model="publish_at" id="news_publish_at">
             <label>{{__t('publish_at')}}</label>
         </md-datepicker>
 
-        <auto-compile
-            :list="authors"
-            :label="__t('author')"
-            :placeholder="__t('author')"
-            id="author"
-            v-model="author"
-        ></auto-compile>
+        <fg-input type="email"
+                  :label="__t('author')"
+                  v-model="author"
+        ></fg-input>
 
         <md-tabs>
             <text-tab

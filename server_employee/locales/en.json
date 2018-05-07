@@ -14,7 +14,8 @@
 		"profile": "Profile",
 		"employees": "Employees",
 		"clients": "Clients",
-		"news": "News"
+		"news": "News",
+		"notifications": "Notifications"
 	},
 	"dash": {
 		"Edit Profile": "Edit Profile",
@@ -189,6 +190,18 @@
 		"404 Not Found" : "404 Not Found",
 		"Oops! It seems that this page does not exist." : "Oops! It seems that this page does not exist.",
 		"Error updated" : "Error updated",
-		"Success updated" : "Success updated"
+		"Success updated" : "Success updated",
+		"Count clients" : "Count clients",
+		"Count news"    : "Count news",
+		"yesterday" : "yesterday",
+		"today" : "today",
+		"notifications" : "Notifications",
+		"notifications-add" : "Add notification",
+		"data" : "Data",
+		"read_at" : "Date read",
+		"type" : "Type",
+		"subscribe" : "User email",
+		"Error in save notifications" : "Error in save notifications",
+		"Notification created" : "Notification created"
 	}
 }
