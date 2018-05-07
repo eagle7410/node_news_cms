@@ -189,6 +189,10 @@
 		"404 Not Found" : "404 Not Found",
 		"Oops! It seems that this page does not exist." : "Oops! It seems that this page does not exist.",
 		"Error updated" : "Error updated",
-		"Success updated" : "Success updated"
+		"Success updated" : "Success updated",
+		"Count clients" : "Count clients",
+		"Count news"    : "Count news",
+		"yesterday" : "yesterday",
+		"today" : "today"
 	}
 }

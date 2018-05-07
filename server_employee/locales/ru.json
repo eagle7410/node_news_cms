@@ -189,6 +189,10 @@
 		"404 Not Found" : "404 Не Найдено",
 		"Oops! It seems that this page does not exist." : "К сожалению! Кажется, что этой страницы не существует.",
 		"Error updated" : "Ошибка обновлена",
-		"Success updated" : "Успешное обновление"
+		"Success updated" : "Успешное обновление",
+		"Count clients" : "Количество клиетнов",
+		"Count news"    : "Количество новостей",
+		"yesterday" : "вчера",
+		"today" : "сегодня"
 	}
 }

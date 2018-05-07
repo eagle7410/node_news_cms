@@ -1,5 +1,6 @@
 // Libs
 let mongoose    = require('mongoose');
+let DateCustom  = require('../../classes/DateCustom');
 let Schema      = mongoose.Schema;
 let defText     =  {
 	en : '',
@@ -119,5 +120,31 @@ module.exports = {
 
 		return await module.exports.updateOne(data, {_id : id});
 
+	},
+	count : (query = {}) => Model.count(query),
+	statsByWeekAgo: async () => {
+		let oneWeekAgo = new DateCustom();
+		oneWeekAgo.setHours(0,0,0,0);
+		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+		let data = await Model.aggregate(
+			[
+				{ $match: {created_at : {$gte : oneWeekAgo}}},
+				{ $project : { day : {$substr: ["$created_at", 0, 10] }}},
+				{ $group   : { _id : "$day",  number : { $sum : 1 }}},
+				{ $sort    : { _id : 1 }}
+			]
+		);
+
+		let stats = {};
+
+		for (let stat of data) {
+			stats[stat._id] = Number(stat.number);
+		}
+
+		return {
+			dateRun :  oneWeekAgo.toStringByFormat('y/m/d'),
+			stats
+		};
 	}
 };

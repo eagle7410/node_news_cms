@@ -3,6 +3,7 @@ let mongoose    = require('mongoose');
 let Schema      = mongoose.Schema;
 
 let {validatePass, createPass, comparePass} = require('../../utils/password');
+let DateCustom = require('../../classes/DateCustom');
 let ModelSchema = new Schema({
 	email: {
 		type: String, match: /.+@.*\..*/,
@@ -158,5 +159,32 @@ module.exports = {
 		return user.isPassword(pass) ? user : false;
 	},
 	toJwt: ({email, name, surname, groups}) => ({email, name, surname, groups}),
-	countByEmail : (email) => Model.count({email})
+	countByEmail : (email) => Model.count({email}),
+	count : (query = {}) => Model.count(query),
+	statsByWeekAgo: async () => {
+		let oneWeekAgo = new DateCustom();
+		oneWeekAgo.setHours(0,0,0,0);
+		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+		let data = await Model.aggregate(
+			[
+				{ $match: {created_at : {$gte : oneWeekAgo}}},
+				{ $project : { day : {$substr: ["$created_at", 0, 10] }}},
+				{ $group   : { _id : "$day",  number : { $sum : 1 }}},
+				{ $sort    : { _id : 1 }}
+			]
+		);
+
+		let stats = {};
+
+		for (let stat of data) {
+			stats[stat._id] = Number(stat.number);
+		}
+	// TODO: clear
+	console.log('oneWeekAgo.toStringByFormat(\'y/m/d\')', oneWeekAgo.toStringByFormat('y/m/d'));
+		return {
+			dateRun :  oneWeekAgo.toStringByFormat('y/m/d'),
+			stats
+		};
+	}
 };

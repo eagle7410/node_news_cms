@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 //modules
+import dash from './modules/dash'
 import auth from './modules/auth'
 import clients from './modules/clients'
 import clientOne from './modules/clients-one'
@@ -22,7 +23,8 @@ const store = new Vuex.Store({
         app,
         news,
         newsOne,
-        clientOne
+        clientOne,
+        dash
     }
 });
 

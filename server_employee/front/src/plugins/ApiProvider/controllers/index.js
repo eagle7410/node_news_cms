@@ -3,6 +3,7 @@ import app from './app'
 import clients from './clients'
 import Employees from './employees.js'
 import profile from './profile.js'
+import dashboard from './dashboard.js'
 //End import
 
 export default {
@@ -11,5 +12,6 @@ export default {
     profile,
     app,
     news,
-    clients
+    clients,
+    dashboard
 }

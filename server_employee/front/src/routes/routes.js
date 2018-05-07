@@ -3,7 +3,7 @@ import DashboardLayout from '../components/Dashboard/Layout/DashboardLayout.vue'
 import NotFound from '../components/GeneralViews/NotFoundPage.vue'
 
 // Admin pages
-import Dashboard from 'src/components/Dashboard/Views/Dashboard.vue'
+import Dashboard from 'src/components/Dashboard/Views/Dashboard/Dashboard.vue'
 import UserProfile from 'src/components/Dashboard/Views/UserProfile/UserProfile.vue'
 import Login from 'src/components/Dashboard/Views/Login/Login.vue'
 import Clients from 'src/components/Dashboard/Views/Clients/Clients.vue'
