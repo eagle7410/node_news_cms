@@ -9,6 +9,7 @@
 		"key"    : "PRIVATE KEY VALUE",
 		"expire" : "3h"
 	},
-	"name": "Clients",
+	"name": "Clients News",
+	"homeLink" : "http://localhost:3539/",
 	"theme" : "source_x"
 }

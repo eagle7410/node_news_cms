@@ -52,6 +52,8 @@ class App extends Controller {
 			leftMenu  : buildForUser(user, req.__('left_menu')),
 			phrases   : req.__('dash'),
 			groupList : groups,
+			appClientName : process.appClientName,
+			appClientHome : process.appClientHome,
 			countUnread
 		});
 

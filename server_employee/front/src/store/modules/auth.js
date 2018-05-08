@@ -2,31 +2,46 @@ export default {
     state: {
         email: '',
         password: '',
-        phrases : {},
-        user : {},
+        phrases: {},
+        user: {},
         token: '',
-        groupList : []
+        groupList: [],
+        appClientName: '',
+        appClientHome: '',
     },
     mutations: {
-        setEmail (state, email) {
+        setEmail(state, email) {
             state.email = email
         },
-        setPass (state, pass) {
+        setPass(state, pass) {
             state.password = pass
         },
-        setToken (state, token) {
+        setToken(state, token) {
             state.token = token
         },
-        setProfile (state, user) {
+        setProfile(state, user) {
             state.user = user
         },
-        setAuthPhrases (state, phrases) {
+        setAuthPhrases(state, phrases) {
             state.phrases = phrases
         },
-        setGroupList (state, groups) {
+        setGroupList(state, groups) {
             state.groupList = groups
         },
-        reset (state) {
+        setDataAfterLogin(state, data) {
+            [
+                'token',
+                'user',
+                'phrases',
+                'groupList',
+                'countUnread',
+                'appClientName',
+                'appClientHome'
+            ].map(prop => {
+                state[prop] = data[prop]
+            });
+        },
+        reset(state) {
             state.token = '';
             state.email = '';
             state.password = '';
@@ -38,7 +53,6 @@ export default {
                 state.email = 'test@mail.com';
                 state.password = 'test2Testing';
             }
-
         }
     }
 }

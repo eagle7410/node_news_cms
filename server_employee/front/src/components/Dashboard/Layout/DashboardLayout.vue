@@ -27,7 +27,6 @@
         computed: {
             _storeAuth: () => that.$store.state.auth,
             token: () => that._storeAuth.token
-
         },
         components: {
             TopNavbar,

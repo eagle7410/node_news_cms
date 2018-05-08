@@ -1,5 +1,11 @@
 // Server for control.
 require('../modules/configure-process')('employee');
+// Add client app name and link.
+const {name, homeLink} = require('../configs/clients');
+
+process.appClientName = name;
+process.appClientHome = homeLink;
+
 const express = require('express');
 const app     = express();
 const http    = require('../modules/http-server')(app);
