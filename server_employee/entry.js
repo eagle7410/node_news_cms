@@ -16,6 +16,10 @@ require('../modules/configure-translate')(app, __dirname + '/locales');
 // Connect to database
 require(`../models/${process.drive}/connect`);
 
+app.get('/', function(req, res) {
+	res.sendFile(__dirname +'/static/index.html');
+});
+
 require('../modules/configure-app')(app, {
 	assets : __dirname + '/static',
 	router : require('./router')(),

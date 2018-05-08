@@ -6,7 +6,9 @@
 			"password": "Пароль",
 			"try": "ВХОД",
 			"en": "English",
-			"ru": "Русский"
+			"ru": "Русский",
+			"Email is require" : "Поле `Email`. Необходимо.",
+			"Password is require" : "Поле `Пароль`. Необходимо."
 		}
 	},
 	"left_menu": {

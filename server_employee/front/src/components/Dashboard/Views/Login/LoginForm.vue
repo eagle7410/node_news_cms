@@ -68,7 +68,7 @@
                     return console.error('Login unknow error', mess);
                 }
 
-                this.notifyError(mess);
+                this.notifyError(this.phrases[mess] || mess);
             },
             async singIn() {
                 if (!this.email) {

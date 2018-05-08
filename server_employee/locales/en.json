@@ -6,7 +6,9 @@
 			"password": "Password",
 			"try": "TRY",
 			"en": "English",
-			"ru": "Русский"
+			"ru": "Русский",
+			"Email is require" : "Email is require",
+			"Password is require" : "Password is require"
 		}
 	},
 	"left_menu": {
