@@ -40,8 +40,7 @@
 </template>
 
 <script>
-    import {fullPath} from '../../../../routes/paths'
-    import {isEmail, isNotMoreLen} from '../../../../utils/validators'
+    import {isEmail} from '../../../../utils/validators'
 
     export default {
         name: 'NotificationsForm',
@@ -89,7 +88,7 @@
         methods: {
             _validate() {
                 if (!isEmail(this.subscribe)) {
-                    this.notifyError(this.__t('Field `{field}`. Must be email', {field:  this.__t('subscribe')}));
+                    this.notifyError(this.__t('Field `{field}`. Must be email', {field: this.__t('subscribe')}));
 
                     return false;
                 }
@@ -156,7 +155,6 @@
             return {
                 formData: {},
             }
-        },
+        }
     }
 </script>
-

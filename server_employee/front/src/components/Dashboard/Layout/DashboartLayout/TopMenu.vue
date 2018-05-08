@@ -17,7 +17,7 @@
     import {fullPath} from '../../../../routes/paths';
 
 	export default {
-		name: "TopMenu",
+		name: 'TopMenu',
         props : {
 		    css : {
 		        type : String,

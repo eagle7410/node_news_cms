@@ -8,8 +8,6 @@
 </template>
 
 <script>
-    import {fullPath} from '../../../../routes/paths'
-
     export default {
         name: 'NotificationsActions',
         props: {
