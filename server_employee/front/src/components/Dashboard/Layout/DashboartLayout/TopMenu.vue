@@ -1,6 +1,7 @@
 <template>
     <ul :class="css">
-        <nav-button v-if="isAdmin" :handlerClick="handlerDash" :title="__t('dashboard')" material-icon="dashboard"></nav-button>
+        <nav-button v-if="isAdmin" :handlerClick="handlerDash" :title="__t('dashboard')"
+                    material-icon="dashboard"></nav-button>
         <li class="dropdown" @click.prev="handlerNotify">
             <a class="dropdown-toggle btn-rotate" data-toggle="dropdown" href="javascript:void(0)">
                 <i class="material-icons">notifications</i>
@@ -16,24 +17,24 @@
 <script>
     import {fullPath} from '../../../../routes/paths';
 
-	export default {
-		name: 'TopMenu',
-        props : {
-		    css : {
-		        type : String,
-                default : 'nav navbar-nav navbar-right'
+    export default {
+        name: 'TopMenu',
+        props: {
+            css: {
+                type: String,
+                default: 'nav navbar-nav navbar-right'
             }
         },
         computed: {
-            _storeNotify () {
+            _storeNotify() {
                 return this.$store.state.Notifications;
             },
-            countUnread () {
+            countUnread() {
                 return this._storeNotify.countUnread;
             }
         },
         methods: {
-            handlerNotify () {
+            handlerNotify() {
                 this.$router.push(fullPath.Notifications)
             },
             handlerProfile() {
@@ -46,9 +47,5 @@
                 this.$router.push(fullPath.logout);
             }
         }
-	}
+    }
 </script>
-
-<style scoped>
-
-</style>

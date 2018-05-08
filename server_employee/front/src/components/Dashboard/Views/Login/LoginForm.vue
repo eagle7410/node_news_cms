@@ -86,9 +86,9 @@
                         return this._error(res.message);
                     }
 
-                    this.$store.commit('setDataAfterLogin', res);
-
                     this.$root.sidebarLinks = res.leftMenu || [];
+                    this.$store.commit('setDataAfterLogin', res);
+                    this.$store.commit('setCountUnreadNotify', res.countUnread);
 
                     Vue.prototype.$material.locale = this._storeAuth.phrases.locale;
 

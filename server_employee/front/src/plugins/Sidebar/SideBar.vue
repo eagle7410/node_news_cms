@@ -21,6 +21,7 @@
                     <a>
                         <i v-if="link.icon && link.icon.substr(0, 3) === 'fa '" :class="link.icon"></i>
                         <i v-if="link.icon && link.icon.substr(0, 3) !== 'fa '" class="material-icons">{{link.icon}}</i>
+                        <span v-if="link.path === '/admin/notifications' && countUnread > 0" class="counter">{{countUnread}}</span>
                         <p>{{link.name}}</p>
                     </a>
                 </router-link>
@@ -63,6 +64,12 @@
             }
         },
         computed: {
+            _storeNotify() {
+                return this.$store.state.Notifications;
+            },
+            countUnread() {
+                return this._storeNotify.countUnread;
+            },
             sidebarLinks() {
                 return this.$root.sidebarLinks || [];
             },
@@ -135,9 +142,27 @@
     }
 
 </script>
+<style scoped>
+    .counter {
+        position: absolute;
+        top: 5px;
+        border: 1px solid #FFF;
+        left: 12px;
+        font-size: 9px;
+        background: #f44336;
+        color: #FFFFFF;
+        min-width: 20px;
+        padding: 0px 5px;
+        height: 20px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 19px;
+        vertical-align: middle;
+        display: block;
+    }
+</style>
 <style>
     .nav-item.active > .nav-item {
         background: none;
     }
-
 </style>

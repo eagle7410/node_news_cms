@@ -55,15 +55,7 @@
     import {isEmail} from '../../../../utils/validators'
     import {fullPath} from '../../../../routes/paths'
 
-    let utilPass;
-
-    if (process.env.NODE_ENV === 'development') {
-        utilPass = require('../../../../../../../utils/password')
-    }
-
-    if (process.env.NODE_ENV === 'production') {
-        utilPass = require('../../../../utils/password')
-    }
+    let utilPass = require('../../../../utils/password');
 
     export default {
         name: 'ClientsForm',
@@ -71,8 +63,13 @@
             _store() {
                 return this.$store.state.clientOne;
             },
-            email: function () {
-                return this._store.email
+            email: {
+                get: function () {
+                    return this._store.email
+                },
+                set: function (value) {
+                    this.$store.commit('setEmail', value);
+                }
             },
             name: {
                 get: function () {

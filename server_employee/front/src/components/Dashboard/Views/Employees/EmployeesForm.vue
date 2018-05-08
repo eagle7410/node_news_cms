@@ -66,15 +66,7 @@
     import {isEmail} from '../../../../utils/validators'
     import {fullPath} from '../../../../routes/paths'
 
-    let utilPass;
-
-    if (process.env.NODE_ENV === 'development') {
-        utilPass = require('../../../../../../../utils/password')
-    }
-
-    if (process.env.NODE_ENV === 'production') {
-        utilPass = require('../../../../utils/password')
-    }
+    let utilPass = require('../../../../utils/password');
 
     export default {
         name: 'EmployeesForm',
