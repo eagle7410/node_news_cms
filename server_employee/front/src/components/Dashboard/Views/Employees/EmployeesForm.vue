@@ -132,7 +132,6 @@
                 }
             },
         },
-
         methods: {
             _setProp(prop, val) {
                 this.$store.commit('setPropEmployees', {val, prop});

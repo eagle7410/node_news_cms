@@ -4,7 +4,7 @@
             <i class="icon fa fa-pencil"></i>
         </button>
 
-        <button @click="activate" :title="__t('Activate')" :class="cssClassActive">
+        <button @click="activate" :title="`${__t('Activate')} / ${__t('Deactivate')}`" :class="cssClassActive">
             <i class="icon fa fa-check-circle" v-if="!entry.is_active"></i>
             <i class="icon fa fa-ban" v-if="entry.is_active"></i>
         </button>
