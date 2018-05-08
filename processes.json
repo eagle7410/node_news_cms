@@ -1,0 +1,16 @@
+{
+	"apps": [
+		{
+			"name": "Clients",
+			"script": "./server_clients/entry.js",
+			"instances": 4,
+			"exec_mode": "cluster"
+		},
+		{
+			"name": "Employees",
+			"script": "./server_employee/entry.js",
+			"instances": 2,
+			"exec_mode": "cluster"
+		}
+	]
+}
