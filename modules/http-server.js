@@ -18,7 +18,7 @@ const run = function() {
 	const baseLine = `=== ${process.appName} APP READY IN PORT ${port} ===\n`;
 	const len = baseLine.length -1;
 
-	process.logger.info(`Up server in posrt ${port}`);
+	process.logger.info(`Up server in port ${port}`);
 
 	this.listen(port, () =>
 		console.log(
