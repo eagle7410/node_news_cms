@@ -22,10 +22,4 @@
             this.$store.commit('reset');
         }
     }
-
 </script>
-<style scoped>
-    .container {
-        padding: 140px;
-    }
-</style>

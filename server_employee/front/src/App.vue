@@ -3,10 +3,8 @@
         <loading v-if="isLoad"></loading>
         <div v-else :class="{'nav-open': $sidebar.showSidebar}">
             <router-view></router-view>
-            <!--This sidebar appears only for screens smaller than 992px-->
         </div>
     </div>
-
 </template>
 
 <script>

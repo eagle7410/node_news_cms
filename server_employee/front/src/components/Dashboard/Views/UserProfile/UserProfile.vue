@@ -2,7 +2,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <edit-profile-form></edit-profile-form>
                 </div>
                 <div class="col-md-4">
@@ -22,8 +22,4 @@
             UserCard
         }
     }
-
 </script>
-<style>
-
-</style>

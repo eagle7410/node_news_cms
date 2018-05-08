@@ -100,8 +100,4 @@
             }
         }
     }
-
 </script>
-<style>
-
-</style>
