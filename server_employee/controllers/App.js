@@ -1,10 +1,11 @@
-const Controller = require('../../classes/ControllerEmployee');
-const ErrorHttp  = require('../../classes/ErrorHttp');
-const Employee   = require('../../models/mongo/employees');
-const {create} = require('../../utils/jwt');
+const Controller     = require('../../classes/ControllerEmployee');
+const ErrorHttp      = require('../../classes/ErrorHttp');
+const Employee       = require('../../models/mongo/employees');
+const Notifications  = require('../../models/mongo/notifications');
+const {create}       = require('../../utils/jwt');
 const {buildForUser} = require('../modules/left-menu');
 const groups = require('../../constants/groups');
-const i18n = require("i18n");
+const i18n   = require("i18n");
 
 class App extends Controller {
 
@@ -43,12 +44,15 @@ class App extends Controller {
 			});
 		}
 
+		const countUnread = await Notifications.countUnread(email);
+
 		res.jwt({
 			token     : create(process.jwtPrivate, Employee.toJwt(user)),
 			user      : Employee.toProfile(user),
 			leftMenu  : buildForUser(user, req.__('left_menu')),
 			phrases   : req.__('dash'),
-			groupList : groups
+			groupList : groups,
+			countUnread
 		});
 
 	}

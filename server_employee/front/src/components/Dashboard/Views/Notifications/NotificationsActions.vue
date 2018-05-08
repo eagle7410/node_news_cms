@@ -24,6 +24,7 @@
                 try {
                     let response = await this.$api.NotificationsRead(this.entry._id);
                     this.$store.commit('updateNotifications', response.row);
+                    this.$store.commit('setCountUnreadNotify', response.countUnread);
 
                 } catch (e) {
                     this.handlerError(e, this.__t('Error set date read Notifications'))

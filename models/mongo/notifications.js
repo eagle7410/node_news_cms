@@ -62,5 +62,7 @@ module.exports = {
 	getAll : (query = {}) => Model.find(query),
 	updateAll: (changes, query = {}) => Model.update(query, {$set: changes}, {multi: true}),
 	updateOne: (changes, query = {}) => Model.update(query, {$set: changes}),
-	clear  : (query = {}) => Model.remove(query)
+	count : (query = {}) => Model.count(query),
+	countUnread : (subscribe) => Model.count({subscribe, read_at : {$exists : false}}),
+	clear : (query = {}) => Model.remove(query)
 };

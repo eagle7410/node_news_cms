@@ -204,6 +204,10 @@
 		"Error in save notifications" : "Ошибка при сохранении уведомлений",
 		"Notification created" : "Создано уведомление",
 		"Read" : "Прочитано",
-		"Error set date read Notifications" : "Ошибка установки даты чтения"
+		"Error set date read Notifications" : "Ошибка установки даты чтения",
+		"Error get Notifications" : "Ошибка получения уведомлений",
+		"By reading" : "По прочтению",
+		"Reading" : "Прочитанные",
+		"No reading" : "Не прочитанные"
 	}
 }

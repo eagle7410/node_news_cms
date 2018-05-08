@@ -204,6 +204,10 @@
 		"Error in save notifications" : "Error in save notifications",
 		"Notification created" : "Notification created",
 		"Read" : "Read",
-		"Error set date read Notifications" : "Error set date read Notifications"
+		"Error set date read Notifications" : "Error set date read Notifications",
+		"Error get Notifications" : "Error get Notifications",
+		"By reading" : "By reading",
+		"Reading" : "Reading",
+		"No reading" : "No reading"
 	}
 }

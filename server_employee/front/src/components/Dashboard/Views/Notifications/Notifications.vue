@@ -23,7 +23,6 @@
 
 <script>
     import MaterialTable from '../../../UIComponents/MaterialTable'
-    import ShowStatus from '../../../UIComponents/ShowStatus'
     import NotificationsTools from './NotificationsTools'
     import NotificationsActions from './NotificationsActions'
     import NotificationsFilters from './NotificationsFilters'
@@ -40,12 +39,6 @@
                     component: NotificationsFilters
                 },
                 custom: {
-                    // is_active: {
-                    //     component: ShowStatus,
-                    //     props: {
-                    //         store: 'is_active'
-                    //     }
-                    // },
                     actions: {
                         component: NotificationsActions
                     }
@@ -64,7 +57,17 @@
             },
 
             list() {
-                return this._store.list.map(row => {
+                return this._store.list.filter(row => {
+                    switch (this._store.filters.read_at) {
+                        case 0:
+                            return !row.read_at;
+                        case 1:
+                            return row.read_at;
+
+                        default :
+                            return true;
+                    }
+                }).map(row => {
                     row = {...row};
                     const dateFormat = 'd-m-y h:i';
                     row.created_at = new Date(row.created_at).toStringByFormat(dateFormat);

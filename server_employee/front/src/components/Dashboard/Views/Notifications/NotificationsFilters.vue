@@ -7,17 +7,17 @@
         <form :class="cssClassForm">
             <div class="row">
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <md-field>
-                        <span id="byActivationLabel" class="filters filters_label">{{__t('By activation')}}</span>
-                        <md-select v-model="is_active" id="byActivation">
+                        <span id="byActivationLabel" class="filters filters_label">{{__t('By reading')}}</span>
+                        <md-select v-model="readAt" id="byUnread">
                             <md-option :value="-1">{{__t('all')}}</md-option>
-                            <md-option :value="0">{{__t('isNoActivate')}}</md-option>
-                            <md-option :value="1">{{__t('isActivate')}}</md-option>
+                            <md-option :value="0">{{__t('No reading')}}</md-option>
+                            <md-option :value="1">{{__t('Reading')}}</md-option>
                         </md-select>
                     </md-field>
                 </div>
-             
+
             </div>
         </form>
     </div>
@@ -40,12 +40,12 @@
             loadPage() {
                 return this._store.loadPage
             },
-            is_active: {
+            readAt: {
                 get: function () {
-                    return this._store.filters.is_active;
+                    return this._store.filters.read_at;
                 },
                 set: function (value) {
-                    this.$store.commit('setFilterIsActiveNotifications', value);
+                    this.$store.commit('setFilterReadAtNotifications', value);
                 }
             }
         },

@@ -1,7 +1,6 @@
 export default {
-	// TODO: Back implement
     state: {
-        countNotRead : 0,
+        countUnread : 0,
         columns: [
             'type',
             'title',
@@ -20,7 +19,7 @@ export default {
         setCurrentPage: 'setCurrentPageNotifications',
         loadPage: 0,
         filters : {
-            read_at  : -1,
+            read_at  : 0,
         }
     },
     mutations: {
@@ -33,11 +32,15 @@ export default {
                 }
             }
         },
+        setCountUnreadNotify (state, count) {
+            state.countUnread = count;
+        },
         setNotificationsByPage(state, data) {
             state.list = data.docs;
             state.currentPage = data.currentPage;
-            state.countPages = data.countPages;
-            state.countTotal = data.countTotal;
+            state.countPages  = data.countPages;
+            state.countTotal  = data.countTotal;
+            state.countUnread = data.countUnread;
             state.loadPage = 0;
         },
         loadRunNotifications (state) {
@@ -46,8 +49,8 @@ export default {
         loadStopNotifications (state) {
             state.loadPage = 0;
         },
-        setFilterIsActiveNotifications (state, value) {
-            state.filters.is_active = value;
+        setFilterReadAtNotifications (state, value) {
+            state.filters.read_at = value;
         }
     },
     actions: {
@@ -58,8 +61,8 @@ export default {
 
                 let data = await app.$api.Notifications({
                     page,
-                    pageSize   : state.pageSize,
-                    is_active  : state.filters.is_active,
+                    pageSize : state.pageSize,
+                    read_at  : state.filters.read_at,
 
                 });
 

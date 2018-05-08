@@ -8,18 +8,12 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <nav-button v-if="isAdmin" :handlerClick="handlerDash" :title="__t('dashboard')" material-icon="dashboard"></nav-button>
-                    <drop-down>
-                        <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="dropdown" @click.prev="handlerNotify">
+                        <a class="dropdown-toggle btn-rotate" data-toggle="dropdown" href="javascript:void(0)">
                             <i class="material-icons">notifications</i>
-                            <span class="notification">5</span>
-                            <p class="hidden-lg hidden-md">Notifications</p>
+                            <span class="notification" v-if="countUnread > 0">{{countUnread}}</span>
                         </a>
-                        <li><a href="#">Mike John responded to your email</a></li>
-                        <li><a href="#">You have 5 new tasks</a></li>
-                        <li><a href="#">You're now friend with Andrew</a></li>
-                        <li><a href="#">Another Notification</a></li>
-                        <li><a href="#">Another One</a></li>
-                    </drop-down>
+                    </li>
                     <nav-button :handlerClick="handlerProfile" :title="__t('profile')" material-icon="person"></nav-button>
                     <nav-button :handlerClick="handlerLogout" :title="__t('logout')" material-icon="power_settings_new"></nav-button>
                 </ul>
@@ -40,6 +34,12 @@
             ToggleNavigation
         },
         computed: {
+            _storeNotify () {
+                return this.$store.state.Notifications;
+            },
+            countUnread () {
+                return this._storeNotify.countUnread;
+            },
             routeName() {
                 const {name} = this.$route;
                 return this.capitalizeFirstLetter(name)
@@ -51,6 +51,9 @@
             }
         },
         methods: {
+            handlerNotify () {
+                this.$router.push(fullPath.Notifications)
+            },
             handlerProfile() {
             	this.$router.push(fullPath.profile);
             },

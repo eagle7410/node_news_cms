@@ -90,6 +90,7 @@
                     this.$store.commit('setProfile', res.user);
                     this.$store.commit('setAuthPhrases', res.phrases);
                     this.$store.commit('setGroupList', res.groupList);
+                    this.$store.commit('setCountUnreadNotify', res.countUnread);
                     this.$root.sidebarLinks = res.leftMenu || [];
 
                     Vue.prototype.$material.locale = this._storeAuth.phrases.locale;

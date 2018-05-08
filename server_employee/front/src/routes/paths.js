@@ -20,8 +20,8 @@ const paths = {
     Employees : 'employees',
     EmployeesEdit : 'Employee-edit',
     EmployeesAdd : 'Employee-add',
-    Notifications : 'Notifications',
-    NotificationsAdd : 'NotificationsAdd',
+    Notifications : 'notifications',
+    NotificationsAdd : 'notifications-add',
 };
 
 /**
