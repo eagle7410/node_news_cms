@@ -44,7 +44,7 @@ class Controller {
 				console.error('Err -> ', e);
 			}
 
-			if (e.name === 'ValidationError') {
+			if (e.name === 'ValidationError' || e.message === 'Validation error') {
 
 				if (process.isDev) {
 					console.error(`Validation error in method '${method}', controller '${this.name}'`, e);

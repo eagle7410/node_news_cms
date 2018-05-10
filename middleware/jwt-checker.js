@@ -50,6 +50,7 @@ module.exports = async (req, res, next) => {
 
 			if ((req.method || 'get').toLowerCase() === 'get') {
 				res.clearCookie('token');
+
 				return next();
 			}
 
