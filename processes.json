@@ -3,7 +3,7 @@
 		{
 			"name": "Clients",
 			"script": "./server_clients/entry.js",
-			"instances": 4,
+			"instances": 2,
 			"exec_mode": "cluster"
 		},
 		{
