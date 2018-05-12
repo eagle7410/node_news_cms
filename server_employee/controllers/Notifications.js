@@ -1,7 +1,8 @@
+const drive = process.drive;
 const Controller = require('../../classes/ControllerEmployee');
 
 const ErrorHttp  = require('../../classes/ErrorHttp');
-const Model   = require('../../models/mongo/notifications');
+const Model   = require('../../models/'+drive+'/notifications');
 const {isEmail} = require('../../modules/validators');
 
 class Notifications extends Controller {

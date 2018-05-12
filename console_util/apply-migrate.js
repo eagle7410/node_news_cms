@@ -90,6 +90,7 @@ class ApplyMigrate {
 	}
 
 	async handelDatabaseMigration (task) {
+		process.isTest = false;
 		const logPath= `${__dirname}/../logs/apply-migration.json.log`;
 		let folderRedder =  promisify(fs.readdir);
 		let fileReadder  =  promisify(fs.readFile);

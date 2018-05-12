@@ -213,6 +213,7 @@
 		"No reading" : "No reading",
 		"Igor Stcherbina": "Igor Stcherbina",
 		"Copyright": "Copyright",
-		"All Rights Reserved": "All Rights Reserved"
+		"All Rights Reserved": "All Rights Reserved",
+		"Error load employees" : "Error load employees"
 	}
 }

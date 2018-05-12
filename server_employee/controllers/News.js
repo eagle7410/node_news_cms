@@ -1,8 +1,9 @@
+const drive = process.drive;
 const Controller = require('../../classes/ControllerEmployee');
 const ErrorHttp  = require('../../classes/ErrorHttp');
 
 const groups = require('../../constants/groups');
-const ModelNews   = require('../../models/mongo/news');
+const ModelNews   = require('../../models/'+drive+'/news');
 const DataConverter   = require('../../modules/data-converter');
 
 class News extends Controller {

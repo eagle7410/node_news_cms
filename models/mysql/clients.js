@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const ModelSequelize = require('../../classes/ModelSequelize');
 
 const {validatePass, createPass, comparePass} = require('../../utils/password');
+let DateCustom = require('../../classes/DateCustom');
 const {employee} = require('../../constants/groups');
 const ErrorModelValidation = require('../../classes/ErrorModelValidation');
 
@@ -16,6 +17,7 @@ let ModelSchema = {
 	email: {
 		type: Sequelize.DataTypes.STRING,
 		allowNull: true,
+		index : true,
 		set : function (val) {
 			if (!/.+@.*\..*/.test(val)) {
 				throw new ErrorModelValidation(`Field 'email' must be email ${val}`);
@@ -59,11 +61,11 @@ let ModelSchema = {
 	},
 	groups_store : {
 		type: Sequelize.DataTypes.STRING,
-		defaultValue: 'employee',
+		defaultValue: 'client',
 	},
 	groups: {
 		type: Sequelize.DataTypes.VIRTUAL,
-		defaultValue: ['employee'],
+		defaultValue: ['client'],
 		set : function (val) {
 			if (!Array.isArray(val)) {
 				throw new ErrorModelValidation(`Field 'groups' must be array ${val}`);
@@ -92,10 +94,17 @@ let ModelSchema = {
 	updated_by: {
 		type: Sequelize.DataTypes.STRING,
 		defaultValue: 'Default'
-	}
+	},
+	confirm_at : {
+		type: Sequelize.DataTypes.DATE,
+		defaultValue: Sequelize.DataTypes.NOW
+	},
+	confirm_by : {
+		type: Sequelize.DataTypes.STRING,
+	},
 };
 
-let Model = ModelSequelize.get('employees', ModelSchema, {
+let Model = ModelSequelize.get('clients', ModelSchema, {
 	toObject : function () {
 		let ret = {...this.dataValues};
 		delete ret.hash;
@@ -104,8 +113,8 @@ let Model = ModelSequelize.get('employees', ModelSchema, {
 
 		return {
 			...ret,
-			groups : this.groups
-		};
+			groups: this.groups
+		}
 	},
 	isPassword : function(password) {
 		return comparePass(password, this.hash, this.salt);
@@ -160,6 +169,8 @@ module.exports = {
 
 		return user.isPassword(pass) ? user : false;
 	},
+	countByEmail : (email) => Model.count({where  : {email}}),
+	count : (query = {}) => Model.count({where  : query}),
 	toJwt: ({email, name, surname, groups}) => ({email, name, surname, groups}),
 	toProfile: ({
 		            email,
@@ -211,6 +222,28 @@ module.exports = {
 		}
 
 		return await module.exports.updateOne(save, {_id : id});
+	},
+	statsByWeekAgo: async () => {
+		let oneWeekAgo = new DateCustom();
+		oneWeekAgo.setHours(0,0,0,0);
+		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
+		let data = await process.db.query(
+			'SELECT DATE_FORMAT(created_at, "%Y-%m-%d") as day, COUNT(_id) as number ' +
+				'FROM clients ' +
+				`WHERE created_at >= "${oneWeekAgo.toStringByFormat('y-m-d')}" `+
+				'GROUP BY DATE_FORMAT(created_at, "%Y-%m-%d")',
+			{type: process.db.QueryTypes.SELECT}
+		);
+		let stats = {};
+
+		for (let stat of data) {
+			stats[stat.day] = Number(stat.number);
+		}
+
+		return {
+			dateRun :  oneWeekAgo.toStringByFormat('y/m/d'),
+			stats
+		};
 	}
 };

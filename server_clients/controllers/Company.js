@@ -5,7 +5,6 @@ const {isEmail, isNameSurname, isValidPassword, isValidConfirm} = require('../..
 const {create} = require('../../utils/jwt');
 const mail = require('../../modules/mail');
 const keyPrivate  = process.jwtPrivate;
-//const Model   = require('../../models/mongo/$MODEl$');
 
 class Company extends Controller {
 	static async get_contacts(req, res) {

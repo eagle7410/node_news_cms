@@ -1,8 +1,9 @@
+const drive = process.drive;
 const Controller = require('../../classes/ControllerEmployee');
 
 const groups  = require('../../constants/groups');
-const Clients = require('../../models/mongo/clients');
-const News    = require('../../models/mongo/news');
+const Clients = require('../../models/'+drive+'/clients');
+const News    = require('../../models/'+drive+'/news');
 
 class Dashboard extends Controller {
 	static getMethodGroups () {

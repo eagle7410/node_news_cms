@@ -61,7 +61,7 @@ module.exports = {
 	getByPage : async (
 		page = 0,
 		pageSize = 100,
-		select = {text : 0, comments  : 0},
+		select = {text : 0},
 		query = {},
 		sort = { _id :-1}
 	) => {
@@ -94,8 +94,7 @@ module.exports = {
 	existsId : (id) => module.exports.exists({_id: id}),
 	clear  : (query = {}) => Model.remove(query),
 	getListForEmployee : () => Model.find({}).select({
-		text      : 0,
-		comments  : 0
+		text : 0
 	}).sort({_id : -1}),
 	save : async (data, user) => {
 		const date = new Date();

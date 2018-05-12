@@ -1,8 +1,9 @@
 const Controller = require('../../classes/ControllerClient');
 const {create, decode} = require('../../utils/jwt');
+const drive = process.drive;
 
 const ErrorHttp  = require('../../classes/ErrorHttp');
-const Model   = require('../../models/mongo/clients');
+const Model   = require('../../models/'+drive+'/clients');
 const mail = require('../../modules/mail');
 
 class Auth extends Controller {

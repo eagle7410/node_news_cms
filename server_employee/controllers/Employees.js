@@ -1,8 +1,9 @@
+const drive = process.drive;
 const Controller = require('../../classes/ControllerEmployee');
 
 const ErrorHttp  = require('../../classes/ErrorHttp');
 const groups = require('../../constants/groups');
-const Model   = require('../../models/mongo/employees');
+const Model   = require('../../models/'+drive+'/employees');
 
 class Employees extends Controller {
 	static getMethodGroups () {
@@ -76,7 +77,8 @@ class Employees extends Controller {
 		if (!employee) {
 			throw ErrorHttp.notFound();
 		}
-
+		// TODO: clear
+		console.log('employee.toObject()', employee.toObject());
 		res.jwt({row: employee.toObject()});
 	}
 }

@@ -94,6 +94,126 @@ module.exports = {
 };`;
 
 		break;
+
+	case 'mysql':
+		template = `// Libs
+const Sequelize = require('sequelize');
+const ModelSequelize = require('../../classes/ModelSequelize');
+const ErrorModelValidation = require('../../classes/ErrorModelValidation');
+
+let ModelSchema = {
+	_id: {
+		type: Sequelize.DataTypes.INTEGER,
+		primaryKey: true,
+		autoIncrement: true,
+	},
+	// For example
+	// email: {
+	// 	type: Sequelize.DataTypes.STRING,
+	// 	allowNull: true,
+	// 	set : function (val) {
+	// 		if (!/.+@.*\\..*/.test(val)) {
+	// 			throw new ErrorModelValidation(\`Field 'email' must be email \${val}\`);
+	// 		}
+	//
+	// 		this.setDataValue('email', val.toLowerCase());
+	// 	},
+	// 	unique: true,
+	// },
+	// password: {
+	// 	type: Sequelize.DataTypes.VIRTUAL,
+	// 	set : function (pass) {
+	//
+	// 		if (!validatePass(pass)) {
+	// 			throw new ErrorModelValidation(\`Invalid password: \${pass}\`)
+	// 		}
+	//
+	// 		let {hash, salt} = createPass(pass);
+	//
+	// 		this.hash = hash;
+	// 		this.salt = salt;
+	// 	},
+	// 	get : function () {
+	// 		return this.hash;
+	// 	}
+	// },
+	// name: {
+	// 	type: Sequelize.DataTypes.STRING,
+	// 	defaultValue: ''
+	// },
+	// is_active : {type: Sequelize.DataTypes.BOOLEAN, defaultValue: true},
+	// is_deleted: {type: Sequelize.DataTypes.BOOLEAN, defaultValue: false},
+	// created_at: {
+	// 	type: Sequelize.DataTypes.DATE,
+	// 	defaultValue: Sequelize.DataTypes.NOW
+	// },
+	// updated_at: {
+	// 	type: Sequelize.DataTypes.DATE,
+	// 	defaultValue: Sequelize.DataTypes.NOW
+	// },
+	// created_by: {
+	// 	type: Sequelize.DataTypes.STRING,
+	// 	defaultValue: 'Default',
+	// },
+	// updated_by: {
+	// 	type: Sequelize.DataTypes.STRING,
+	// 	defaultValue: 'Default'
+	// }
+};
+
+let Model = ModelSequelize.get('${name}', ModelSchema, {
+	// toObject : function () {
+	// 	let ret = this.dataValues;
+	// 	delete ret.hash;
+	// 	delete ret.salt;
+	//
+	// 	return ret;
+	// },
+	// isPassword : function(password) {
+	// 	return comparePass(password, this.hash, this.salt);
+	// }
+});
+
+module.exports = {
+	Model,
+	create: async data => {
+
+		let instance = new Model(data);
+
+		await instance.save();
+
+		return instance;
+	},
+	getAll: (query = {}) => Model.findAll({where: query}),
+	getOne: (query = {}) => Model.findOne({where: query}),
+	updateAll: (changes, query = {}) => Model.update(changes, {where : query}),
+	updateOne: (changes, query = {}) => Model.update(changes, {where : query, limit: 1}),
+	clear: (query = {}) => Model.remove({where: query}),
+	getByPage : async (page = 0, pageSize = 100, query = {}) => {
+		const countTotal = await Model.count({where: query});
+		const countPages = Math.ceil(countTotal / pageSize);
+		const docs = await Model.findAll({
+			offset : pageSize * page,
+			limit  : pageSize,
+			where  : query,
+			//TODO : maybe not need
+			attributes: { exclude: ['hash', 'salt'] },
+			order: [['_id', 'DESC']]
+		});
+
+		return {
+			countTotal,
+			countPages,
+			pageSize,
+			currentPage : page,
+			docs
+		};
+	},
+	getById : (id) => Model.findById(id),
+	count : (query = {}) => Model.count({where : query}),
+};
+`;
+		break;
 }
 
 writter(`${__dirname}/../models/${drive}/${name}.js`, template).then(

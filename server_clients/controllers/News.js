@@ -1,10 +1,11 @@
+const drive = process.drive;
 const Controller = require('../../classes/ControllerClient');
 const truncate = require('truncate-html');
 
 const DateCustom = require('../../classes/DateCustom');
 const ErrorHttp  = require('../../classes/ErrorHttp');
-const Model   = require('../../models/mongo/news');
-const ModelComments   = require('../../models/mongo/news-comments');
+const Model   = require('../../models/'+drive+'/news');
+const ModelComments   = require('../../models/'+drive+'/news-comments');
 const PAGE_SIZE = 12;
 const COUNT_WORDS_IN_HTML = 30;
 

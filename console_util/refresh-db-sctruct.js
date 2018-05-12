@@ -6,6 +6,17 @@ const log = new ConsoleColorLog();
 const dirList = promisify(fs.readdir);
 const {drive} = require('../configs/database');
 
+// Get params
+let isTest = false;
+
+process.argv.map(arg => {
+	if (arg.includes('-t')) {
+		isTest = true;
+	}
+});
+
+process.isTest = isTest;
+
 if (drive === 'mongo') {
 	log.warn('This not need for mongo.');
 	process.exit();

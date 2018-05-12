@@ -1,7 +1,8 @@
+const drive = process.drive;
 const Controller = require('../../classes/ControllerEmployee');
 
 const ErrorHttp  = require('../../classes/ErrorHttp');
-const Model   = require('../../models/mongo/employees');
+const Model   = require('../../models/'+drive+'/employees');
 const {create} = require('../../utils/jwt');
 
 class Profile extends Controller {

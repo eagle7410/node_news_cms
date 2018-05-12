@@ -187,7 +187,7 @@
 		"Employees is active/inactive": "Работник активен/неактивен",
 		"Employee delete or restore ok": "Удаление или востановление работника успешно",
 		"Error delete/restore": "Ошибка удаления или востановления",
-		"Error get Employees" : "Ошибка загрузки рботников",
+		"Error get Employees" : "Ошибка загрузки работников",
 		"Toggle navigation" : "Переключить навигацию",
 		"404 Not Found" : "404 Не Найдено",
 		"Oops! It seems that this page does not exist." : "К сожалению! Кажется, что этой страницы не существует.",
@@ -213,6 +213,7 @@
 		"No reading" : "Не прочитанные",
 		"Igor Stcherbina": "Щербина Игорь",
 		"Copyright": "Авторские права",
-		"All Rights Reserved": "Все права защищены"
+		"All Rights Reserved": "Все права защищены",
+		"Error load employees" : "Ошибка загрузки работников"
 	}
 }
