@@ -96,6 +96,7 @@ module.exports = {
 		break;
 
 	case 'mysql':
+	case 'pgsql':
 		template = `// Libs
 const Sequelize = require('sequelize');
 const ModelSequelize = require('../../classes/ModelSequelize');

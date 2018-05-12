@@ -24,8 +24,10 @@ let template;
 
 switch (drive) {
 	case 'mongo':
+	case 'mysql':
+	case 'pgsql':
 		template = `// Libs
-require(\`../../models/mongo/connect\` );
+require(\`../../models/${drive}/connect\` );
 
 // Models
 
@@ -49,6 +51,9 @@ if (process.env.tasks) {
 }`;
 
 		break;
+	default:
+		log.error('Error generate migrate Bad drive '+drive);
+		process.exit();
 }
 
 let mark = moment().format("YYYYMMDDHHmmss");

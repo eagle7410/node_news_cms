@@ -77,8 +77,7 @@ class Employees extends Controller {
 		if (!employee) {
 			throw ErrorHttp.notFound();
 		}
-		// TODO: clear
-		console.log('employee.toObject()', employee.toObject());
+
 		res.jwt({row: employee.toObject()});
 	}
 }

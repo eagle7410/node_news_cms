@@ -5,13 +5,13 @@ if (process.isTest === undefined) {
 	process.isTest = false;
 }
 
-const {mysql} = require('../../configs/database');
+const {pgsql} = require('../../configs/database');
 
-const db = new Sequelize(mysql.database + (process.isTest ? '_test': ''), mysql.username, mysql.password, {
+const db = new Sequelize(pgsql.database + (process.isTest ? '_test': ''), pgsql.username, pgsql.password, {
 
-	host: mysql.host,
-	port: mysql.port,
-	dialect: 'mysql',
+	host: pgsql.host,
+	port: pgsql.port,
+	dialect: 'postgres',
 
 	pool: {
 		max: 5,

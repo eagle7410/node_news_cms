@@ -8,19 +8,15 @@ let ModelSchema = {
 		primaryKey: true,
 		autoIncrement: true,
 	},
-	type: {
-		type: Sequelize.DataTypes.STRING,
-		defaultValue: 'Default',
+	news_id: {
+		type: Sequelize.DataTypes.INTEGER,
+		allowNull: false,
 	},
-	data: {
+	text: {
 		type: Sequelize.DataTypes.STRING,
 		allowNull: false,
 	},
-	title: {
-		type: Sequelize.DataTypes.STRING,
-		allowNull: false,
-	},
-	subscribe: {
+	lang: {
 		type: Sequelize.DataTypes.STRING,
 		allowNull: false,
 	},
@@ -32,14 +28,10 @@ let ModelSchema = {
 		type: Sequelize.DataTypes.STRING,
 		defaultValue: 'Default',
 	},
-	read_at : {
-		type: Sequelize.DataTypes.DATE,
-		allowNull: true,
-	},
 
 };
 
-let Model = ModelSequelize.get('notifications', ModelSchema);
+let Model = ModelSequelize.get('news-comments', ModelSchema);
 
 module.exports = {
 	Model,
@@ -51,17 +43,12 @@ module.exports = {
 
 		return instance;
 	},
-	getAll: (query = {}) => Model.findAll({where: query}),
+	getAll: (query = {}) => Model.findAll({where: query, order: [['_id', 'DESC']]}),
 	getOne: (query = {}) => Model.findOne({where: query}),
 	updateAll: (changes, query = {}) => Model.update(changes, {where : query}),
 	updateOne: (changes, query = {}) => Model.update(changes, {where : query, limit: 1}),
 	clear: (query = {}) => Model.remove({where: query}),
 	getByPage : async (page = 0, pageSize = 100, query = {}) => {
-
-		if (query.read_at !== undefined) {
-			query.read_at = query.read_at.$exists ? {$ne : null} : null;
-		}
-
 		const countTotal = await Model.count({where: query});
 		const countPages = Math.ceil(countTotal / pageSize);
 		const docs = await Model.findAll({
@@ -81,7 +68,4 @@ module.exports = {
 	},
 	getById : (id) => Model.findById(id),
 	count : (query = {}) => Model.count({where : query}),
-	countUnread : (subscribe) => module.exports.count({subscribe, read_at : null })
 };
-
-

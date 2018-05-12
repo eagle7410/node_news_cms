@@ -18,6 +18,9 @@ class DateCustom extends Date {
 	byUtc () {
 		return new DateCustom(this.getTime() + this.getTimezoneOffset() * 36e2);
 	}
+	addOffset () {
+		return new DateCustom(this.getTime() - this.getTimezoneOffset() * 36e2);
+	}
 	numberHas2Symbols (val) {
 		return String(val.toString().length < 2 ? '0' + val : val);
 	}
