@@ -77,7 +77,8 @@ export default {
                 commit('loadStop');
 
                 console.error('$api.clients err', err);
-                app.notifyError(app.__t('Error get news'));
+
+                app.notifyError(app.__t('Error get clients'));
             }
 
         }

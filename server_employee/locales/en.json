@@ -214,6 +214,8 @@
 		"Igor Stcherbina": "Igor Stcherbina",
 		"Copyright": "Copyright",
 		"All Rights Reserved": "All Rights Reserved",
-		"Error load employees" : "Error load employees"
+		"Error load employees" : "Error load employees",
+		"Error get clients" : "Error get clients",
+		"Error get news" : "Error get news"
 	}
 }

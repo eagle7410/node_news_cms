@@ -214,6 +214,8 @@
 		"Igor Stcherbina": "Щербина Игорь",
 		"Copyright": "Авторские права",
 		"All Rights Reserved": "Все права защищены",
-		"Error load employees" : "Ошибка загрузки работников"
+		"Error load employees" : "Ошибка загрузки работников",
+		"Error get clients" : "Ошибка загрузки клиентов",
+		"Error get news" : "Ошибка загрузки новостей"
 	}
 }

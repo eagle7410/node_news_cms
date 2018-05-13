@@ -12,6 +12,14 @@ export default {
             for (let prop in state) {
                 state[prop] = data[prop];
             }
+
+            let series;
+
+            series = state.chartClients.series;
+            state.countClientsToday = series[series.length];
+
+            series = state.chartNews.series;
+            state.countNewsToday = series[series.length];
         }
     }
 };
