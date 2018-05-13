@@ -13,7 +13,7 @@ let ModelSchema = {
 		allowNull: false,
 	},
 	text: {
-		type: Sequelize.DataTypes.STRING,
+		type: Sequelize.DataTypes.TEXT,
 		allowNull: false,
 	},
 	lang: {

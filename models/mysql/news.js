@@ -32,11 +32,11 @@ let ModelSchema = {
 		}
 	},
 	text_ru: {
-		type: Sequelize.DataTypes.STRING,
+		type: Sequelize.DataTypes.TEXT,
 		defaultValue: ''
 	},
 	text_en: {
-		type: Sequelize.DataTypes.STRING,
+		type: Sequelize.DataTypes.TEXT,
 		defaultValue: ''
 	},
 	text: {
