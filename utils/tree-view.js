@@ -20,6 +20,9 @@ const DEFAULT_EXCLUDE = [
 	/config/
 ];
 
+/**
+ * Build directory tree.
+ */
 class TreeView {
 	constructor () {
 		this.tree = {};
@@ -28,6 +31,15 @@ class TreeView {
 		this.scanRules = null;
 	}
 
+	/**
+	 * Build tree object for directory.
+	 *
+	 * @param {string} dir Directory for scan.
+	 * @param {object} rules Rules for build tree.
+	 * @param {array}  exclude Regexp for exclude files (Directory is file).
+	 *
+	 * @returns {Promise<boolean>}
+	 */
 	async scan (dir, rules, exclude = DEFAULT_EXCLUDE) {
 
 		if (!Array.isArray(exclude)) exclude = [exclude];
@@ -46,18 +58,22 @@ class TreeView {
 		return true;
 	}
 
+	/**
+	 * Build tree object for directory.
+	 *
+	 * @param {string} dir
+	 * @param {object} treeDir
+	 *
+	 * @returns {Promise<void>}
+	 * @private
+	 */
 	async _scanDir (dir, treeDir) {
-		let stats;
-		let path;
-		let rule;
-		let list = await readdir(dir);
+		let stats, path, rule, isExclude;
 
-		for (let file of list) {
-			let isExclude = false;
+		for (let file of await readdir(dir)) {
+			isExclude = false;
 
-			this.exclude.map(regexp => {
-				if (regexp.test(file)) isExclude = true;
-			});
+			this.exclude.map(regexp => { if (regexp.test(file)) isExclude = true; });
 
 			if (isExclude) continue;
 
@@ -65,51 +81,34 @@ class TreeView {
 			stats = fs.lstatSync(path);
 
 			if (stats.isFile()) {
-				treeDir[file] = {
-					isFile : true,
-					path
-				};
-
+				treeDir[file] = {isFile : true, path};
 				continue;
 			}
 
-			if (stats.isDirectory()) {
-				treeDir[file] = {
-					isDir : true,
-					childs : {},
-					path
-				};
+			treeDir[file] = {isDir : true, childs : {}, path};
 
-				if (this.scanRules[file]) {
-					rule = this.scanRules[file];
+			if (this.scanRules[file]) {
+				rule = this.scanRules[file];
 
-					if (rule.isOnlyName) {
-						if (!rule.isUsePath) continue;
-					}
+				if (rule.isOnlyName) {
+					if (!rule.isUsePath) continue;
 				}
-
-				await this._scanDir(path, treeDir[file].childs);
-
-				continue;
 			}
+
+			await this._scanDir(path, treeDir[file].childs);
 		}
 	}
 
 	toContent(description) {
-		let base = '├';
-		let result = `Root folder`;
-
-		result = this._printChildren(result, '', this.tree);
-
-		return result;
+		return this._printChildren(`Root folder`, '', this.tree, description);
 	}
 
-	_printChildren (result, base, childs) {
+	_printChildren (result, base, childs, description) {
 		for (let i = 0, keys = Object.keys(childs), len = keys.length; i < len; i++) {
 			let  name = keys[i],
 				data = childs[name],
-				symbol,
-				before;
+				desc = '',
+				symbol, before;
 
 			if (i === len -1) {
 				symbol = '└';
@@ -118,11 +117,19 @@ class TreeView {
 				symbol = '├';
 				before = '│   ';
 			}
-			result += `\n${base}${symbol}── ${name}`;
+
+			description.map(iter => {
+				// TODO: clear
+				console.log('data.path', data.path);
+				if (iter.regExp.test(data.path)) {
+					desc = iter.text;
+				}
+			});
+
+			result += `\n${base}${symbol}── ${name} ${desc}`;
 
 			if (data.isDir) {
-				result = this._printChildren(result, base + before, data.childs);
-				continue;
+				result = this._printChildren(result, base + before, data.childs, description);
 			}
 		}
 
