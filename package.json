@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client-app-watch": "./node_modules/.bin/webpack --watch",
     "client-app-build": "./node_modules/.bin/webpack",
-    "pm-start": "pm2 start processes.json",
-    "pm-stop": "pm2 stop processes.json",
-    "pm-reload": "pm2 reload processes.json"
+    "pm-start": "pm2 start ./server_employee/processes.json && pm2 start ./server_clients/processes.json",
+    "pm-stop": "pm2 stop ./server_employee/processes.json && pm2 stop ./server_clients/processes.json",
+    "pm-reload": "pm2 reload ./server_employee/processes.json && pm2 reload ./server_clients/processes.json"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "babel-register": "6.26.0",
     "cors": "2.8.4",
     "css-loader": "^0.28.11",
+    "directory-tree": "2.1.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "mocha": "5.1.1",

@@ -1,0 +1,10 @@
+{
+	"apps": [
+		{
+			"name": "Employees",
+			"script": "./server_employee/entry.js",
+			"instances": 2,
+			"exec_mode": "cluster"
+		}
+	]
+}
