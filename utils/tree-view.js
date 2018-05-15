@@ -1,10 +1,6 @@
 const fs          = require('fs');
 const {promisify} = require('util');
 const readdir     = promisify(fs.readdir);
-const exists      = promisify(fs.exists);
-
-const TYPE_DIRECTORY = 1;
-const TYPE_FILE = 2;
 
 const DEFAULT_EXCLUDE = [
 	/node_modules/,
@@ -16,8 +12,8 @@ const DEFAULT_EXCLUDE = [
 	/package(.*)\.json/,
 	/index\.(js|html)/,
 	/dist/,
-	/build/,
-	/config/
+	/build(.*)/,
+	/^config$/
 ];
 
 /**
@@ -73,7 +69,7 @@ class TreeView {
 		for (let file of await readdir(dir)) {
 			isExclude = false;
 
-			this.exclude.map(regexp => { if (regexp.test(file)) isExclude = true; });
+			this.exclude.map(regexp => { if (regexp.test(file)) { isExclude = true;	} });
 
 			if (isExclude) continue;
 
@@ -100,7 +96,7 @@ class TreeView {
 	}
 
 	toContent(description) {
-		return this._printChildren(`Root folder`, '', this.tree, description);
+		return this._printChildren(`Root folder  `, '', this.tree, description);
 	}
 
 	_printChildren (result, base, childs, description) {
@@ -119,14 +115,13 @@ class TreeView {
 			}
 
 			description.map(iter => {
-				// TODO: clear
-				console.log('data.path', data.path);
+
 				if (iter.regExp.test(data.path)) {
-					desc = iter.text;
+					desc = ` -- "${iter.text}"`;
 				}
 			});
 
-			result += `\n${base}${symbol}── ${name} ${desc}`;
+			result += `\n${base}${symbol}── ${name} ${desc}  `;
 
 			if (data.isDir) {
 				result = this._printChildren(result, base + before, data.childs, description);

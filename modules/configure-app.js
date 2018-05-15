@@ -40,7 +40,7 @@ module.exports = (app, {express, assets, views, router}) => {
 	app.use(morgan('common', {stream: fs.createWriteStream(`${__dirname}/../logs/access-${process.appName}.log`, {flags: 'a'})}));
 
 	//Attach middleware jwt-checke
-	app.use(require('../middleware/jwt-checker'));
+	app.use(require('../middleware/token-checker'));
 
 	//Add router
 	app.use(router);
