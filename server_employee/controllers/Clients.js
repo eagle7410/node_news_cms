@@ -2,7 +2,7 @@ const drive = process.drive;
 const Controller = require('../../classes/ControllerEmployee');
 const ErrorHttp = require('../../classes/ErrorHttp');
 const groups = require('../../constants/groups');
-const Model = require('../../models/'+drive+'/clients');
+const Model = require('../../models/mongo/clients');
 
 class Clients extends Controller {
 	static getMethodGroups () {
@@ -28,7 +28,6 @@ class Clients extends Controller {
 		if (~is_deleted) {
 			filters.is_deleted = !is_deleted;
 		}
-
 		let data = await Model.getByPage(page, pageSize, filters);
 
 		res.jwt(data);

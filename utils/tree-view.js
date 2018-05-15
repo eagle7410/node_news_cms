@@ -95,10 +95,32 @@ class TreeView {
 		}
 	}
 
+	/**
+	 * Get print tree in string with description.
+	 * @param description
+	 * @returns {*}
+	 */
 	toContent(description) {
 		return this._printChildren(`Root folder  `, '', this.tree, description);
 	}
 
+	/**
+	 * Get fs tree as object.
+	 * @returns {{}}
+	 */
+	getObject () {
+		return Object.assign({}, this.tree);
+	}
+
+	/**
+	 * Print directory files.
+	 * @param {string} result
+	 * @param {string} base
+	 * @param {Object} childs
+	 * @param {Object} description
+	 * @returns {*}
+	 * @private
+	 */
 	_printChildren (result, base, childs, description) {
 		for (let i = 0, keys = Object.keys(childs), len = keys.length; i < len; i++) {
 			let  name = keys[i],

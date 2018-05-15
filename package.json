@@ -8,8 +8,12 @@
     "client-app-watch": "./node_modules/.bin/webpack --watch",
     "client-app-build": "./node_modules/.bin/webpack",
     "pm-start": "pm2 start ./server_employee/processes.json && pm2 start ./server_clients/processes.json",
+    "pm-start-clients": "pm2 start ./server_clients/processes.json",
+    "pm-start-employee": "pm2 start ./server_employee/processes.json",
     "pm-stop": "pm2 stop ./server_employee/processes.json && pm2 stop ./server_clients/processes.json",
-    "pm-reload": "pm2 reload ./server_employee/processes.json && pm2 reload ./server_clients/processes.json"
+    "pm-reload": "pm2 reload ./server_employee/processes.json && pm2 reload ./server_clients/processes.json",
+    "image-clients" : "docker build -t node_cms_new_clients . --file ./DockerfileClients",
+    "container-clients" : "docker run --name node_cms_new_clients1 -p 3539:3539 --link mysql:mysql -d node_cms_new_clients"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,7 @@
     "news",
     "node",
     "express"
-  ],
+  ],mysql
   "author": "Igor Stcherbina <verycooleagle@gmail.com> (http://github.com/eagle7410)",
   "license": "MIT",
   "bugs": {
