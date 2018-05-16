@@ -12,8 +12,8 @@
     "pm-start-employee": "pm2 start ./server_employee/processes.json",
     "pm-stop": "pm2 stop ./server_employee/processes.json && pm2 stop ./server_clients/processes.json",
     "pm-reload": "pm2 reload ./server_employee/processes.json && pm2 reload ./server_clients/processes.json",
-    "image-clients" : "docker build -t node_cms_new_clients . --file ./DockerfileClients",
-    "container-clients" : "docker run --name node_cms_new_clients1 -p 3539:3539 --link mysql:mysql -d node_cms_new_clients"
+    "image-clients": "docker build -t node_cms_new_clients . --file ./DockerfileClients",
+    "container-clients": "docker run --name node_cms_new_clients1 -p 3539:3539 --link mysql:mysql -d node_cms_new_clients"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "news",
     "node",
     "express"
-  ],mysql
+  ],
   "author": "Igor Stcherbina <verycooleagle@gmail.com> (http://github.com/eagle7410)",
   "license": "MIT",
   "bugs": {
@@ -53,11 +53,14 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.7.0",
     "webpack-cli": "^2.1.2",
-    "webpack-sources": "1.1.0"
+    "webpack-sources": "1.1.0",
+    "shell": "1.0.3",
+    "console-prompt-eagle": "^1.0.0"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
     "circular-json": "0.5.3",
+    "cli-spinner": "0.2.8",
     "cookie-parser": "1.4.3",
     "ejs-locals": "1.0.2",
     "express": "4.16.3",
@@ -67,6 +70,7 @@
     "mongoose": "5.0.15",
     "morgan": "1.9.0",
     "mysql2": "1.5.3",
+    "node-cmd": "3.0.0",
     "nodemailer": "^4.6.4",
     "pg": "7.4.3",
     "pg-hstore": "2.3.2",
