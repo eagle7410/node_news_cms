@@ -59,7 +59,7 @@ ___
 ## CONSOLE CLI
 * Apply migrations.
  ```
-  node ./console_util/apply-migrate.js 
+  node ./cli/apply-migrate.js
  ```  
  | Param | Descriptions |
   | --- | --- |
@@ -67,7 +67,7 @@ ___
     
 * Generate controller.
  ```
- node ./console_util/gene-controller.js -n=app
+ node ./cli/gene-controller.js -n=app
  ```  
  | Param | Descriptions |
  | --- | --- |
@@ -77,7 +77,7 @@ ___
   
 * Generate migrations.
  ```
-  node ./utils-console/gene-migrate.js -n=test
+  node ./cli/gene-migrate.js -n=test
  ```  
  | Param | Descriptions |
    | --- | --- |
@@ -85,7 +85,7 @@ ___
    
 * Generate model.
  ```
-  node ./utils-console/gene-model.js -n=test
+  node ./cli/gene-model.js -n=test
  ```
   | Param | Descriptions |
   | --- | --- |
