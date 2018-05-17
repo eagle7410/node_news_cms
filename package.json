@@ -61,7 +61,7 @@
     "circular-json": "0.5.3",
     "cli-spinner": "0.2.8",
     "cookie-parser": "1.4.3",
-    "ejs-locals": "1.0.2",
+    "ejs-locals": "^1.0.2",
     "express": "4.16.3",
     "i18n": "0.8.3",
     "json2xls": "0.1.2",

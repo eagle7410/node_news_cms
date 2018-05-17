@@ -17,7 +17,7 @@ process.argv.map(arg => {
 });
 
 if (!name) {
-	log.error('Need set name. Example use: node ./console_util/gene-vcrud.js -n=employees');
+	log.error('Need set name. Example use: node ./cli/gene-vcrud.js -n=employees');
 	process.exit();
 }
 

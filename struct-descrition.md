@@ -9,15 +9,18 @@ Root folder
 │   ├── ErrorModelValidation.js  -- "This is extended global class Error and set name Validation Error."  
 │   ├── ModelSequelize.js  -- "This is class for create sequelize model."  
 │   └── Router.js  -- "This class combines controller and http queries."  
+├── cli  -- "Folder for store console util."  
+├── client-app.jpg   
 ├── configs   
 │   ├── clients.json  -- "Config for client application."  
 │   ├── database.json  -- "Config for database."  
 │   ├── email.json  -- "Config for email sender."  
 │   └── employee.json  -- "Config for employee application."  
 ├── configs_example   
-├── console_util  -- "Folder for store console util."  
 ├── constants   
 │   └── groups.js  -- "Employee users groups."  
+├── emp-app-after-auth.jpg   
+├── emp-start-page.jpg   
 ├── logs   
 │   ├── Clients News   
 │   │   ├── errors.log  -- "Console log errors for clients application."  

@@ -1,6 +1,7 @@
 // Libs
 const ConsoleColor = require('console-color');
 const ImageCreate  = require('./ImageCreate');
+const VmCreate     = require('./VmCreate');
 const Spinner      = require('cli-spinner').Spinner;
 
 // Initial
@@ -25,6 +26,10 @@ void async function letsGo() {
 				await (new ImageCreate({spinner})).run();
 				break;
 
+			case 'vm:create':
+				await (new VmCreate({spinner})).run();
+				break;
+
 			default :
 				log.error(`You not specified command or this command not implement.`);
 		}
@@ -35,8 +40,4 @@ void async function letsGo() {
 
 	process.exit();
 }();
-
-// 	text: '%s processing ',
-// })
-// obj
-// Get params
+//docker run --name  node_cms_new_clients1 -p 3539:3539  -d node_cms_new_clients

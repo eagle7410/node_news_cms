@@ -44,7 +44,7 @@ class ImageCreate {
 
 		await this.writter(dockerFilePath, ImageCreate.renderDockerFileClient());
 
-		let outBuild = await this.shell.get(`docker build -t ${name} ${__dirname} --file ${dockerFilePath}`);
+		let outBuild = await this.shell.get(`cd ${ (__dirname).replace(/\s/g, '\\ ') }/../../ && docker build -t ${name} . --file ${ dockerFilePath.replace(/\s/g, '\\ ') }`);
 		let outList  = await this.shell.get('docker images');
 
 		this.spinner.stop();
@@ -63,15 +63,19 @@ class ImageCreate {
 
 		return `
 			FROM node
-			#RUN apt-get update && apt-get install nano
+			#RUN apt-get update && apt-get install
+			RUN mkdir -p /usr/src/app
 			WORKDIR /usr/src/app
-			COPY . .
-			RUN npm install pm2 -g && npm install
+			ADD . .
+			RUN npm i npm@latest -g && npm install pm2 -g && npm install
 			EXPOSE ${port}
-			CMD [ "npm", "run", "pm-start-clients" ]
+			CMD [ "/usr/local/bin/pm2-docker", "start", "./server_clients/processes.json" ]
 		`
 	}
 }
 
 module.exports = ImageCreate;
 
+//docker run --name  node_cms_new_clients1 -p 3539:3539  -d node_cms_new_clients
+//docker logs node_cms_new_clients1
+//docker exec -it node_cms_new_clients1 /bin/bash

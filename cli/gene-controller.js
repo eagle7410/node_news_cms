@@ -27,7 +27,7 @@ process.argv.map(arg => {
 });
 
 if (!name) {
-	log.error('Need set name. Example use: node ./console_util/gene-controller.js -n=app -a');
+	log.error('Need set name. Example use: node ./cli/gene-controller.js -n=app -a');
 	process.exit();
 }
 

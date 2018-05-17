@@ -28,7 +28,7 @@ void async function run() {
 		build : optionForShowOnlyNameDir,
 		templates : optionForShowOnlyNameDir,
 		views : optionForShowOnlyNameDir,
-		console_util : optionForShowOnlyNameDir,
+		cli : optionForShowOnlyNameDir,
 		'data-converter' : optionForShowOnlyNameDir,
 		'mail' : optionForShowOnlyNameDir,
 		plugins : optionForShowOnlyNameDir,
@@ -116,7 +116,7 @@ void async function run() {
 			text : 'Folder for store translate phrases.'
 		},
 		{
-			regExp : /\/console_util$/,
+			regExp : /\/cli$/,
 			text : 'Folder for store console util.'
 		},
 		{
