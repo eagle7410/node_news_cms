@@ -103,8 +103,18 @@ ___
   node ./console_util/refresh-db-sctruct.js
  ```
  | Param | Descriptions |
-  | --- | --- |
-  | -t | Use test connection |
+ | --- | --- |
+ | -t | Use test connection |
+
+* Create docker images.
+ ```
+ node ./cli/docker/ -c=image:create
+ ```
+
+* Create docker container.
+ ```
+ node ./cli/docker/ -c=vm:create
+ ```
 
 ## License
 

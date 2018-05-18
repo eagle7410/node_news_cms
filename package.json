@@ -41,7 +41,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "6.26.0",
     "console-color": "https://github.com/eagle7410/console-color",
-    "console-prompt-eagle": "^1.0.0",
+    "console-prompt-eagle": "1.0.1",
     "cors": "2.8.4",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",

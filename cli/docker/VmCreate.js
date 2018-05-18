@@ -28,6 +28,10 @@ class VmCreate {
 				await this.createClient();
 				break;
 
+			case 2 :
+				await this.createEmployee();
+				break;
+
 			default:
 				this.log.error(`Type ${type} not in list :(`);
 		}
@@ -40,7 +44,7 @@ class VmCreate {
 
 		const  defImageName = 'node_cms_new_clients';
 		let imageName = await this.prompt.ask(`Enter image name [${defImageName}]`);
-		imageName = imageName.replace(/\n/g, '') || defImageName;
+		imageName = imageName || defImageName;
 
 		let outListVms  = await this.shell.get('docker ps --all');
 		this.log.info(outListVms);
@@ -48,7 +52,7 @@ class VmCreate {
 		const  defVmName = 'node_cms_new_clients1';
 
 		let name = await this.prompt.ask(`Enter vm name [${defVmName}]`);
-		name = name.replace(/\n/g, '') || defVmName;
+		name = name || defVmName;
 
 		let portBind = await this.prompt.ask(`Enter bind port`);
 		portBind = portBind.replace(/\n/g, '') || defVmName;
@@ -64,7 +68,32 @@ class VmCreate {
 	}
 
 	async createEmployee () {
-		this.log.warn(`This method not implement`)
+		let outListImages  = await this.shell.get('docker images');
+		this.log.info(outListImages);
+
+		const  defImageName = 'node_cms_new_employee';
+		let imageName = await this.prompt.ask(`Enter image name [${defImageName}]`);
+		imageName = imageName || defImageName;
+
+		let outListVms  = await this.shell.get('docker ps --all');
+		this.log.info(outListVms);
+
+		const  defVmName = 'node_cms_new_employee1';
+
+		let name = await this.prompt.ask(`Enter vm name [${defVmName}]`);
+		name = name || defVmName;
+
+		let portBind = await this.prompt.ask(`Enter bind port`);
+		portBind = portBind || defVmName;
+
+		const {port} = require('../../configs/employee');
+
+		await this.shell.get(`docker run --name ${name} -p ${portBind}:${port}  -d ${imageName}`);
+		outListVms  = await this.shell.get('docker ps');
+
+		this.log.info(outListVms);
+
+		this.log.success(`Vm ${name}. Build Ok...`);
 	}
 
 	static renderDockerFileClient () {
