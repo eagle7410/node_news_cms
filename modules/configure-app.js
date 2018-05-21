@@ -20,6 +20,8 @@ module.exports = (app, {express, assets, views, router}) => {
 
 		app.set('view engine', engine);
 		app.set("views", dir);
+		// attach views path to request
+		app.use((req, res, next) => {req.pathViews = dir; next();});
 	}
 
 

@@ -5,7 +5,7 @@
 	function calCount() {
 		let calCount = 2 * STEEP + 1;
 
-		if (calCount > countPages) {
+		if (calCount >= countPages) {
 			return countPages;
 		}
 
@@ -42,9 +42,11 @@
 						<li class="page-item"><a class="page-link" href="<%= `${path}?page=${currentPage - 1}` %>"><</a></li>
 					<% } %>
 
-
-					<% for(let i = 1; i <= countLi; i++) { %>
-						<li class="page-item <%= ((run + i -1) == currentPage ? 'active' : '') %>"><a class="page-link " href="<%= `${path}?page=${run + i -1 }` %>"><%= run + i %></a></li>
+					<% for(let i = 1; i <= countLi +1 ; i++) { %>
+						<% let curr = run + i -1; %>
+						<% if( curr >=0 && curr < countPages ) { %>
+							<li  class="page-item <%= (curr == currentPage ? 'active' : '') %>"><a class="page-link " href="<%= `${path}?page=${curr}` %>"><%= run + i %></a></li>
+						<% } %>
 					<% } %>
 
 					<% if (isShowExt && currentPage < countPages - 1) { %>

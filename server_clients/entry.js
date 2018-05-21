@@ -9,8 +9,6 @@ const  cookieParser = require('cookie-parser');
 app.use(cookieParser());
 // Include multi lang
 require('../modules/configure-translate')(app, __dirname + '/locales');
-// INclude  ejs-locals
-app.engine('ejs', require('ejs-locals'));
 // Connect to database
 require(`../models/${process.drive}/connect`);
 

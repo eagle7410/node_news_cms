@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<%= include parts/head.ejs %>
+<%- include('parts/head.ejs') %>
 <body>
 <div>
-	<%= include parts/header.ejs %>
-	<%= include parts/include-js.ejs %>
+	<%- include('parts/header.ejs') %>
+	<%- include('parts/include-js.ejs') %>
 	<section><%- body %></section>
-	<%= include parts/footer.ejs %>
+	<%- include('parts/footer.ejs') %>
 </div>
 </body>
 <% if (!user) { %>
-	<%= include parts/form-login.ejs %>
+	<%- include('parts/form-login.ejs') %>
 <% } %>
-<%= include parts/scripts.ejs %>
+<%- include('parts/scripts.ejs') %>
 </html>
 
 

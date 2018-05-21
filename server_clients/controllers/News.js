@@ -55,7 +55,7 @@ class News extends Controller {
 			comments = await ModelComments.getAll({news_id : news._id, lang});
 		}
 
-		this.render(req, res, 'detail',{
+		await this.render(req, res, 'detail',{
 			_id : news._id,
 			author : news.author,
 			publish_at : new DateCustom(news.publish_at).toStringByFormat(),
@@ -98,7 +98,7 @@ class News extends Controller {
 			};
 		});
 
-		this.render(req, res, 'show', data);
+		await this.render(req, res, 'show', data);
 	}
 }
 
