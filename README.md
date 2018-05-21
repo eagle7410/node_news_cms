@@ -46,7 +46,7 @@ Use [Sass](https://en.wikipedia.org/wiki/Sass)
 Use [Webpack](https://en.wikipedia.org/wiki/Webpack)  
 Use [NodeJS](https://nodejs.org/en/)  
 Request is encrypted using a public token.  
-App have english and russian interface.
+App have english and russian interface.  
 Not use jquery.
 
 #### View page  
