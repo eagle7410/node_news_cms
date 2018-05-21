@@ -1,0 +1,32 @@
+<nav>
+	<ul class="nav">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="lang">
+				<%= __(lang) %>
+			</a>
+			<div class="dropdown-menu" aria-labelledby="lang">
+				<% langs.forEach(l => { %>
+				<a class="dropdown-item lang <%= l === lang ? 'active' : '' %>" onclick="changeLang" href="/" data-val="<%= l %>"><%= __(l) %></a>
+				<% }) %>
+			</div>
+		</li>
+		<% topMenu.forEach(item => { %>
+			<% if (item.subs)  { %>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle <%= item.isActive ? 'active' : '' %>" href="#" id="<%= item.name %>">
+						<%= __(item.name) %>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="<%= item.name %>">
+						<% item.subs.forEach(sub => { %>
+							<a class="dropdown-item <%= sub.isActive ? 'active' : '' %> <%= sub.class || '' %>" href="<%= sub.url%>"><%= __(sub.name) %></a>
+						<% }) %>
+					</div>
+				</li>
+			<% } else {%>
+				<li class="nav-item">
+					<a class="nav-link <%= item.isActive ? 'active' : '' %> <%= item.class || '' %>" href="<%= item.url%>"><%= __(item.name) %></a>
+				</li>
+			<% } %>
+		<% }) %>
+	</ul>
+</nav>

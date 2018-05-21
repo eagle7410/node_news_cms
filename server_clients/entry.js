@@ -10,7 +10,8 @@ app.use(cookieParser());
 // Include multi lang
 require('../modules/configure-translate')(app, __dirname + '/locales');
 // INclude  ejs-locals
-app.engine('ejs', require('ejs-locals'));
+// app.engine('ejs', require('../modules/ejs-locals'));
+// app.set(‘view engine’, ‘ejs’);
 // Connect to database
 require(`../models/${process.drive}/connect`);
 

@@ -8,11 +8,11 @@ const keyPrivate  = process.jwtPrivate;
 
 class Company extends Controller {
 	static async get_contacts(req, res) {
-		this.render(req,res, 'contact')
+		await this.render(req,res, 'contact')
 	}
 
 	static async get_about(req, res) {
-		this.render(req,res, 'about')
+		await this.render(req,res, 'about')
 	}
 
 	static async get_confirm_registration(req, res) {
@@ -22,11 +22,11 @@ class Company extends Controller {
 			throw ErrorHttp.badRequest();
 		}
 
-		this.render(req,res, 'registration-confirm', {type});
+		await this.render(req,res, 'registration-confirm', {type});
 	}
 
 	static async get_registration (req, res) {
-		this.render(req,res, 'registration')
+		await this.render(req,res, 'registration')
 	}
 
 	static async post_registration (req, res) {

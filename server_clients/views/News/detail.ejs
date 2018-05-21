@@ -1,4 +1,4 @@
-<% layout(`../../layouts/${theme}/home`) %>
+
 <div class="row">
 	<h1><%= title %></h1>
 </div>
@@ -15,6 +15,6 @@
 </div>
 
 <% if (user) { %>
-	<% include detail-comments.ejs %>
-<% } %>
+	<h2><%= user.name %></h2>
 
+<% } %>
