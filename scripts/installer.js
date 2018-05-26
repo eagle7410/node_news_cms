@@ -34,7 +34,7 @@ void async function install() {
 	await configurationDatabaseConnect();
 
 	spinner.stop(true);
-	log.warn(`Need custom configs clients.json and employee.json`);
+	log.warn(`Need custom configs clients.json and employee.json, email.json`);
 	log.warn(`Use npm i in ${__dirname}`);
 	log.success('Install ... OK');
 
