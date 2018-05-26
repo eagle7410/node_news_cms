@@ -277,7 +277,7 @@ async function baseCopy () {
 
 	try {
 		for (let dir of ['console-color', 'console-prompt-eagle', 'cli-spinner'])
-			await copy(`${ORIGIN_NODE_MODULES}/${dir}`, `${MAIN_NODE_MODULES}/${dir}`, true);
+			await copy(`${ORIGIN_NODE_MODULES}/${dir}`, `${ORIGIN_PATH}/scripts/util/${dir}`, true);
 
 	} catch (e) {
 		console.error(e);

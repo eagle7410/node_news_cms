@@ -1,0 +1,60 @@
+{
+  "_from": "console-prompt-eagle@1.0.1",
+  "_id": "console-prompt-eagle@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-yJpD3PtIAwvxFzzAO4aYXJpeVjCUmbWtgf7Uzkv/oz4iMX8RBsPqZk8dCRtbTq1mXObjTt0Bu65tOWEVXStqpw==",
+  "_location": "/console-prompt-eagle",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "console-prompt-eagle@1.0.1",
+    "name": "console-prompt-eagle",
+    "escapedName": "console-prompt-eagle",
+    "rawSpec": "1.0.1",
+    "saveSpec": null,
+    "fetchSpec": "1.0.1"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/console-prompt-eagle/-/console-prompt-eagle-1.0.1.tgz",
+  "_shasum": "6851c16ac908f2348ae7ea9ef7c2690bd6fb6326",
+  "_spec": "console-prompt-eagle@1.0.1",
+  "_where": "/home/igor/Рабочий стол/projects/test_install_packeges/node_modules/node_news_cms",
+  "author": {
+    "name": "Igor Stcherbina",
+    "email": "verycooleagle@gmail.com",
+    "url": "http://github.com/eagle7410"
+  },
+  "bugs": {
+    "url": "https://github.com/eagle7410/console-prompt/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "console-color": "git+https://github.com/eagle7410/console-color.git"
+  },
+  "deprecated": false,
+  "description": "Prompt in console",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "homepage": "https://github.com/eagle7410/console-prompt#readme",
+  "keywords": [
+    "console",
+    "prompt",
+    "question",
+    "ask"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "console-prompt-eagle",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eagle7410/console-prompt.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.1"
+}

@@ -1,0 +1,45 @@
+{
+  "_from": "git+https://github.com/eagle7410/console-color.git",
+  "_id": "console-color@1.0.0",
+  "_inBundle": false,
+  "_location": "/console-color",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "console-color@git+https://github.com/eagle7410/console-color.git",
+    "name": "console-color",
+    "escapedName": "console-color",
+    "rawSpec": "git+https://github.com/eagle7410/console-color.git",
+    "saveSpec": "git+https://github.com/eagle7410/console-color.git",
+    "fetchSpec": "https://github.com/eagle7410/console-color.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "/console-prompt-eagle"
+  ],
+  "_resolved": "git+https://github.com/eagle7410/console-color.git#c95214eade4cc46c19ca7ee617ddffc2fbabfe30",
+  "_spec": "console-color@git+https://github.com/eagle7410/console-color.git",
+  "_where": "/home/igor/Рабочий стол/projects/test_install_packeges/node_modules/node_news_cms",
+  "author": {
+    "name": "Igor Stcherbina"
+  },
+  "bugs": {
+    "url": "https://github.com/eagle7410/console-color/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "show different colors message in console",
+  "homepage": "https://github.com/eagle7410/console-color#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "console-color",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eagle7410/console-color.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
