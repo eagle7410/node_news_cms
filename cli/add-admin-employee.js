@@ -1,8 +1,8 @@
-const fs             = require('fs');
-const {promisify}    = require('util');
-const ConsoleLog     = require('console-color');
-const ConsolePrompt  = require('console-prompt-eagle');
-const {drive}        = require('../configs/database.json');
+const fs            = require('fs');
+const {promisify}   = require('util');
+const ConsoleLog    = require('console-color');
+const ConsolePrompt = require('console-prompt-eagle');
+const {drive}       = require('../configs/database.json');
 
 const log     = new ConsoleLog();
 const prompt  = new ConsolePrompt();
@@ -45,4 +45,6 @@ void async function setFirstUser() {
 	} catch (e) {
 		log.error('Err is ', e);
 	}
+
+	process.exit();
 }();
