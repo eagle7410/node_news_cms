@@ -40,6 +40,7 @@ void async function install() {
 	log.warn(`Need custom configs clients.json and employee.json, email.json`);
 	log.warn(`Use npm install in ${__dirname}`);
 	log.info(`For set first user use migation or node ./cli/add-admin-employee.js`);
+	log.warn(`If you change jwt need rebuild front :)`);
 
 	log.success('Install ... OK');
 
