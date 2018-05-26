@@ -1,5 +1,5 @@
 {
-	"port"  : 3539,
+	"port"  : 3538,
 	"isDev" : true,
 	"jwtPublic": {
 		"key"    : "PUBLIC KEY VALUE",
