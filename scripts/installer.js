@@ -52,8 +52,70 @@ async function configurationPackageJson() {
 	if (!isExistPackage) {
 		return await newPackageJson();
 	}
+
+	await mergePackageJson();
 }
 
+async function mergePackageJson() {
+	let packageInfoSource = require(`${ORIGIN_PATH}/package.json`);
+	let packageInfoTarget = require(`${__dirname}/package.json`);
+
+	if (!packageInfoTarget.scripts || !Object.keys(packageInfoTarget.scripts).length) {
+		packageInfoTarget.scripts = packageInfoSource.scripts;
+	} else {
+		for (let [name, cmd] of Object.entries(packageInfoSource.scripts)) {
+			if (['postinstall', 'test'].includes(name)) continue;
+			packageInfoTarget.scripts[name] = cmd;
+		}
+	}
+
+	log.info('[OK]mergePackageJson| Merge scripts');
+
+	if (!packageInfoTarget.contributors) {
+		packageInfoTarget.contributors = [];
+	}
+
+	packageInfoTarget.contributors.push({
+		"name": "Igor Stcherbina",
+		"email": "verycooleagle@gmail.com"
+	});
+
+	if (!packageInfoTarget.engines) {
+		packageInfoTarget.engines = {};
+	}
+
+	if (!packageInfoTarget.engines.node) {
+		packageInfoTarget.engines.node = packageInfoSource.engines.node;
+	} else {
+		log.warn('mergePackageJson| engines.node >=8.11.2');
+	}
+
+	if (!packageInfoTarget.devDependencies) {
+		packageInfoTarget.devDependencies = packageInfoSource.devDependencies;
+	} else {
+		for (let [dep, version] of Object.entries(packageInfoSource.devDependencies)) {
+			log.info(`mergePackageJson| devDependencies| ${dep} -> ${version}`);
+			packageInfoTarget.devDependencies[dep] = version;
+		}
+	}
+
+	log.info('[OK]mergePackageJson| Merge devDependencies');
+
+	if (!packageInfoTarget.dependencies) {
+		packageInfoTarget.dependencies = packageInfoSource.dependencies;
+	} else {
+		for (let [dep, version] of Object.entries(packageInfoSource.dependencies)) {
+			log.info(`mergePackageJson| dependencies| Set ${dep} -> ${version}`);
+			packageInfoTarget.dependencies[dep] = version;
+		}
+	}
+
+	log.info('[OK]mergePackageJson| Merge dependencies');
+
+	await write(`${__dirname}/package.json`, JSON.stringify(packageInfoTarget, null, '\t'));
+
+	log.info('[OK]Create package.json');
+}
 async function newPackageJson() {
 	let packageInfo = require(`${ORIGIN_PATH}/package.json`);
 
