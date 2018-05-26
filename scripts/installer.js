@@ -224,7 +224,9 @@ async function configurationDatabaseConnect() {
 }
 
 async function gruntLogsCopy() {
-	await copy(`${ORIGIN_PATH}/base_l`, `${__dirname}/logs`);
+	if (!fs.existsSync(`${__dirname}/logs`)) {
+		await mkdir(`${__dirname}/logs`);
+	}
 }
 
 async function gruntConfigsCopy() {
