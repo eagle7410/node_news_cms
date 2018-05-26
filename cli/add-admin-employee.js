@@ -2,7 +2,7 @@ const fs             = require('fs');
 const {promisify}    = require('util');
 const ConsoleLog     = require('console-color');
 const ConsolePrompt  = require('console-prompt-eagle');
-const {drive}        = require(`${__dirname}/configs/database.json`);
+const {drive}        = require('../configs/database.json');
 
 const log     = new ConsoleLog();
 const prompt  = new ConsolePrompt();
@@ -37,7 +37,7 @@ void async function setFirstUser() {
 
 		log.info(`[Ok] Add user to database`);
 
-		await write(`${__dirname}/logs/first.user.json`, JSON.stringify(user, null, '\t'));
+		await write(`${__dirname}/../logs/first.user.json`, JSON.stringify(user, null, '\t'));
 
 		log.info(`[Ok] Write user info to /logs/first.user.json`);
 		log.success('Add admin employee user');
