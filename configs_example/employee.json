@@ -1,13 +1,13 @@
 {
-	"port"  : 0,
+	"port"  : 3539,
 	"isDev" : true,
 	"jwtPublic": {
-		"key"    : "KEY",
-		"expire" : "EXPIRE"
+		"key"    : "KEY jwtPublic",
+		"expire" : 300
 	},
 	"jwtPrivate": {
-		"key"    : "KEY",
-		"expire" : "EXPIRE"
+		"key"    : "KEY jwtPrivate",
+		"expire" : "3h"
 	},
-	"name": "AppName"
+	"name": "Employees"
 }

@@ -42,10 +42,9 @@ class ControllerClient extends Controller {
 
 		const body = cacheTemplates[templateKey]({
 			...allData,
-			partial : async function (path) {
-				let cont = await read(`${req.pathViews}/${path}`);
-
-				return  ejs.compile(cont.toString())(this);
+			partial : function (path) {
+				let cont = fs.readFileSync(`${req.pathViews}/${path}`);
+				return  ejs.render(cont.toString(), this);
 			}
 		});
 		const layoutKey = `${process.theme}/${layout || this.base_layout()}`;

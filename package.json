@@ -1,7 +1,7 @@
 {
   "name": "node_news_cms",
   "version": "1.0.0",
-  "description": "cms for new service",
+  "description": "cms for news service",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,8 @@
     "pm-stop": "pm2 stop ./server_employee/processes.json && pm2 stop ./server_clients/processes.json",
     "pm-reload": "pm2 reload ./server_employee/processes.json && pm2 reload ./server_clients/processes.json",
     "image-clients": "docker build -t node_cms_new_clients . --file ./DockerfileClients",
-    "container-clients": "docker run --name node_cms_new_clients1 -p 3539:3539 --link mysql:mysql -d node_cms_new_clients"
+    "container-clients": "docker run --name node_cms_new_clients1 -p 3539:3539 --link mysql:mysql -d node_cms_new_clients",
+    "postinstall": "node ./scripts/install.js"
   },
   "repository": {
     "type": "git",
@@ -78,5 +79,8 @@
     "truncate-html": "1.0.0",
     "winston": "2.4.1",
     "wkhtmltopdf": "0.3.4"
+  },
+  "engines": {
+    "node": ">=8.11.2"
   }
 }
