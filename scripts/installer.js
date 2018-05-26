@@ -224,7 +224,7 @@ async function configurationDatabaseConnect() {
 }
 
 async function gruntLogsCopy() {
-	await copy(`${ORIGIN_PATH}/base_log`, `${__dirname}/logs`);
+	await copy(`${ORIGIN_PATH}/base_l`, `${__dirname}/logs`);
 }
 
 async function gruntConfigsCopy() {
