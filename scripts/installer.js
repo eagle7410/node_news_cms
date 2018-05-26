@@ -34,16 +34,19 @@ void async function install() {
 
 	await configurationPackageJson();
 
-	// await configurationDatabaseConnect();
+	await configurationDatabaseConnect();
 
 	spinner.stop(true);
 	log.warn(`Need custom configs clients.json and employee.json, email.json`);
 	log.warn(`Use npm install in ${__dirname}`);
+	log.info(`For set first user use migation or node ./cli/add-admin-employee.js`);
+
 	log.success('Install ... OK');
 
 	process.exit();
 
 }();
+
 
 
 async function configurationPackageJson() {
@@ -112,6 +115,13 @@ async function mergePackageJson() {
 
 	log.info('[OK]mergePackageJson| Merge dependencies');
 
+	if (packageInfoTarget.dependencies.node_news_cms) {
+		delete packageInfoTarget.dependencies.node_news_cms;
+	}
+	if (packageInfoTarget.devDependencies.node_news_cms) {
+		delete packageInfoTarget.devDependencies.node_news_cms;
+	}
+
 	await write(`${__dirname}/package.json`, JSON.stringify(packageInfoTarget, null, '\t'));
 
 	log.info('[OK]Create package.json');
@@ -151,8 +161,6 @@ async function newPackageJson() {
 
 	log.info('[OK]Create package.json');
 }
-
-
 
 async function configurationDatabaseConnect() {
 	let drive           = null;
@@ -263,6 +271,7 @@ async function initConsoleUtil() {
 }
 
 async function baseCopy () {
+
 	try {
 		for (let dir of ['console-color', 'console-prompt-eagle', 'cli-spinner'])
 			await copy(`${ORIGIN_NODE_MODULES}/${dir}`, `${MAIN_NODE_MODULES}/${dir}`, true);
