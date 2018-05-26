@@ -80,7 +80,7 @@
     "winston": "2.4.1",
     "wkhtmltopdf": "0.3.4"
   },
-  "engines" : {
-    "node" : ">=8.11.2"
+  "engines": {
+    "node": ">=8.11.2"
   }
 }
