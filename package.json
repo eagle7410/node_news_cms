@@ -1,7 +1,7 @@
 {
   "name": "node_news_cms",
   "version": "1.0.0",
-  "description": "cms for new service",
+  "description": "cms for news service",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -79,5 +79,8 @@
     "truncate-html": "1.0.0",
     "winston": "2.4.1",
     "wkhtmltopdf": "0.3.4"
+  },
+  "engines" : {
+    "node" : ">=8.11.2"
   }
 }

@@ -1,4 +1,5 @@
 const fs          = require('fs');
+const path        = require('path');
 const {promisify} = require('util');
 const mkdir       = promisify(fs.mkdir);
 const readdir     = promisify(fs.readdir);
@@ -31,22 +32,65 @@ void async function install() {
 	await gruntConfigsCopy();
 	log.info('[OK]Copy grunt configs');
 
-	await configurationDatabaseConnect();
+	await configurationPackageJson();
+
+	// await configurationDatabaseConnect();
 
 	spinner.stop(true);
 	log.warn(`Need custom configs clients.json and employee.json, email.json`);
-	log.warn(`Use npm i in ${__dirname}`);
+	log.warn(`Use npm install in ${__dirname}`);
 	log.success('Install ... OK');
 
 	process.exit();
 
 }();
-// TODO: Back clear
-function timeout(ms) {
-	return new Promise( ok => {
-		setTimeout(ok , ms)
-	});
+
+
+async function configurationPackageJson() {
+	const isExistPackage = await exists(`${__dirname}/package.json`);
+
+	if (!isExistPackage) {
+		return await newPackageJson();
+	}
 }
+
+async function newPackageJson() {
+	let packageInfo = require(`${ORIGIN_PATH}/package.json`);
+
+	delete packageInfo.scripts.postinstall;
+
+	delete packageInfo.repository;
+	log.info('Add to package.json repository example  "repository": { "type": "git", "url": "git+https://github.com/eagle7410/node_news_cms.git"},');
+
+	packageInfo.keywords = [];
+	log.info('Add to package.json keywords');
+
+	delete packageInfo.bugs;
+	log.info('Add to package.json bugs link example "bugs": {"url": "https://github.com/eagle7410/node_news_cms/issues"},');
+
+	packageInfo.homepage = '';
+	log.info('Add to package.json homepage example "homepage": "https://github.com/eagle7410/node_news_cms#readme"');
+
+	packageInfo.author = '';
+	log.info('Add to package.json author example "author": "Igor Stcherbina <verycooleagle@gmail.com> (http://github.com/eagle7410)",');
+
+	if (!packageInfo.contributors) {
+		packageInfo.contributors = [];
+	}
+
+	packageInfo.contributors.push({
+		"name": "Igor Stcherbina",
+		"email": "verycooleagle@gmail.com"
+	});
+
+	packageInfo.name = path.basename(__dirname);
+
+	await write(`${__dirname}/package.json`, JSON.stringify(packageInfo, null, '\t'));
+
+	log.info('[OK]Create package.json');
+}
+
+
 
 async function configurationDatabaseConnect() {
 	let drive           = null;
