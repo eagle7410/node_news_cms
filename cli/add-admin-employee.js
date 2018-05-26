@@ -15,7 +15,7 @@ void async function setFirstUser() {
 	const nameDef     = 'Igor';
 	const surnameDef  = 'Stcherbina';
 	const groups      = ['admin'];
-	const emailDef    = 'verycooleagle@gamil.com';
+	const emailDef    = 'verycooleagle@gmail.com';
 	const passwordDef = 'test2Testing' + Date.now();
 
 	try {
