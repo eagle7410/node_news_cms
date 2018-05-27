@@ -38,3 +38,6 @@ node_modules/
 
 # Mac
 .DS_Store
+
+# Remove front develop
+server_employee/front
